@@ -10,10 +10,13 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.9" />
+    <PackageReference Include="NAudio" Version="2.1.0" />
+    <PackageReference Include="NAudio.Lame" Version="2.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\LangTrainerBackend\LangTrainerClientModel\LangTrainerClientModel.csproj" />
+    <ProjectReference Include="..\..\LangTrainerBackend\LangTrainerCommon\LangTrainerCommon.csproj" />
     <ProjectReference Include="..\..\LangTrainerBackend\LangTrainerEntity\LangTrainerEntity.csproj" />
   </ItemGroup>
 
@@ -31,5 +34,18 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Libs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="C:\Users\Aleksey\.nuget\packages\naudio.lame\2.0.1\build\libmp3lame.32.dll" Link="Libs\libmp3lame.32.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="C:\Users\Aleksey\.nuget\packages\naudio.lame\2.0.1\build\libmp3lame.64.dll" Link="Libs\libmp3lame.64.dll" />
+  </ItemGroup>
+
 
 </Project>
