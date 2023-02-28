@@ -36,7 +36,7 @@
             imageList1 = new ImageList(components);
             comboBox3 = new ComboBox();
             textBox2 = new TextBox();
-            listBox1 = new ListBox();
+            _listBox = new ListBox();
             groupBox2.SuspendLayout();
             tableLayoutPanel13.SuspendLayout();
             SuspendLayout();
@@ -62,7 +62,7 @@
             tableLayoutPanel13.Controls.Add(button9, 2, 0);
             tableLayoutPanel13.Controls.Add(comboBox3, 1, 0);
             tableLayoutPanel13.Controls.Add(textBox2, 0, 0);
-            tableLayoutPanel13.Controls.Add(listBox1, 0, 1);
+            tableLayoutPanel13.Controls.Add(_listBox, 0, 1);
             tableLayoutPanel13.Dock = DockStyle.Fill;
             tableLayoutPanel13.Location = new Point(3, 27);
             tableLayoutPanel13.Margin = new Padding(0);
@@ -112,18 +112,18 @@
             textBox2.Size = new Size(275, 31);
             textBox2.TabIndex = 0;
             // 
-            // listBox1
+            // _listBox
             // 
-            tableLayoutPanel13.SetColumnSpan(listBox1, 2);
-            listBox1.Dock = DockStyle.Fill;
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 25;
-            listBox1.Items.AddRange(new object[] { "translate 1", "translate 2", "translate 3", "translate 4", "translate 5" });
-            listBox1.Location = new Point(3, 43);
-            listBox1.Name = "listBox1";
-            tableLayoutPanel13.SetRowSpan(listBox1, 2);
-            listBox1.Size = new Size(455, 187);
-            listBox1.TabIndex = 6;
+            tableLayoutPanel13.SetColumnSpan(_listBox, 2);
+            _listBox.Dock = DockStyle.Fill;
+            _listBox.FormattingEnabled = true;
+            _listBox.ItemHeight = 25;
+            _listBox.Items.AddRange(new object[] { "translate 1", "translate 2", "translate 3", "translate 4", "translate 5" });
+            _listBox.Location = new Point(3, 43);
+            _listBox.Name = "_listBox";
+            tableLayoutPanel13.SetRowSpan(_listBox, 2);
+            _listBox.Size = new Size(455, 187);
+            _listBox.TabIndex = 6;
             // 
             // TranslatesControl
             // 
@@ -147,7 +147,7 @@
         private Button button9;
         private ComboBox comboBox3;
         private TextBox textBox2;
-        private ListBox listBox1;
+        private ListBox _listBox;
         private ImageList imageList1;
     }
 }

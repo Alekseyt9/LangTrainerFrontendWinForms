@@ -31,17 +31,17 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SoundsControl));
             groupBox1 = new GroupBox();
-            tableLayoutPanel12 = new TableLayoutPanel();
+            _tableLayout = new TableLayoutPanel();
             button8 = new Button();
             imageList1 = new ImageList(components);
             button7 = new Button();
             groupBox1.SuspendLayout();
-            tableLayoutPanel12.SuspendLayout();
+            _tableLayout.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(tableLayoutPanel12);
+            groupBox1.Controls.Add(_tableLayout);
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Margin = new Padding(0);
@@ -51,22 +51,22 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Sounds";
             // 
-            // tableLayoutPanel12
+            // _tableLayout
             // 
-            tableLayoutPanel12.ColumnCount = 3;
-            tableLayoutPanel12.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel12.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel12.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel12.Controls.Add(button8, 1, 0);
-            tableLayoutPanel12.Controls.Add(button7, 0, 0);
-            tableLayoutPanel12.Dock = DockStyle.Fill;
-            tableLayoutPanel12.Location = new Point(3, 27);
-            tableLayoutPanel12.Margin = new Padding(0);
-            tableLayoutPanel12.Name = "tableLayoutPanel12";
-            tableLayoutPanel12.RowCount = 1;
-            tableLayoutPanel12.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel12.Size = new Size(436, 179);
-            tableLayoutPanel12.TabIndex = 4;
+            _tableLayout.ColumnCount = 3;
+            _tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
+            _tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
+            _tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            _tableLayout.Controls.Add(button8, 1, 0);
+            _tableLayout.Controls.Add(button7, 0, 0);
+            _tableLayout.Dock = DockStyle.Fill;
+            _tableLayout.Location = new Point(3, 27);
+            _tableLayout.Margin = new Padding(0);
+            _tableLayout.Name = "_tableLayout";
+            _tableLayout.RowCount = 1;
+            _tableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            _tableLayout.Size = new Size(436, 179);
+            _tableLayout.TabIndex = 4;
             // 
             // button8
             // 
@@ -96,7 +96,6 @@
             button7.Size = new Size(34, 34);
             button7.TabIndex = 0;
             button7.UseVisualStyleBackColor = true;
-            button7.Click += button7_Click;
             // 
             // SoundsControl
             // 
@@ -107,14 +106,14 @@
             Name = "SoundsControl";
             Size = new Size(442, 209);
             groupBox1.ResumeLayout(false);
-            tableLayoutPanel12.ResumeLayout(false);
+            _tableLayout.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private GroupBox groupBox1;
-        private TableLayoutPanel tableLayoutPanel12;
+        private TableLayoutPanel _tableLayout;
         private Button button8;
         private Button button7;
         private ImageList imageList1;

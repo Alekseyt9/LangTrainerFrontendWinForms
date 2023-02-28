@@ -1,6 +1,5 @@
 ﻿
-using LangTrainerFrontendWinForms.Services;
-using LangTrainerServices.Helpers;
+using LangTrainerEntity.Entities.Lang;
 
 namespace LangTrainerFrontendWinForms.Controls
 {
@@ -11,11 +10,27 @@ namespace LangTrainerFrontendWinForms.Controls
             InitializeComponent();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        public void Init(Expression expr)
         {
-            var ss = new SoundService();
-            var stream = File.Open(@"../../../Sounds/test.mp3", FileMode.Open, FileAccess.Read);
-            ss.Play(stream.ToBytes());
+            _tableLayout.Controls.Clear();
+            _tableLayout.ColumnStyles.Clear();
+            _tableLayout.ColumnCount = expr.Sounds.Count + 1;
+
+            for (var i = 0; i < _tableLayout.ColumnCount-1; i++)
+            {
+                _tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40));
+                var butCtr = new SoundButton();
+                butCtr.Sound = expr.Sounds.ElementAt(i).Data;
+                _tableLayout.Controls.Add(butCtr);
+                _tableLayout.SetCellPosition(butCtr, new TableLayoutPanelCellPosition(i, 0));
+            }
+
+            _tableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40));
+            var addCtr = new AddSoundButton();
+            _tableLayout.Controls.Add(addCtr);
+            _tableLayout.SetCellPosition(addCtr, 
+                new TableLayoutPanelCellPosition(_tableLayout.ColumnCount-1, 0));
+
         }
 
     }

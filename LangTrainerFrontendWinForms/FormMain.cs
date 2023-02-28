@@ -1,6 +1,7 @@
 
 using LangTrainerFrontendWinForms.Controllers;
 using LangTrainerFrontendWinForms.Model;
+using LangTrainerFrontendWinForms.Service;
 using System.Windows.Forms;
 
 namespace LangTrainerFrontendWinForms
@@ -29,11 +30,20 @@ namespace LangTrainerFrontendWinForms
 
         }
 
-        private void FormMainLoad(object? sender, EventArgs e)
+        private async void FormMainLoad(object? sender, EventArgs e)
         {
             var model = GetModel();
             var ctr = new MainController(tabControl1, model);
             ctr.Next();
+
+            await InitEditFormTest();
+        }
+
+        private async Task InitEditFormTest()
+        {
+            var serv = new LangService();
+            var expr  = await serv.GetTokenData("data", "english");
+            sentenceEditControl1.InitForm(expr);
         }
 
         private MainModel GetModel()

@@ -67,15 +67,7 @@
             tabPage8 = new TabPage();
             comboBox1 = new ComboBox();
             tabPage9 = new TabPage();
-            tableLayoutPanel8 = new TableLayoutPanel();
-            tableLayoutPanel9 = new TableLayoutPanel();
-            button10 = new Button();
-            button11 = new Button();
-            tableLayoutPanel10 = new TableLayoutPanel();
-            translatesControl1 = new Controls.TranslatesControl();
-            samplesControl1 = new Controls.SamplesControl();
-            soundsControl1 = new Controls.SoundsControl();
-            sentenceControl1 = new Controls.SentenceControl();
+            sentenceEditControl1 = new Controls.SentenceEditControl();
             imageList1 = new ImageList(components);
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
@@ -91,9 +83,6 @@
             tabPage6.SuspendLayout();
             tabPage8.SuspendLayout();
             tabPage9.SuspendLayout();
-            tableLayoutPanel8.SuspendLayout();
-            tableLayoutPanel9.SuspendLayout();
-            tableLayoutPanel10.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -270,10 +259,10 @@
             // 
             // tabPage2
             // 
-            tabPage2.Location = new Point(4, 94);
+            tabPage2.Location = new Point(4, 34);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(178, 0);
+            tabPage2.Size = new Size(1052, 510);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Exercize2";
             tabPage2.UseVisualStyleBackColor = true;
@@ -281,9 +270,9 @@
             // tabPage3
             // 
             tabPage3.Controls.Add(tableLayoutPanel5);
-            tabPage3.Location = new Point(4, 94);
+            tabPage3.Location = new Point(4, 34);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(178, 0);
+            tabPage3.Size = new Size(1052, 510);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Exercize3";
             tabPage3.UseVisualStyleBackColor = true;
@@ -308,14 +297,14 @@
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 26F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 141F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel5.Size = new Size(178, 0);
+            tableLayoutPanel5.Size = new Size(1052, 510);
             tableLayoutPanel5.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Dock = DockStyle.Fill;
-            label1.Location = new Point(-154, -171);
+            label1.Location = new Point(283, 83);
             label1.Name = "label1";
             label1.Size = new Size(486, 81);
             label1.TabIndex = 0;
@@ -336,7 +325,7 @@
             tableLayoutPanel6.Controls.Add(label3, 1, 0);
             tableLayoutPanel6.Controls.Add(label2, 0, 0);
             tableLayoutPanel6.Dock = DockStyle.Fill;
-            tableLayoutPanel6.Location = new Point(-154, -87);
+            tableLayoutPanel6.Location = new Point(283, 167);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 1;
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
@@ -426,7 +415,7 @@
             tableLayoutPanel7.Controls.Add(label9, 2, 0);
             tableLayoutPanel7.Controls.Add(label10, 1, 0);
             tableLayoutPanel7.Controls.Add(label11, 0, 0);
-            tableLayoutPanel7.Location = new Point(-154, 34);
+            tableLayoutPanel7.Location = new Point(283, 288);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 1;
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
@@ -505,18 +494,18 @@
             // 
             // tabPage4
             // 
-            tabPage4.Location = new Point(4, 94);
+            tabPage4.Location = new Point(4, 34);
             tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(178, 0);
+            tabPage4.Size = new Size(1052, 510);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Exercize4";
             tabPage4.UseVisualStyleBackColor = true;
             // 
             // tabPage5
             // 
-            tabPage5.Location = new Point(4, 94);
+            tabPage5.Location = new Point(4, 34);
             tabPage5.Name = "tabPage5";
-            tabPage5.Size = new Size(178, 0);
+            tabPage5.Size = new Size(1052, 510);
             tabPage5.TabIndex = 4;
             tabPage5.Text = "Resut";
             tabPage5.UseVisualStyleBackColor = true;
@@ -591,7 +580,7 @@
             // 
             // tabPage9
             // 
-            tabPage9.Controls.Add(tableLayoutPanel8);
+            tabPage9.Controls.Add(sentenceEditControl1);
             tabPage9.Location = new Point(4, 34);
             tabPage9.Name = "tabPage9";
             tabPage9.Size = new Size(1066, 554);
@@ -599,116 +588,14 @@
             tabPage9.Text = "EditSentence";
             tabPage9.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel8
+            // sentenceEditControl1
             // 
-            tableLayoutPanel8.ColumnCount = 1;
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel8.Controls.Add(tableLayoutPanel9, 0, 1);
-            tableLayoutPanel8.Controls.Add(tableLayoutPanel10, 0, 0);
-            tableLayoutPanel8.Dock = DockStyle.Fill;
-            tableLayoutPanel8.Location = new Point(0, 0);
-            tableLayoutPanel8.Margin = new Padding(0);
-            tableLayoutPanel8.Name = "tableLayoutPanel8";
-            tableLayoutPanel8.RowCount = 2;
-            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 44F));
-            tableLayoutPanel8.Size = new Size(1066, 554);
-            tableLayoutPanel8.TabIndex = 0;
-            // 
-            // tableLayoutPanel9
-            // 
-            tableLayoutPanel9.ColumnCount = 3;
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 145F));
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 145F));
-            tableLayoutPanel9.Controls.Add(button10, 1, 0);
-            tableLayoutPanel9.Controls.Add(button11, 2, 0);
-            tableLayoutPanel9.Dock = DockStyle.Fill;
-            tableLayoutPanel9.Location = new Point(0, 510);
-            tableLayoutPanel9.Margin = new Padding(0);
-            tableLayoutPanel9.Name = "tableLayoutPanel9";
-            tableLayoutPanel9.RowCount = 1;
-            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel9.Size = new Size(1066, 44);
-            tableLayoutPanel9.TabIndex = 0;
-            // 
-            // button10
-            // 
-            button10.Dock = DockStyle.Fill;
-            button10.Location = new Point(779, 3);
-            button10.Name = "button10";
-            button10.Size = new Size(139, 38);
-            button10.TabIndex = 0;
-            button10.Text = "OK";
-            button10.UseVisualStyleBackColor = true;
-            // 
-            // button11
-            // 
-            button11.Dock = DockStyle.Fill;
-            button11.Location = new Point(924, 3);
-            button11.Name = "button11";
-            button11.Size = new Size(139, 38);
-            button11.TabIndex = 1;
-            button11.Text = "Cancel";
-            button11.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel10
-            // 
-            tableLayoutPanel10.ColumnCount = 1;
-            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel10.Controls.Add(translatesControl1, 0, 2);
-            tableLayoutPanel10.Controls.Add(samplesControl1, 0, 3);
-            tableLayoutPanel10.Controls.Add(soundsControl1, 0, 1);
-            tableLayoutPanel10.Controls.Add(sentenceControl1, 0, 0);
-            tableLayoutPanel10.Dock = DockStyle.Fill;
-            tableLayoutPanel10.Location = new Point(3, 3);
-            tableLayoutPanel10.Name = "tableLayoutPanel10";
-            tableLayoutPanel10.RowCount = 6;
-            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Absolute, 87F));
-            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Absolute, 87F));
-            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Absolute, 34F));
-            tableLayoutPanel10.RowStyles.Add(new RowStyle());
-            tableLayoutPanel10.Size = new Size(1060, 504);
-            tableLayoutPanel10.TabIndex = 1;
-            // 
-            // translatesControl1
-            // 
-            translatesControl1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            translatesControl1.Dock = DockStyle.Fill;
-            translatesControl1.Location = new Point(0, 174);
-            translatesControl1.Margin = new Padding(0);
-            translatesControl1.Name = "translatesControl1";
-            translatesControl1.Size = new Size(1060, 148);
-            translatesControl1.TabIndex = 10;
-            // 
-            // samplesControl1
-            // 
-            samplesControl1.Dock = DockStyle.Fill;
-            samplesControl1.Location = new Point(0, 322);
-            samplesControl1.Margin = new Padding(0);
-            samplesControl1.Name = "samplesControl1";
-            samplesControl1.Size = new Size(1060, 148);
-            samplesControl1.TabIndex = 11;
-            // 
-            // soundsControl1
-            // 
-            soundsControl1.Dock = DockStyle.Fill;
-            soundsControl1.Location = new Point(0, 87);
-            soundsControl1.Margin = new Padding(0);
-            soundsControl1.Name = "soundsControl1";
-            soundsControl1.Size = new Size(1060, 87);
-            soundsControl1.TabIndex = 12;
-            // 
-            // sentenceControl1
-            // 
-            sentenceControl1.Dock = DockStyle.Fill;
-            sentenceControl1.Location = new Point(3, 3);
-            sentenceControl1.Name = "sentenceControl1";
-            sentenceControl1.Size = new Size(1054, 81);
-            sentenceControl1.TabIndex = 13;
+            sentenceEditControl1.Dock = DockStyle.Fill;
+            sentenceEditControl1.Location = new Point(0, 0);
+            sentenceEditControl1.Margin = new Padding(0);
+            sentenceEditControl1.Name = "sentenceEditControl1";
+            sentenceEditControl1.Size = new Size(1066, 554);
+            sentenceEditControl1.TabIndex = 0;
             // 
             // imageList1
             // 
@@ -744,9 +631,6 @@
             tabPage6.ResumeLayout(false);
             tabPage8.ResumeLayout(false);
             tabPage9.ResumeLayout(false);
-            tableLayoutPanel8.ResumeLayout(false);
-            tableLayoutPanel9.ResumeLayout(false);
-            tableLayoutPanel10.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -788,15 +672,7 @@
         private TabPage tabPage8;
         private ComboBox comboBox1;
         private TabPage tabPage9;
-        private TableLayoutPanel tableLayoutPanel8;
-        private TableLayoutPanel tableLayoutPanel9;
-        private TableLayoutPanel tableLayoutPanel10;
         private ImageList imageList1;
-        private Button button10;
-        private Button button11;
-        private Controls.TranslatesControl translatesControl1;
-        private Controls.SamplesControl samplesControl1;
-        private Controls.SoundsControl soundsControl1;
-        private Controls.SentenceControl sentenceControl1;
+        private Controls.SentenceEditControl sentenceEditControl1;
     }
 }

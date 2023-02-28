@@ -35,7 +35,7 @@
             button12 = new Button();
             imageList1 = new ImageList(components);
             textBox3 = new TextBox();
-            listBox2 = new ListBox();
+            _listBox = new ListBox();
             groupBox1.SuspendLayout();
             tableLayoutPanel14.SuspendLayout();
             SuspendLayout();
@@ -60,7 +60,7 @@
             tableLayoutPanel14.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 45F));
             tableLayoutPanel14.Controls.Add(button12, 2, 0);
             tableLayoutPanel14.Controls.Add(textBox3, 0, 0);
-            tableLayoutPanel14.Controls.Add(listBox2, 0, 1);
+            tableLayoutPanel14.Controls.Add(_listBox, 0, 1);
             tableLayoutPanel14.Dock = DockStyle.Fill;
             tableLayoutPanel14.Location = new Point(3, 27);
             tableLayoutPanel14.Margin = new Padding(0);
@@ -101,18 +101,18 @@
             textBox3.Size = new Size(780, 31);
             textBox3.TabIndex = 0;
             // 
-            // listBox2
+            // _listBox
             // 
-            tableLayoutPanel14.SetColumnSpan(listBox2, 2);
-            listBox2.Dock = DockStyle.Fill;
-            listBox2.FormattingEnabled = true;
-            listBox2.ItemHeight = 25;
-            listBox2.Items.AddRange(new object[] { "sample 1", "sample 2", "sample 3", "sample 4" });
-            listBox2.Location = new Point(3, 43);
-            listBox2.Name = "listBox2";
-            tableLayoutPanel14.SetRowSpan(listBox2, 2);
-            listBox2.Size = new Size(780, 229);
-            listBox2.TabIndex = 6;
+            tableLayoutPanel14.SetColumnSpan(_listBox, 2);
+            _listBox.Dock = DockStyle.Fill;
+            _listBox.FormattingEnabled = true;
+            _listBox.ItemHeight = 25;
+            _listBox.Items.AddRange(new object[] { "sample 1", "sample 2", "sample 3", "sample 4" });
+            _listBox.Location = new Point(3, 43);
+            _listBox.Name = "_listBox";
+            tableLayoutPanel14.SetRowSpan(_listBox, 2);
+            _listBox.Size = new Size(780, 229);
+            _listBox.TabIndex = 6;
             // 
             // SamplesControl
             // 
@@ -134,7 +134,7 @@
         private TableLayoutPanel tableLayoutPanel14;
         private Button button12;
         private TextBox textBox3;
-        private ListBox listBox2;
+        private ListBox _listBox;
         private ImageList imageList1;
     }
 }

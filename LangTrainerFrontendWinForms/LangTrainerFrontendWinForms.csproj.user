@@ -7,7 +7,13 @@
     <Compile Update="Controls\SentenceControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\SentenceEditControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\SoundsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\SoundsControl\SoundButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\TranslatesControl.cs">

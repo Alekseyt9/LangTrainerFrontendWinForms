@@ -34,9 +34,9 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             label1 = new Label();
             label2 = new Label();
-            comboBox1 = new ComboBox();
-            textBox1 = new TextBox();
-            button1 = new Button();
+            _lang = new ComboBox();
+            _text = new TextBox();
+            _buttonLoad = new Button();
             imageList1 = new ImageList(components);
             groupBox1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -64,9 +64,9 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 45F));
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Controls.Add(label2, 2, 0);
-            tableLayoutPanel1.Controls.Add(comboBox1, 3, 0);
-            tableLayoutPanel1.Controls.Add(textBox1, 1, 0);
-            tableLayoutPanel1.Controls.Add(button1, 4, 0);
+            tableLayoutPanel1.Controls.Add(_lang, 3, 0);
+            tableLayoutPanel1.Controls.Add(_text, 1, 0);
+            tableLayoutPanel1.Controls.Add(_buttonLoad, 4, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(3, 27);
             tableLayoutPanel1.Margin = new Padding(0);
@@ -99,33 +99,33 @@
             label2.Text = "Language:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // comboBox1
+            // _lang
             // 
-            comboBox1.Dock = DockStyle.Fill;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(448, 3);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(239, 33);
-            comboBox1.TabIndex = 2;
+            _lang.Dock = DockStyle.Fill;
+            _lang.FormattingEnabled = true;
+            _lang.Location = new Point(448, 3);
+            _lang.Name = "_lang";
+            _lang.Size = new Size(239, 33);
+            _lang.TabIndex = 2;
             // 
-            // textBox1
+            // _text
             // 
-            textBox1.Dock = DockStyle.Fill;
-            textBox1.Location = new Point(103, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(239, 31);
-            textBox1.TabIndex = 3;
+            _text.Dock = DockStyle.Fill;
+            _text.Location = new Point(103, 3);
+            _text.Name = "_text";
+            _text.Size = new Size(239, 31);
+            _text.TabIndex = 3;
             // 
-            // button1
+            // _buttonLoad
             // 
-            button1.Dock = DockStyle.Fill;
-            button1.ImageIndex = 0;
-            button1.ImageList = imageList1;
-            button1.Location = new Point(693, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(40, 33);
-            button1.TabIndex = 4;
-            button1.UseVisualStyleBackColor = true;
+            _buttonLoad.Dock = DockStyle.Fill;
+            _buttonLoad.ImageIndex = 0;
+            _buttonLoad.ImageList = imageList1;
+            _buttonLoad.Location = new Point(693, 3);
+            _buttonLoad.Name = "_buttonLoad";
+            _buttonLoad.Size = new Size(40, 33);
+            _buttonLoad.TabIndex = 4;
+            _buttonLoad.UseVisualStyleBackColor = true;
             // 
             // imageList1
             // 
@@ -155,9 +155,9 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Label label1;
         private Label label2;
-        private ComboBox comboBox1;
-        private TextBox textBox1;
-        private Button button1;
+        private ComboBox _lang;
+        private TextBox _text;
+        private Button _buttonLoad;
         private ImageList imageList1;
     }
 }
