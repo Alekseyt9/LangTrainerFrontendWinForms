@@ -28,5 +28,18 @@ namespace LangTrainerFrontendWinForms.Helpers
             }
         }
 
+        public static void DoRecurs(this Control control, Action<Control> act)
+        {
+            if (act != null)
+            {
+                act(control);
+            }
+
+            foreach (Control child in control.Controls)
+            {
+                DoRecurs(child, act);
+            }
+        }
+
     }
 }

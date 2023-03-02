@@ -103,6 +103,7 @@
             // 
             _lang.Dock = DockStyle.Fill;
             _lang.FormattingEnabled = true;
+            _lang.Items.AddRange(new object[] { "english", "france", "german", "italian" });
             _lang.Location = new Point(448, 3);
             _lang.Name = "_lang";
             _lang.Size = new Size(239, 33);
@@ -126,6 +127,7 @@
             _buttonLoad.Size = new Size(40, 33);
             _buttonLoad.TabIndex = 4;
             _buttonLoad.UseVisualStyleBackColor = true;
+            _buttonLoad.Click += _buttonLoad_Click;
             // 
             // imageList1
             // 

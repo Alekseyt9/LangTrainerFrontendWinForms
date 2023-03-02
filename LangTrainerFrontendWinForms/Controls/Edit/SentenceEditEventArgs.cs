@@ -2,7 +2,7 @@
 
 using LangTrainerEntity.Entities.Lang;
 
-namespace LangTrainerFrontendWinForms.Controls
+namespace LangTrainerFrontendWinForms.Controls.Edit
 {
     public class SentenceEditEventArgs : EventArgs
     {

@@ -1,5 +1,8 @@
 ﻿
 using LangTrainerEntity.Entities.Lang;
+using LangTrainerFrontendWinForms.Controls.Edit;
+using LangTrainerFrontendWinForms.Controls.Edit.SentenceControl;
+using LangTrainerFrontendWinForms.Service;
 
 namespace LangTrainerFrontendWinForms.Controls
 {
@@ -11,6 +14,7 @@ namespace LangTrainerFrontendWinForms.Controls
         public SentenceEditControl()
         {
             InitializeComponent();
+            sentenceControl1.OnLoadToken += SentenceControl1_OnLoadToken;
         }
 
         public void InitForm(Expression expr)
@@ -19,6 +23,13 @@ namespace LangTrainerFrontendWinForms.Controls
             soundsControl1.Init(expr);
             translatesControl1.Init(expr);
             samplesControl1.Init(expr);
+        }
+
+        private async void SentenceControl1_OnLoadToken(object? sender, LoadTokenEventArgs e)
+        {
+            var serv = new LangService();
+            var expr = await serv.GetTokenData(e.tokenInfo.Expression, e.tokenInfo.Language);
+            InitForm(expr);
         }
 
     }

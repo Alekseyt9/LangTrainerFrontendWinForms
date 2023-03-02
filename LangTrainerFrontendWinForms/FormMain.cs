@@ -36,13 +36,13 @@ namespace LangTrainerFrontendWinForms
             var ctr = new MainController(tabControl1, model);
             ctr.Next();
 
-            await InitEditFormTest();
+            //await InitEditFormTest();
         }
 
         private async Task InitEditFormTest()
         {
             var serv = new LangService();
-            var expr  = await serv.GetTokenData("data", "english");
+            var expr = await serv.GetTokenData("data", "english");
             sentenceEditControl1.InitForm(expr);
         }
 

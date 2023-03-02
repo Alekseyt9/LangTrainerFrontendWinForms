@@ -21,7 +21,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Controls\SoundsControl\AddSoundButton.cs">
+    <Compile Update="Controls\Edit\SoundsControl\AddSoundButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\Training\ExStart\Labels\LabelMatur.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\Training\ExStart\Labels\LabelNew.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Properties\Resources.Designer.cs">

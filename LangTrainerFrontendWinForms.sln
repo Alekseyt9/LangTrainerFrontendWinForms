@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Depend", "Depend", "{6D027255-A7BC-45AD-8B6C-9DC4484222EE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Depends", "Depends", "{6D027255-A7BC-45AD-8B6C-9DC4484222EE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LangTrainerFrontendWinForms", "LangTrainerFrontendWinForms\LangTrainerFrontendWinForms.csproj", "{8C7777A2-7E3E-4FD7-9A4E-7094D5337923}"
 EndProject
