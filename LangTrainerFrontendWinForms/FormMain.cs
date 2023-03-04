@@ -59,5 +59,9 @@ namespace LangTrainerFrontendWinForms
             };
         }
 
+        private void tRainingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
