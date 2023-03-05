@@ -1,17 +1,16 @@
 ﻿
 using LangTrainerFrontendWinForms.Helpers;
 using LangTrainerFrontendWinForms.Model;
-using System.Linq;
 
 namespace LangTrainerFrontendWinForms.Controllers
 {
     internal class MainController
     {
         private TabControl _tab;
-        private MainModel _model;
+        private TrainingModel _model;
         private int _State;
 
-        public MainController(TabControl tab, MainModel model)
+        public MainController(TabControl tab, TrainingModel model)
         {
             _tab = tab;
             _model = model;

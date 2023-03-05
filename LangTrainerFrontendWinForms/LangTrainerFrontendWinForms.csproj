@@ -17,7 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\LangTrainerBackend\LangTrainerClientModel\LangTrainerClientModel.csproj" />
     <ProjectReference Include="..\..\LangTrainerBackend\LangTrainerCommon\LangTrainerCommon.csproj" />
-    <ProjectReference Include="..\..\LangTrainerBackend\LangTrainerEntity\LangTrainerEntity.csproj" />
+    <ProjectReference Include="..\..\LangTrainerBackend\LangTrainerEntity\LangTrainerModel.csproj" />
   </ItemGroup>
 
   <ItemGroup>

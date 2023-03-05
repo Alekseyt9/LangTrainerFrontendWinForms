@@ -13,11 +13,13 @@ namespace LangTrainerFrontendWinForms.Controls
 
         public void Init(Expression expr)
         {
+            /*
             _listBox.Items.Clear();
             foreach (var tr in expr.Samples)
             {
                 _listBox.Items.Add($"{tr.Text}");
             }
+            */
         }
 
     }

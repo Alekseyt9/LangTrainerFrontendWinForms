@@ -1,5 +1,6 @@
 ﻿
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace LangTrainerFrontendWinForms.Helpers
 {
@@ -39,6 +40,18 @@ namespace LangTrainerFrontendWinForms.Helpers
             {
                 DoRecurs(child, act);
             }
+        }
+
+        public static void SetPage(this TabControl tabControl, string name)
+        {
+            tabControl.SelectTab(tabControl.TabPages.IndexOfKey(name));
+        }
+
+        public static void HideHeader(this TabControl tabControl)
+        {
+            tabControl.Appearance = TabAppearance.FlatButtons;
+            tabControl.ItemSize = new Size(0, 1);
+            tabControl.SizeMode = TabSizeMode.Fixed;
         }
 
     }

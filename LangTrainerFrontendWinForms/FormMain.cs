@@ -1,8 +1,8 @@
 
 using LangTrainerFrontendWinForms.Controllers;
+using LangTrainerFrontendWinForms.Helpers;
 using LangTrainerFrontendWinForms.Model;
 using LangTrainerFrontendWinForms.Service;
-using System.Windows.Forms;
 
 namespace LangTrainerFrontendWinForms
 {
@@ -12,17 +12,12 @@ namespace LangTrainerFrontendWinForms
         {
             InitializeComponent();
 
-            /*
-            tabControl1.Appearance = TabAppearance.FlatButtons;
-            tabControl1.ItemSize = new Size(0, 1);
-            tabControl1.SizeMode = TabSizeMode.Fixed;
-            tabControl1.SelectedIndex = 2;
-            */
-
             Load += FormMainLoad;
-
             KeyPreview = true;
             KeyDown += FormMainKeyDown;
+            _tabControl.HideHeader();
+
+            _tabControl.SetPage("dictionaryPage");
         }
 
         private void FormMainKeyDown(object? sender, KeyEventArgs e)
@@ -35,8 +30,6 @@ namespace LangTrainerFrontendWinForms
             var model = GetModel();
             var ctr = new MainController(tabControl1, model);
             ctr.Next();
-
-            //await InitEditFormTest();
         }
 
         private async Task InitEditFormTest()
@@ -46,9 +39,9 @@ namespace LangTrainerFrontendWinForms
             sentenceEditControl1.InitForm(expr);
         }
 
-        private MainModel GetModel()
+        private TrainingModel GetModel()
         {
-            return new MainModel()
+            return new TrainingModel()
             {
                 Model1 = new Excercize1Model()
                 {
@@ -59,9 +52,20 @@ namespace LangTrainerFrontendWinForms
             };
         }
 
-        private void tRainingToolStripMenuItem_Click(object sender, EventArgs e)
+        private void dictionaryMenuItemClick(object sender, EventArgs e)
         {
-
+            _tabControl.SetPage("dictionaryPage");
         }
+
+        private void trainingMenuItemClick(object sender, EventArgs e)
+        {
+            _tabControl.SetPage("trainerPage");
+        }
+
+        private void tasksMenuItem1Click(object sender, EventArgs e)
+        {
+            _tabControl.SetPage("taskPage");
+        }
+
     }
 }
