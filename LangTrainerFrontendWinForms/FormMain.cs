@@ -1,8 +1,9 @@
 
+using LangTrainerClientModel.Model;
+using LangTrainerClientModel.Model.Training;
 using LangTrainerFrontendWinForms.Controllers;
+using LangTrainerFrontendWinForms.Controls.Training.ExStart;
 using LangTrainerFrontendWinForms.Helpers;
-using LangTrainerFrontendWinForms.Model;
-using LangTrainerFrontendWinForms.Service;
 
 namespace LangTrainerFrontendWinForms
 {
@@ -15,8 +16,8 @@ namespace LangTrainerFrontendWinForms
             Load += FormMainLoad;
             KeyPreview = true;
             KeyDown += FormMainKeyDown;
-            _tabControl.HideHeader();
 
+            _tabControl.HideHeader();
             _tabControl.SetPage("dictionaryPage");
         }
 
@@ -27,19 +28,57 @@ namespace LangTrainerFrontendWinForms
 
         private async void FormMainLoad(object? sender, EventArgs e)
         {
-            var model = GetModel();
-            var ctr = new MainController(tabControl1, model);
-            ctr.Next();
+            TrainerTest();
         }
 
+        /*
         private async Task InitEditFormTest()
         {
             var serv = new LangService();
             var expr = await serv.GetTokenData("data", "english");
             sentenceEditControl1.InitForm(expr);
         }
+        */
 
-        private TrainingModel GetModel()
+        private void TrainerTest()
+        {
+            InitStartPage();
+            InitExs();
+        }
+
+        private void InitExs()
+        {
+            var model = GetTrainingModel();
+            var ctr = new MainController(tabControl1, model);
+            ctr.Next();
+        }
+
+        private void InitStartPage()
+        {
+            var model = new StartTrainingModel()
+            {
+                Maturation = new StartTrainingItem()
+                {
+                    Count = 111,
+                    Words = new List<string>() { "aaa", "bbb" }
+                },
+                New = new StartTrainingItem()
+                {
+                    Count = 222,
+                    Words = new List<string>() { "ggg", "hhh" }
+                },
+                Repeat = new StartTrainingItem()
+                {
+                    Count = 333,
+                    Words = new List<string>() { "ooo", "ppp" }
+                },
+            };
+
+            var startTrCtr = this.Find<ExStartControl>().First();
+            startTrCtr.Init(model);
+        }
+
+        private TrainingModel GetTrainingModel()
         {
             return new TrainingModel()
             {
@@ -52,20 +91,29 @@ namespace LangTrainerFrontendWinForms
             };
         }
 
-        private void dictionaryMenuItemClick(object sender, EventArgs e)
+        private void DictionaryMenuItemClick(object sender, EventArgs e)
         {
             _tabControl.SetPage("dictionaryPage");
         }
 
-        private void trainingMenuItemClick(object sender, EventArgs e)
+        private void TrainingMenuItemClick(object sender, EventArgs e)
         {
             _tabControl.SetPage("trainerPage");
         }
 
-        private void tasksMenuItem1Click(object sender, EventArgs e)
+        private void TasksMenuItem1Click(object sender, EventArgs e)
         {
             _tabControl.SetPage("taskPage");
         }
 
+        private void _tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dictionaryControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

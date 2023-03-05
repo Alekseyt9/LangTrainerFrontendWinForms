@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            labelRepeat1 = new Labels.LabelRepeat();
-            labelNew1 = new Labels.LabelNew();
-            labelMatur1 = new Labels.LabelMatur();
+            _labelRepeat = new Labels.LabelRepeat();
+            _labelNew = new Labels.LabelNew();
+            _labelMatur = new Labels.LabelMatur();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -41,9 +41,9 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 562F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(labelRepeat1, 1, 1);
-            tableLayoutPanel1.Controls.Add(labelNew1, 1, 2);
-            tableLayoutPanel1.Controls.Add(labelMatur1, 1, 3);
+            tableLayoutPanel1.Controls.Add(_labelRepeat, 1, 1);
+            tableLayoutPanel1.Controls.Add(_labelNew, 1, 2);
+            tableLayoutPanel1.Controls.Add(_labelMatur, 1, 3);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -56,32 +56,29 @@
             tableLayoutPanel1.Size = new Size(829, 547);
             tableLayoutPanel1.TabIndex = 0;
             // 
-            // labelRepeat1
+            // _labelRepeat
             // 
-            labelRepeat1.Location = new Point(148, 78);
-            labelRepeat1.Margin = new Padding(15);
-            labelRepeat1.Name = "labelRepeat1";
-            labelRepeat1.Size = new Size(532, 110);
-            labelRepeat1.TabIndex = 0;
-
+            _labelRepeat.Location = new Point(148, 78);
+            _labelRepeat.Margin = new Padding(15);
+            _labelRepeat.Name = "_labelRepeat";
+            _labelRepeat.Size = new Size(532, 110);
+            _labelRepeat.TabIndex = 0;
             // 
-            // labelNew1
+            // _labelNew
             // 
-            labelNew1.Location = new Point(148, 218);
-            labelNew1.Margin = new Padding(15);
-            labelNew1.Name = "labelNew1";
-            labelNew1.Size = new Size(532, 110);
-            labelNew1.TabIndex = 1;
-
+            _labelNew.Location = new Point(148, 218);
+            _labelNew.Margin = new Padding(15);
+            _labelNew.Name = "_labelNew";
+            _labelNew.Size = new Size(532, 110);
+            _labelNew.TabIndex = 1;
             // 
-            // labelMatur1
+            // _labelMatur
             // 
-            labelMatur1.Location = new Point(148, 358);
-            labelMatur1.Margin = new Padding(15);
-            labelMatur1.Name = "labelMatur1";
-            labelMatur1.Size = new Size(532, 110);
-            labelMatur1.TabIndex = 2;
-
+            _labelMatur.Location = new Point(148, 358);
+            _labelMatur.Margin = new Padding(15);
+            _labelMatur.Name = "_labelMatur";
+            _labelMatur.Size = new Size(532, 110);
+            _labelMatur.TabIndex = 2;
             // 
             // ExStartControl
             // 
@@ -99,8 +96,8 @@
 
 
         private TableLayoutPanel tableLayoutPanel1;
-        private Labels.LabelRepeat labelRepeat1;
-        private Labels.LabelNew labelNew1;
-        private Labels.LabelMatur labelMatur1;
+        private Labels.LabelRepeat _labelRepeat;
+        private Labels.LabelNew _labelNew;
+        private Labels.LabelMatur _labelMatur;
     }
 }

@@ -1,5 +1,6 @@
 ﻿
 
+using LangTrainerClientModel.Model;
 using LangTrainerFrontendWinForms.Helpers;
 
 namespace LangTrainerFrontendWinForms.Controls.Training.ExStart.Labels
@@ -21,6 +22,15 @@ namespace LangTrainerFrontendWinForms.Controls.Training.ExStart.Labels
         private void CtrMouseDown(object? sender, MouseEventArgs e)
         {
             OnCtrClick(this, EventArgs.Empty);
+        }
+
+        public void Init(StartTrainingItem model)
+        {
+            _labelHeader.Text = $"On maturation ({model.Count})";
+            if (model.Words != null)
+            {
+                _labelWords.Text = $"{string.Join(", ", model.Words)}";
+            }
         }
 
     }

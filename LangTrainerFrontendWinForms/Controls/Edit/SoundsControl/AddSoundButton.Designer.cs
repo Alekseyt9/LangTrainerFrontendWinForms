@@ -36,7 +36,7 @@
             // 
             // button7
             // 
-            button7.ImageKey = "plus.png";
+            button7.ImageIndex = 3;
             button7.ImageList = imageList1;
             button7.Location = new Point(0, 0);
             button7.Name = "button7";
@@ -52,6 +52,7 @@
             imageList1.Images.SetKeyName(0, "reload.png");
             imageList1.Images.SetKeyName(1, "boss.png");
             imageList1.Images.SetKeyName(2, "plus.png");
+            imageList1.Images.SetKeyName(3, "plus1.png");
             // 
             // AddSoundButton
             // 

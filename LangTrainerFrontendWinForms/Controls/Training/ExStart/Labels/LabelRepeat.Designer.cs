@@ -30,8 +30,8 @@
         {
             panel1 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
-            label1 = new Label();
-            label2 = new Label();
+            _labelHeader = new Label();
+            _labelWords = new Label();
             pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -54,8 +54,8 @@
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 18.5823746F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 81.4176254F));
-            tableLayoutPanel2.Controls.Add(label1, 1, 0);
-            tableLayoutPanel2.Controls.Add(label2, 1, 1);
+            tableLayoutPanel2.Controls.Add(_labelHeader, 1, 0);
+            tableLayoutPanel2.Controls.Add(_labelWords, 1, 1);
             tableLayoutPanel2.Controls.Add(pictureBox1, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 0);
@@ -67,29 +67,29 @@
             tableLayoutPanel2.Size = new Size(783, 170);
             tableLayoutPanel2.TabIndex = 0;
             // 
-            // label1
+            // _labelHeader
             // 
-            label1.AutoSize = true;
-            label1.Dock = DockStyle.Fill;
-            label1.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(148, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(632, 85);
-            label1.TabIndex = 0;
-            label1.Text = "111 words urgently repeat";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
+            _labelHeader.AutoSize = true;
+            _labelHeader.Dock = DockStyle.Fill;
+            _labelHeader.Font = new Font("Segoe UI", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            _labelHeader.Location = new Point(148, 0);
+            _labelHeader.Name = "_labelHeader";
+            _labelHeader.Size = new Size(632, 85);
+            _labelHeader.TabIndex = 0;
+            _labelHeader.Text = "111 words urgently repeat";
+            _labelHeader.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // _labelWords
             // 
-            label2.AutoSize = true;
-            label2.Dock = DockStyle.Fill;
-            label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(148, 85);
-            label2.Name = "label2";
-            label2.Size = new Size(632, 85);
-            label2.TabIndex = 1;
-            label2.Text = "word1 word2 word3";
-            label2.TextAlign = ContentAlignment.MiddleLeft;
+            _labelWords.AutoSize = true;
+            _labelWords.Dock = DockStyle.Fill;
+            _labelWords.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            _labelWords.Location = new Point(148, 85);
+            _labelWords.Name = "_labelWords";
+            _labelWords.Size = new Size(632, 85);
+            _labelWords.TabIndex = 1;
+            _labelWords.Text = "word1 word2 word3";
+            _labelWords.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // pictureBox1
             // 
@@ -119,8 +119,8 @@
 
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel2;
-        private Label label1;
-        private Label label2;
+        private Label _labelHeader;
+        private Label _labelWords;
         private PictureBox pictureBox1;
     }
 }

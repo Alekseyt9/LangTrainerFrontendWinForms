@@ -46,12 +46,14 @@
             // dataGridView1
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = SystemColors.Control;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
             dataGridView1.ContextMenuStrip = contextMenuStrip1;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.RowTemplate.Height = 33;
             dataGridView1.Size = new Size(859, 467);
@@ -63,56 +65,60 @@
             Column1.HeaderText = "Name";
             Column1.MinimumWidth = 8;
             Column1.Name = "Column1";
+            Column1.ReadOnly = true;
             // 
             // Column2
             // 
             Column2.HeaderText = "Status";
             Column2.MinimumWidth = 8;
             Column2.Name = "Column2";
+            Column2.ReadOnly = true;
             // 
             // Column3
             // 
             Column3.HeaderText = "Progress";
             Column3.MinimumWidth = 8;
             Column3.Name = "Column3";
+            Column3.ReadOnly = true;
             // 
             // Column4
             // 
             Column4.HeaderText = "Result";
             Column4.MinimumWidth = 8;
             Column4.Name = "Column4";
+            Column4.ReadOnly = true;
             // 
             // contextMenuStrip1
             // 
             contextMenuStrip1.ImageScalingSize = new Size(24, 24);
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { addTaskToolStripMenuItem, cancelTaskToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(241, 101);
+            contextMenuStrip1.Size = new Size(173, 68);
             // 
             // addTaskToolStripMenuItem
             // 
             addTaskToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { loadWordsToolStripMenuItem, updateAllWorldsToolStripMenuItem });
             addTaskToolStripMenuItem.Name = "addTaskToolStripMenuItem";
-            addTaskToolStripMenuItem.Size = new Size(240, 32);
+            addTaskToolStripMenuItem.Size = new Size(172, 32);
             addTaskToolStripMenuItem.Text = "Add task";
             addTaskToolStripMenuItem.Click += addTaskToolStripMenuItem_Click;
             // 
             // loadWordsToolStripMenuItem
             // 
             loadWordsToolStripMenuItem.Name = "loadWordsToolStripMenuItem";
-            loadWordsToolStripMenuItem.Size = new Size(270, 34);
+            loadWordsToolStripMenuItem.Size = new Size(252, 34);
             loadWordsToolStripMenuItem.Text = "Load words";
             // 
             // updateAllWorldsToolStripMenuItem
             // 
             updateAllWorldsToolStripMenuItem.Name = "updateAllWorldsToolStripMenuItem";
-            updateAllWorldsToolStripMenuItem.Size = new Size(270, 34);
+            updateAllWorldsToolStripMenuItem.Size = new Size(252, 34);
             updateAllWorldsToolStripMenuItem.Text = "Update all worlds";
             // 
             // cancelTaskToolStripMenuItem
             // 
             cancelTaskToolStripMenuItem.Name = "cancelTaskToolStripMenuItem";
-            cancelTaskToolStripMenuItem.Size = new Size(240, 32);
+            cancelTaskToolStripMenuItem.Size = new Size(172, 32);
             cancelTaskToolStripMenuItem.Text = "Cancel task";
             // 
             // TasksControl

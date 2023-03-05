@@ -1,6 +1,6 @@
 ﻿
+using LangTrainerClientModel.Model.Training;
 using LangTrainerFrontendWinForms.Helpers;
-using LangTrainerFrontendWinForms.Model;
 
 namespace LangTrainerFrontendWinForms.Controllers
 {
@@ -14,7 +14,7 @@ namespace LangTrainerFrontendWinForms.Controllers
         {
             _tab = tab;
             _model = model;
-            _State = 2;
+            _State = 0;
         }
 
         public void Next()
@@ -25,11 +25,12 @@ namespace LangTrainerFrontendWinForms.Controllers
                 case 1:
                     ActivatePage(_State);
                     var container = _tab.TabPages[_tab.SelectedIndex];
+                    /*
                     var ctr = new Excersize1Controller(
                         container.Find<Button>().ToArray(),
                         container.Find<RichTextBox>("Question").First()
                     );
-                    ctr.Init(_model.Model1);
+                    ctr.Init(_model.Model1); */
                     break;
             }
         }

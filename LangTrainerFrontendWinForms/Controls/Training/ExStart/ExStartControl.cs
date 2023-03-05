@@ -1,5 +1,7 @@
 ﻿
 
+using LangTrainerClientModel.Model;
+
 namespace LangTrainerFrontendWinForms.Controls.Training.ExStart
 {
     public partial class ExStartControl : UserControl
@@ -8,9 +10,16 @@ namespace LangTrainerFrontendWinForms.Controls.Training.ExStart
         {
             InitializeComponent();
 
-            labelMatur1.OnCtrClick += (sender, args) => { MessageBox.Show("maturation"); };
-            labelNew1.OnCtrClick += (sender, args) => { MessageBox.Show("new"); };
-            labelRepeat1.OnCtrClick += (sender, args) => { MessageBox.Show("repeat"); };
+            _labelMatur.OnCtrClick += (sender, args) => { MessageBox.Show("maturation"); };
+            _labelNew.OnCtrClick += (sender, args) => { MessageBox.Show("new"); };
+            _labelRepeat.OnCtrClick += (sender, args) => { MessageBox.Show("repeat"); };
+        }
+
+        public void Init(StartTrainingModel model)
+        {
+            _labelMatur.Init(model.Maturation);
+            _labelNew.Init(model.New);
+            _labelRepeat.Init(model.Repeat);
         }
 
     }

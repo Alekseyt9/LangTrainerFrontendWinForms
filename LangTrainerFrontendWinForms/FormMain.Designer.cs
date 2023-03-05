@@ -33,8 +33,12 @@
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             exStartControl1 = new Controls.Training.ExStart.ExStartControl();
+            tabPage6 = new TabPage();
+            ex1Control1 = new Controls.Training.Ex1.Ex1Control();
             tabPage2 = new TabPage();
+            ex2Control1 = new Controls.Training.Ex2.Ex2Control();
             tabPage3 = new TabPage();
+            ex3Control1 = new Controls.Training.Ex3.Ex3Control();
             tabPage4 = new TabPage();
             tabPage5 = new TabPage();
             tableLayoutPanel3 = new TableLayoutPanel();
@@ -42,7 +46,7 @@
             tabPage7 = new TabPage();
             trainerPage = new TabPage();
             dictionaryPage = new TabPage();
-            comboBox1 = new ComboBox();
+            dictionaryControl1 = new Controls.DictionaryControl();
             tabPage9 = new TabPage();
             sentenceEditControl1 = new Controls.SentenceEditControl();
             taskPage = new TabPage();
@@ -55,6 +59,9 @@
             tasksMenuItem1 = new ToolStripMenuItem();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
+            tabPage6.SuspendLayout();
+            tabPage2.SuspendLayout();
+            tabPage3.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             _tabControl.SuspendLayout();
             trainerPage.SuspendLayout();
@@ -67,6 +74,7 @@
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
+            tabControl1.Controls.Add(tabPage6);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
             tabControl1.Controls.Add(tabPage4);
@@ -77,18 +85,18 @@
             tabControl1.Multiline = true;
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1060, 515);
+            tabControl1.Size = new Size(186, 56);
             tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
             tabPage1.Controls.Add(exStartControl1);
-            tabPage1.Location = new Point(4, 34);
+            tabPage1.Location = new Point(4, 94);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1052, 477);
+            tabPage1.Size = new Size(178, 0);
             tabPage1.TabIndex = 0;
-            tabPage1.Text = "Exercize1";
+            tabPage1.Text = "Start";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // exStartControl1
@@ -96,33 +104,69 @@
             exStartControl1.Dock = DockStyle.Fill;
             exStartControl1.Location = new Point(3, 3);
             exStartControl1.Name = "exStartControl1";
-            exStartControl1.Size = new Size(1046, 471);
+            exStartControl1.Size = new Size(172, 0);
             exStartControl1.TabIndex = 0;
+            // 
+            // tabPage6
+            // 
+            tabPage6.Controls.Add(ex1Control1);
+            tabPage6.Location = new Point(4, 34);
+            tabPage6.Name = "tabPage6";
+            tabPage6.Size = new Size(852, 477);
+            tabPage6.TabIndex = 5;
+            tabPage6.Text = "Exercize1";
+            tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // ex1Control1
+            // 
+            ex1Control1.Dock = DockStyle.Fill;
+            ex1Control1.Location = new Point(0, 0);
+            ex1Control1.Name = "ex1Control1";
+            ex1Control1.Size = new Size(852, 477);
+            ex1Control1.TabIndex = 0;
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(ex2Control1);
             tabPage2.Location = new Point(4, 34);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1052, 477);
+            tabPage2.Size = new Size(852, 477);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Exercize2";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // ex2Control1
+            // 
+            ex2Control1.Dock = DockStyle.Fill;
+            ex2Control1.Location = new Point(3, 3);
+            ex2Control1.Name = "ex2Control1";
+            ex2Control1.Size = new Size(846, 471);
+            ex2Control1.TabIndex = 0;
+            // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(ex3Control1);
             tabPage3.Location = new Point(4, 34);
             tabPage3.Name = "tabPage3";
-            tabPage3.Size = new Size(1052, 477);
+            tabPage3.Size = new Size(852, 477);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Exercize3";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // ex3Control1
+            // 
+            ex3Control1.Dock = DockStyle.Fill;
+            ex3Control1.Location = new Point(0, 0);
+            ex3Control1.Name = "ex3Control1";
+            ex3Control1.Size = new Size(852, 477);
+            ex3Control1.TabIndex = 0;
             // 
             // tabPage4
             // 
             tabPage4.Location = new Point(4, 34);
             tabPage4.Name = "tabPage4";
-            tabPage4.Size = new Size(1052, 477);
+            tabPage4.Size = new Size(852, 477);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Exercize4";
             tabPage4.UseVisualStyleBackColor = true;
@@ -131,7 +175,7 @@
             // 
             tabPage5.Location = new Point(4, 34);
             tabPage5.Name = "tabPage5";
-            tabPage5.Size = new Size(1052, 477);
+            tabPage5.Size = new Size(852, 477);
             tabPage5.TabIndex = 4;
             tabPage5.Text = "Resut";
             tabPage5.UseVisualStyleBackColor = true;
@@ -148,7 +192,7 @@
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Size = new Size(1060, 515);
+            tableLayoutPanel3.Size = new Size(186, 56);
             tableLayoutPanel3.TabIndex = 2;
             // 
             // _tabControl
@@ -162,15 +206,16 @@
             _tabControl.Location = new Point(0, 33);
             _tabControl.Name = "_tabControl";
             _tabControl.SelectedIndex = 0;
-            _tabControl.Size = new Size(1074, 559);
+            _tabControl.Size = new Size(874, 559);
             _tabControl.TabIndex = 3;
+            _tabControl.SelectedIndexChanged += _tabControl_SelectedIndexChanged;
             // 
             // tabPage7
             // 
             tabPage7.Location = new Point(4, 34);
             tabPage7.Name = "tabPage7";
             tabPage7.Padding = new Padding(3);
-            tabPage7.Size = new Size(1066, 521);
+            tabPage7.Size = new Size(866, 521);
             tabPage7.TabIndex = 1;
             tabPage7.Text = "Login";
             tabPage7.UseVisualStyleBackColor = true;
@@ -181,36 +226,36 @@
             trainerPage.Location = new Point(4, 34);
             trainerPage.Name = "trainerPage";
             trainerPage.Padding = new Padding(3);
-            trainerPage.Size = new Size(1066, 521);
+            trainerPage.Size = new Size(192, 62);
             trainerPage.TabIndex = 0;
             trainerPage.Text = "Trainer";
             trainerPage.UseVisualStyleBackColor = true;
             // 
             // dictionaryPage
             // 
-            dictionaryPage.Controls.Add(comboBox1);
+            dictionaryPage.Controls.Add(dictionaryControl1);
             dictionaryPage.Location = new Point(4, 34);
             dictionaryPage.Name = "dictionaryPage";
-            dictionaryPage.Size = new Size(1066, 521);
+            dictionaryPage.Size = new Size(866, 521);
             dictionaryPage.TabIndex = 2;
             dictionaryPage.Text = "Dictionary";
             dictionaryPage.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // dictionaryControl1
             // 
-            comboBox1.Dock = DockStyle.Top;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(0, 0);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(1066, 33);
-            comboBox1.TabIndex = 1;
+            dictionaryControl1.Dock = DockStyle.Fill;
+            dictionaryControl1.Location = new Point(0, 0);
+            dictionaryControl1.Name = "dictionaryControl1";
+            dictionaryControl1.Size = new Size(866, 521);
+            dictionaryControl1.TabIndex = 0;
+            dictionaryControl1.Load += dictionaryControl1_Load;
             // 
             // tabPage9
             // 
             tabPage9.Controls.Add(sentenceEditControl1);
             tabPage9.Location = new Point(4, 34);
             tabPage9.Name = "tabPage9";
-            tabPage9.Size = new Size(1066, 521);
+            tabPage9.Size = new Size(192, 62);
             tabPage9.TabIndex = 3;
             tabPage9.Text = "EditSentence";
             tabPage9.UseVisualStyleBackColor = true;
@@ -221,7 +266,7 @@
             sentenceEditControl1.Location = new Point(0, 0);
             sentenceEditControl1.Margin = new Padding(0);
             sentenceEditControl1.Name = "sentenceEditControl1";
-            sentenceEditControl1.Size = new Size(1066, 521);
+            sentenceEditControl1.Size = new Size(192, 62);
             sentenceEditControl1.TabIndex = 0;
             // 
             // taskPage
@@ -229,7 +274,7 @@
             taskPage.Controls.Add(tasksControl1);
             taskPage.Location = new Point(4, 34);
             taskPage.Name = "taskPage";
-            taskPage.Size = new Size(1066, 521);
+            taskPage.Size = new Size(192, 62);
             taskPage.TabIndex = 4;
             taskPage.Text = "Tasks";
             taskPage.UseVisualStyleBackColor = true;
@@ -239,7 +284,7 @@
             tasksControl1.Dock = DockStyle.Fill;
             tasksControl1.Location = new Point(0, 0);
             tasksControl1.Name = "tasksControl1";
-            tasksControl1.Size = new Size(1066, 521);
+            tasksControl1.Size = new Size(192, 62);
             tasksControl1.TabIndex = 0;
             // 
             // imageList1
@@ -250,6 +295,7 @@
             imageList1.Images.SetKeyName(0, "reload.png");
             imageList1.Images.SetKeyName(1, "boss.png");
             imageList1.Images.SetKeyName(2, "plus.png");
+            imageList1.Images.SetKeyName(3, "plus1.png");
             // 
             // menuStrip1
             // 
@@ -257,7 +303,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { dictionaryMenuItem, trainingMenuItem, tasksToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1074, 33);
+            menuStrip1.Size = new Size(874, 33);
             menuStrip1.TabIndex = 4;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -266,14 +312,14 @@
             dictionaryMenuItem.Name = "dictionaryMenuItem";
             dictionaryMenuItem.Size = new Size(108, 29);
             dictionaryMenuItem.Text = "Dictionary";
-            dictionaryMenuItem.Click += dictionaryMenuItemClick;
+            dictionaryMenuItem.Click += DictionaryMenuItemClick;
             // 
             // trainingMenuItem
             // 
             trainingMenuItem.Name = "trainingMenuItem";
             trainingMenuItem.Size = new Size(89, 29);
             trainingMenuItem.Text = "Training";
-            trainingMenuItem.Click += trainingMenuItemClick;
+            trainingMenuItem.Click += TrainingMenuItemClick;
             // 
             // tasksToolStripMenuItem
             // 
@@ -287,20 +333,24 @@
             tasksMenuItem1.Name = "tasksMenuItem1";
             tasksMenuItem1.Size = new Size(155, 34);
             tasksMenuItem1.Text = "Tasks";
-            tasksMenuItem1.Click += tasksMenuItem1Click;
+            tasksMenuItem1.Click += TasksMenuItem1Click;
             // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1074, 592);
+            ClientSize = new Size(874, 592);
             Controls.Add(_tabControl);
             Controls.Add(menuStrip1);
+            IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
             Name = "FormMain";
             Text = "LangTrainer";
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            tabPage6.ResumeLayout(false);
+            tabPage2.ResumeLayout(false);
+            tabPage3.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             _tabControl.ResumeLayout(false);
             trainerPage.ResumeLayout(false);
@@ -325,7 +375,6 @@
         private TabPage tabPage7;
         private TabPage trainerPage;
         private TabPage dictionaryPage;
-        private ComboBox comboBox1;
         private TabPage tabPage9;
         private ImageList imageList1;
         private Controls.SentenceEditControl sentenceEditControl1;
@@ -337,5 +386,10 @@
         private TabPage taskPage;
         private Controls.Tasks.TasksControl tasksControl1;
         private ToolStripMenuItem tasksMenuItem1;
+        private TabPage tabPage6;
+        private Controls.Training.Ex1.Ex1Control ex1Control1;
+        private Controls.Training.Ex2.Ex2Control ex2Control1;
+        private Controls.Training.Ex3.Ex3Control ex3Control1;
+        private Controls.DictionaryControl dictionaryControl1;
     }
 }
