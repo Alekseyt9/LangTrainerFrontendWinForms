@@ -32,86 +32,167 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DictionaryControl));
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
+            groupBox1 = new GroupBox();
             _itemsTableLayout = new TableLayoutPanel();
-            addWordItem1 = new Dictionary.Items.AddWordItemControl();
-            wordNotFoundItem1 = new Dictionary.Items.WordNotFoundItemControl();
-            _searchText = new TextBox();
+            addWordItemControl1 = new Dictionary.Items.AddWordItemControl();
+            addWordItemControl2 = new Dictionary.Items.AddWordItemControl();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            label1 = new Label();
+            label2 = new Label();
+            comboBox1 = new ComboBox();
+            comboBox2 = new ComboBox();
             imageList1 = new ImageList(components);
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             toolStripProgressBar1 = new ToolStripProgressBar();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            pictureBox1 = new PictureBox();
+            textBox1 = new TextBox();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
+            groupBox1.SuspendLayout();
             _itemsTableLayout.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             statusStrip1.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(panel1, 0, 1);
-            tableLayoutPanel1.Controls.Add(_searchText, 0, 0);
+            tableLayoutPanel1.Controls.Add(panel1, 0, 2);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel3, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 9.883721F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 90.11628F));
-            tableLayoutPanel1.Size = new Size(556, 344);
+            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 34F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(699, 344);
             tableLayoutPanel1.TabIndex = 3;
             // 
             // panel1
             // 
             panel1.AutoScroll = true;
-            panel1.Controls.Add(_itemsTableLayout);
+            panel1.Controls.Add(groupBox1);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 37);
+            panel1.Location = new Point(3, 72);
             panel1.Name = "panel1";
-            panel1.Size = new Size(550, 304);
+            panel1.Size = new Size(693, 269);
             panel1.TabIndex = 4;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(_itemsTableLayout);
+            groupBox1.Dock = DockStyle.Fill;
+            groupBox1.FlatStyle = FlatStyle.Flat;
+            groupBox1.Location = new Point(0, 0);
+            groupBox1.Name = "groupBox1";
+            groupBox1.RightToLeft = RightToLeft.No;
+            groupBox1.Size = new Size(693, 269);
+            groupBox1.TabIndex = 1;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "SearchResult";
             // 
             // _itemsTableLayout
             // 
             _itemsTableLayout.ColumnCount = 1;
             _itemsTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            _itemsTableLayout.Controls.Add(addWordItem1, 0, 1);
-            _itemsTableLayout.Controls.Add(wordNotFoundItem1, 0, 0);
+            _itemsTableLayout.Controls.Add(addWordItemControl1, 0, 0);
+            _itemsTableLayout.Controls.Add(addWordItemControl2, 0, 1);
             _itemsTableLayout.Dock = DockStyle.Fill;
-            _itemsTableLayout.Location = new Point(0, 0);
+            _itemsTableLayout.Location = new Point(3, 23);
+            _itemsTableLayout.Margin = new Padding(0);
             _itemsTableLayout.Name = "_itemsTableLayout";
             _itemsTableLayout.RowCount = 3;
             _itemsTableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             _itemsTableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             _itemsTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            _itemsTableLayout.Size = new Size(550, 304);
+            _itemsTableLayout.Size = new Size(687, 243);
             _itemsTableLayout.TabIndex = 0;
             // 
-            // addWordItem1
+            // addWordItemControl1
             // 
-            addWordItem1.Dock = DockStyle.Fill;
-            addWordItem1.Location = new Point(3, 43);
-            addWordItem1.Name = "addWordItem1";
-            addWordItem1.Size = new Size(544, 34);
-            addWordItem1.TabIndex = 0;
+            addWordItemControl1.Dock = DockStyle.Fill;
+            addWordItemControl1.Location = new Point(3, 3);
+            addWordItemControl1.Name = "addWordItemControl1";
+            addWordItemControl1.Size = new Size(681, 34);
+            addWordItemControl1.TabIndex = 0;
             // 
-            // wordNotFoundItem1
+            // addWordItemControl2
             // 
-            wordNotFoundItem1.Dock = DockStyle.Fill;
-            wordNotFoundItem1.Location = new Point(3, 3);
-            wordNotFoundItem1.Name = "wordNotFoundItem1";
-            wordNotFoundItem1.Size = new Size(544, 34);
-            wordNotFoundItem1.TabIndex = 1;
+            addWordItemControl2.Dock = DockStyle.Fill;
+            addWordItemControl2.Location = new Point(3, 43);
+            addWordItemControl2.Name = "addWordItemControl2";
+            addWordItemControl2.Size = new Size(681, 34);
+            addWordItemControl2.TabIndex = 1;
             // 
-            // _searchText
+            // tableLayoutPanel2
             // 
-            _searchText.Dock = DockStyle.Fill;
-            _searchText.Location = new Point(3, 3);
-            _searchText.Name = "_searchText";
-            _searchText.Size = new Size(550, 27);
-            _searchText.TabIndex = 5;
-            _searchText.TextChanged += _searchTextTextChanged;
+            tableLayoutPanel2.ColumnCount = 4;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 94F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 152F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(label1, 0, 0);
+            tableLayoutPanel2.Controls.Add(label2, 2, 0);
+            tableLayoutPanel2.Controls.Add(comboBox1, 1, 0);
+            tableLayoutPanel2.Controls.Add(comboBox2, 3, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 34);
+            tableLayoutPanel2.Margin = new Padding(0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(699, 35);
+            tableLayoutPanel2.TabIndex = 6;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Dock = DockStyle.Fill;
+            label1.Location = new Point(3, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(88, 35);
+            label1.TabIndex = 0;
+            label1.Text = "Language:";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Dock = DockStyle.Fill;
+            label2.Location = new Point(323, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(146, 35);
+            label2.TabIndex = 1;
+            label2.Text = "Translate language:";
+            label2.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // comboBox1
+            // 
+            comboBox1.Dock = DockStyle.Fill;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(97, 3);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(220, 28);
+            comboBox1.TabIndex = 2;
+            // 
+            // comboBox2
+            // 
+            comboBox2.Dock = DockStyle.Fill;
+            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(475, 3);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(221, 28);
+            comboBox2.TabIndex = 3;
             // 
             // imageList1
             // 
@@ -122,15 +203,16 @@
             imageList1.Images.SetKeyName(1, "boss.png");
             imageList1.Images.SetKeyName(2, "plus.png");
             imageList1.Images.SetKeyName(3, "plus1.png");
+            imageList1.Images.SetKeyName(4, "magnifying-glass.png");
             // 
             // statusStrip1
             // 
             statusStrip1.ImageScalingSize = new Size(24, 24);
             statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1, toolStripProgressBar1 });
-            statusStrip1.Location = new Point(0, 276);
+            statusStrip1.Location = new Point(0, 356);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Padding = new Padding(1, 0, 11, 0);
-            statusStrip1.Size = new Size(556, 27);
+            statusStrip1.Size = new Size(699, 27);
             statusStrip1.TabIndex = 4;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -148,6 +230,40 @@
             toolStripProgressBar1.Step = 1;
             toolStripProgressBar1.Style = ProgressBarStyle.Marquee;
             // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 33F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.Controls.Add(pictureBox1, 0, 0);
+            tableLayoutPanel3.Controls.Add(textBox1, 1, 0);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(0, 0);
+            tableLayoutPanel3.Margin = new Padding(0);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 1;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.Size = new Size(699, 34);
+            tableLayoutPanel3.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.magnifying_glass;
+            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(27, 28);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // textBox1
+            // 
+            textBox1.Dock = DockStyle.Fill;
+            textBox1.Location = new Point(36, 3);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(660, 27);
+            textBox1.TabIndex = 1;
+            // 
             // DictionaryControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -156,13 +272,18 @@
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(2);
             Name = "DictionaryControl";
-            Size = new Size(556, 303);
+            Size = new Size(699, 383);
             tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
             panel1.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
             _itemsTableLayout.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -177,6 +298,16 @@
         private TableLayoutPanel _itemsTableLayout;
         private Dictionary.Items.AddWordItemControl addWordItem1;
         private Dictionary.Items.WordNotFoundItemControl wordNotFoundItem1;
-        private TextBox _searchText;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Dictionary.Items.AddWordItemControl addWordItemControl1;
+        private Dictionary.Items.AddWordItemControl addWordItemControl2;
+        private Label label1;
+        private Label label2;
+        private ComboBox comboBox1;
+        private ComboBox comboBox2;
+        private GroupBox groupBox1;
+        private TableLayoutPanel tableLayoutPanel3;
+        private PictureBox pictureBox1;
+        private TextBox textBox1;
     }
 }

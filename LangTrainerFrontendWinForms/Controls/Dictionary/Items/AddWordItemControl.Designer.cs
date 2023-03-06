@@ -121,6 +121,7 @@
             // _translateCombo
             // 
             _translateCombo.Dock = DockStyle.Fill;
+            _translateCombo.DropDownStyle = ComboBoxStyle.DropDownList;
             _translateCombo.FormattingEnabled = true;
             _translateCombo.Location = new Point(275, 3);
             _translateCombo.Name = "_translateCombo";
@@ -137,12 +138,12 @@
             panel1.Size = new Size(450, 46);
             panel1.TabIndex = 1;
             // 
-            // AddWordItem
+            // AddWordItemControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
-            Name = "AddWordItem";
+            Name = "AddWordItemControl";
             Size = new Size(450, 46);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();

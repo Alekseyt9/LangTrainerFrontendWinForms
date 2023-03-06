@@ -4,10 +4,10 @@
     <Compile Update="Controls\Dictionary\DictionaryControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Controls\Dictionary\Items\AddWordItem.cs">
+    <Compile Update="Controls\Dictionary\Items\AddWordItemControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Controls\Dictionary\Items\WordNotFoundItem.cs">
+    <Compile Update="Controls\Dictionary\Items\WordNotFoundItemControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\Edit\SamplesControl.cs">
