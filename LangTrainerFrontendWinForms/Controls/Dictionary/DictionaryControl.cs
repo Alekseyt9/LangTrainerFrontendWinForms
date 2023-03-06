@@ -1,6 +1,8 @@
 ﻿
 
 using LangTrainerFrontendWinForms.Controls.Dictionary;
+using LangTrainerFrontendWinForms.Controls.Dictionary.Items;
+using LangTrainerServices.Services;
 
 namespace LangTrainerFrontendWinForms.Controls
 {
@@ -9,22 +11,35 @@ namespace LangTrainerFrontendWinForms.Controls
         public DictionaryControl()
         {
             InitializeComponent();
-
         }
 
-        private void AddWordClick(object sender, EventArgs e)
-        {
-            /*
-            var form = new AddWordForm();
-            form.Owner = this.FindForm();
-            form.Show();
-            */
-
-        }
-
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        private void _searchTextTextChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void ShowData(FindResult data)
+        {
+            _itemsTableLayout.Controls.Clear();
+            if (data.Items.Count == 0)
+            {
+                var ctr = new WordNotFoundItemControl();
+                ctr.Init(data.SearchString);
+                _itemsTableLayout.Controls.Add(ctr);
+            }
+            else
+            {
+                var i = 0;
+                foreach (var item in data.Items)
+                {
+                    var ctr = new AddWordItemControl();
+                    ctr.Init(item);
+                    _itemsTableLayout.Controls.Add(ctr);
+                    _itemsTableLayout.SetRow(ctr, i++);
+                }
+            }
+
+        }
+
     }
 }
