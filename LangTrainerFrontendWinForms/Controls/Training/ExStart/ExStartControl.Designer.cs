@@ -39,54 +39,59 @@
             // 
             tableLayoutPanel1.ColumnCount = 3;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 562F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 450F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(_labelRepeat, 1, 1);
             tableLayoutPanel1.Controls.Add(_labelNew, 1, 2);
             tableLayoutPanel1.Controls.Add(_labelMatur, 1, 3);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(2, 2, 2, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 5;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 140F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 140F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 140F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 112F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 112F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 112F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(829, 547);
+            tableLayoutPanel1.Size = new Size(663, 438);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // _labelRepeat
             // 
-            _labelRepeat.Location = new Point(148, 78);
-            _labelRepeat.Margin = new Padding(15);
+            _labelRepeat.Cursor = Cursors.Hand;
+            _labelRepeat.Location = new Point(118, 63);
+            _labelRepeat.Margin = new Padding(12, 12, 12, 12);
             _labelRepeat.Name = "_labelRepeat";
-            _labelRepeat.Size = new Size(532, 110);
+            _labelRepeat.Size = new Size(426, 88);
             _labelRepeat.TabIndex = 0;
             // 
             // _labelNew
             // 
-            _labelNew.Location = new Point(148, 218);
-            _labelNew.Margin = new Padding(15);
+            _labelNew.Cursor = Cursors.Hand;
+            _labelNew.Location = new Point(118, 175);
+            _labelNew.Margin = new Padding(12, 12, 12, 12);
             _labelNew.Name = "_labelNew";
-            _labelNew.Size = new Size(532, 110);
+            _labelNew.Size = new Size(426, 88);
             _labelNew.TabIndex = 1;
             // 
             // _labelMatur
             // 
-            _labelMatur.Location = new Point(148, 358);
-            _labelMatur.Margin = new Padding(15);
+            _labelMatur.Cursor = Cursors.Hand;
+            _labelMatur.Location = new Point(118, 287);
+            _labelMatur.Margin = new Padding(12, 12, 12, 12);
             _labelMatur.Name = "_labelMatur";
-            _labelMatur.Size = new Size(532, 110);
+            _labelMatur.Size = new Size(426, 88);
             _labelMatur.TabIndex = 2;
             // 
             // ExStartControl
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "ExStartControl";
-            Size = new Size(829, 547);
+            Size = new Size(663, 438);
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }

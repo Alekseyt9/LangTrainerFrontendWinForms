@@ -1,6 +1,5 @@
 ﻿
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 
 namespace LangTrainerFrontendWinForms.Helpers
 {

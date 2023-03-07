@@ -42,5 +42,15 @@ namespace LangTrainerFrontendWinForms.Service
                 });
         }
 
+        public async Task<List<Language>> GetLanguages()
+        {
+            return await WebClientHelper.Get<List<Language>>(@"https://localhost:44329/api/lang/GetLanguages");
+        }
+
+        public async Task<List<Language>> GetTranslateLanguages()
+        {
+            return await WebClientHelper.Get<List<Language>>(@"https://localhost:44329/api/lang/GetTranslateLanguages");
+        }
+
     }
 }

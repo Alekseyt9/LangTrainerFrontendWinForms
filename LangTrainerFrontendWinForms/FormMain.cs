@@ -48,9 +48,11 @@ namespace LangTrainerFrontendWinForms
 
         private void InitExs()
         {
+            /*
             var model = GetTrainingModel();
             var ctr = new MainController(tabControl1, model);
             ctr.Next();
+            */
         }
 
         private void InitStartPage()
@@ -106,14 +108,10 @@ namespace LangTrainerFrontendWinForms
             _tabControl.SetPage("taskPage");
         }
 
-        private void _tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        private void wordListMenuItem_Click(object sender, EventArgs e)
         {
-
+            _tabControl.SetPage("wordListPage");
         }
 
-        private void dictionaryControl1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

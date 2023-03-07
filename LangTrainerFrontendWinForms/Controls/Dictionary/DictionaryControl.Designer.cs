@@ -34,24 +34,22 @@
             panel1 = new Panel();
             groupBox1 = new GroupBox();
             _itemsTableLayout = new TableLayoutPanel();
-            addWordItemControl1 = new AddWordItemControl();
-            addWordItemControl2 = new AddWordItemControl();
             tableLayoutPanel2 = new TableLayoutPanel();
             label1 = new Label();
             label2 = new Label();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
+            _langFilterCombo = new ComboBox();
+            _trLangFilterCombo = new ComboBox();
             tableLayoutPanel3 = new TableLayoutPanel();
+            _clearButton = new Button();
+            imageList1 = new ImageList(components);
             pictureBox1 = new PictureBox();
             _searchText = new TextBox();
-            imageList1 = new ImageList(components);
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             toolStripProgressBar1 = new ToolStripProgressBar();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
-            _itemsTableLayout.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -65,7 +63,7 @@
             tableLayoutPanel1.Controls.Add(panel1, 0, 2);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel3, 0, 0);
-            tableLayoutPanel1.Dock = DockStyle.Top;
+            tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -73,7 +71,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 34F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(699, 344);
+            tableLayoutPanel1.Size = new Size(699, 383);
             tableLayoutPanel1.TabIndex = 3;
             // 
             // panel1
@@ -83,7 +81,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 72);
             panel1.Name = "panel1";
-            panel1.Size = new Size(693, 269);
+            panel1.Size = new Size(693, 308);
             panel1.TabIndex = 4;
             // 
             // groupBox1
@@ -94,7 +92,7 @@
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
             groupBox1.RightToLeft = RightToLeft.No;
-            groupBox1.Size = new Size(693, 269);
+            groupBox1.Size = new Size(693, 308);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "SearchResult";
@@ -103,8 +101,6 @@
             // 
             _itemsTableLayout.ColumnCount = 1;
             _itemsTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            _itemsTableLayout.Controls.Add(addWordItemControl1, 0, 0);
-            _itemsTableLayout.Controls.Add(addWordItemControl2, 0, 1);
             _itemsTableLayout.Dock = DockStyle.Fill;
             _itemsTableLayout.Location = new Point(3, 23);
             _itemsTableLayout.Margin = new Padding(0);
@@ -113,24 +109,8 @@
             _itemsTableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             _itemsTableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             _itemsTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            _itemsTableLayout.Size = new Size(687, 243);
+            _itemsTableLayout.Size = new Size(687, 282);
             _itemsTableLayout.TabIndex = 0;
-            // 
-            // addWordItemControl1
-            // 
-            addWordItemControl1.Dock = DockStyle.Fill;
-            addWordItemControl1.Location = new Point(3, 3);
-            addWordItemControl1.Name = "addWordItemControl1";
-            addWordItemControl1.Size = new Size(681, 34);
-            addWordItemControl1.TabIndex = 0;
-            // 
-            // addWordItemControl2
-            // 
-            addWordItemControl2.Dock = DockStyle.Fill;
-            addWordItemControl2.Location = new Point(3, 43);
-            addWordItemControl2.Name = "addWordItemControl2";
-            addWordItemControl2.Size = new Size(681, 34);
-            addWordItemControl2.TabIndex = 1;
             // 
             // tableLayoutPanel2
             // 
@@ -141,8 +121,8 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.Controls.Add(label1, 0, 0);
             tableLayoutPanel2.Controls.Add(label2, 2, 0);
-            tableLayoutPanel2.Controls.Add(comboBox1, 1, 0);
-            tableLayoutPanel2.Controls.Add(comboBox2, 3, 0);
+            tableLayoutPanel2.Controls.Add(_langFilterCombo, 1, 0);
+            tableLayoutPanel2.Controls.Add(_trLangFilterCombo, 3, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 34);
             tableLayoutPanel2.Margin = new Padding(0);
@@ -174,31 +154,33 @@
             label2.Text = "Translate language:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // comboBox1
+            // _langFilterCombo
             // 
-            comboBox1.Dock = DockStyle.Fill;
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(97, 3);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(220, 28);
-            comboBox1.TabIndex = 2;
+            _langFilterCombo.Dock = DockStyle.Fill;
+            _langFilterCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+            _langFilterCombo.FormattingEnabled = true;
+            _langFilterCombo.Location = new Point(97, 3);
+            _langFilterCombo.Name = "_langFilterCombo";
+            _langFilterCombo.Size = new Size(220, 28);
+            _langFilterCombo.TabIndex = 2;
             // 
-            // comboBox2
+            // _trLangFilterCombo
             // 
-            comboBox2.Dock = DockStyle.Fill;
-            comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(475, 3);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(221, 28);
-            comboBox2.TabIndex = 3;
+            _trLangFilterCombo.Dock = DockStyle.Fill;
+            _trLangFilterCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+            _trLangFilterCombo.FormattingEnabled = true;
+            _trLangFilterCombo.Location = new Point(475, 3);
+            _trLangFilterCombo.Name = "_trLangFilterCombo";
+            _trLangFilterCombo.Size = new Size(221, 28);
+            _trLangFilterCombo.TabIndex = 3;
             // 
             // tableLayoutPanel3
             // 
-            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnCount = 3;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 33F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 33F));
+            tableLayoutPanel3.Controls.Add(_clearButton, 2, 0);
             tableLayoutPanel3.Controls.Add(pictureBox1, 0, 0);
             tableLayoutPanel3.Controls.Add(_searchText, 1, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
@@ -209,6 +191,31 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel3.Size = new Size(699, 34);
             tableLayoutPanel3.TabIndex = 7;
+            // 
+            // _clearButton
+            // 
+            _clearButton.Dock = DockStyle.Fill;
+            _clearButton.ImageIndex = 5;
+            _clearButton.ImageList = imageList1;
+            _clearButton.Location = new Point(668, 2);
+            _clearButton.Margin = new Padding(2);
+            _clearButton.Name = "_clearButton";
+            _clearButton.Size = new Size(29, 30);
+            _clearButton.TabIndex = 5;
+            _clearButton.UseVisualStyleBackColor = true;
+            _clearButton.Click += _clearButtonClick;
+            // 
+            // imageList1
+            // 
+            imageList1.ColorDepth = ColorDepth.Depth8Bit;
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
+            imageList1.TransparentColor = Color.Transparent;
+            imageList1.Images.SetKeyName(0, "reload.png");
+            imageList1.Images.SetKeyName(1, "boss.png");
+            imageList1.Images.SetKeyName(2, "plus.png");
+            imageList1.Images.SetKeyName(3, "plus1.png");
+            imageList1.Images.SetKeyName(4, "magnifying-glass.png");
+            imageList1.Images.SetKeyName(5, "clear.png");
             // 
             // pictureBox1
             // 
@@ -225,20 +232,9 @@
             _searchText.Dock = DockStyle.Fill;
             _searchText.Location = new Point(36, 3);
             _searchText.Name = "_searchText";
-            _searchText.Size = new Size(660, 27);
+            _searchText.Size = new Size(627, 27);
             _searchText.TabIndex = 1;
             _searchText.TextChanged += _searchTextTextChanged;
-            // 
-            // imageList1
-            // 
-            imageList1.ColorDepth = ColorDepth.Depth8Bit;
-            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
-            imageList1.TransparentColor = Color.Transparent;
-            imageList1.Images.SetKeyName(0, "reload.png");
-            imageList1.Images.SetKeyName(1, "boss.png");
-            imageList1.Images.SetKeyName(2, "plus.png");
-            imageList1.Images.SetKeyName(3, "plus1.png");
-            imageList1.Images.SetKeyName(4, "magnifying-glass.png");
             // 
             // statusStrip1
             // 
@@ -250,6 +246,7 @@
             statusStrip1.Size = new Size(699, 27);
             statusStrip1.TabIndex = 4;
             statusStrip1.Text = "statusStrip1";
+            statusStrip1.Visible = false;
             // 
             // toolStripStatusLabel1
             // 
@@ -277,7 +274,6 @@
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
-            _itemsTableLayout.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
@@ -300,15 +296,14 @@
         private AddWordItemControl addWordItem1;
         private WordNotFoundItemControl wordNotFoundItem1;
         private TableLayoutPanel tableLayoutPanel2;
-        private AddWordItemControl addWordItemControl1;
-        private AddWordItemControl addWordItemControl2;
         private Label label1;
         private Label label2;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
+        private ComboBox _langFilterCombo;
+        private ComboBox _trLangFilterCombo;
         private GroupBox groupBox1;
         private TableLayoutPanel tableLayoutPanel3;
         private PictureBox pictureBox1;
         private TextBox _searchText;
+        private Button _clearButton;
     }
 }

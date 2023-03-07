@@ -49,6 +49,12 @@
     <Compile Update="Controls\Training\ExStart\Labels\LabelRepeat.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\Training\TrainingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\WordList\WordListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
