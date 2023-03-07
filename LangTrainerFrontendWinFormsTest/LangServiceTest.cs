@@ -8,7 +8,7 @@ namespace LangTrainerFrontendWinFormsTest
         [Fact]
         public async void Test()
         {
-            var serv = new LangService();
+            var serv = LangService.GetInstance();
             var res = await serv.GetTokenData("data", "english");
             Assert.NotNull(res);
         }

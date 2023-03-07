@@ -34,28 +34,28 @@
             panel1 = new Panel();
             groupBox1 = new GroupBox();
             _itemsTableLayout = new TableLayoutPanel();
-            addWordItemControl1 = new Dictionary.Items.AddWordItemControl();
-            addWordItemControl2 = new Dictionary.Items.AddWordItemControl();
+            addWordItemControl1 = new AddWordItemControl();
+            addWordItemControl2 = new AddWordItemControl();
             tableLayoutPanel2 = new TableLayoutPanel();
             label1 = new Label();
             label2 = new Label();
             comboBox1 = new ComboBox();
             comboBox2 = new ComboBox();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            pictureBox1 = new PictureBox();
+            _searchText = new TextBox();
             imageList1 = new ImageList(components);
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             toolStripProgressBar1 = new ToolStripProgressBar();
-            tableLayoutPanel3 = new TableLayoutPanel();
-            pictureBox1 = new PictureBox();
-            textBox1 = new TextBox();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             groupBox1.SuspendLayout();
             _itemsTableLayout.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
-            statusStrip1.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -194,6 +194,41 @@
             comboBox2.Size = new Size(221, 28);
             comboBox2.TabIndex = 3;
             // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 33F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.Controls.Add(pictureBox1, 0, 0);
+            tableLayoutPanel3.Controls.Add(_searchText, 1, 0);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(0, 0);
+            tableLayoutPanel3.Margin = new Padding(0);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 1;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.Size = new Size(699, 34);
+            tableLayoutPanel3.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.magnifying_glass;
+            pictureBox1.Location = new Point(3, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(27, 28);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // _searchText
+            // 
+            _searchText.Dock = DockStyle.Fill;
+            _searchText.Location = new Point(36, 3);
+            _searchText.Name = "_searchText";
+            _searchText.Size = new Size(660, 27);
+            _searchText.TabIndex = 1;
+            _searchText.TextChanged += _searchTextTextChanged;
+            // 
             // imageList1
             // 
             imageList1.ColorDepth = ColorDepth.Depth8Bit;
@@ -230,40 +265,6 @@
             toolStripProgressBar1.Step = 1;
             toolStripProgressBar1.Style = ProgressBarStyle.Marquee;
             // 
-            // tableLayoutPanel3
-            // 
-            tableLayoutPanel3.ColumnCount = 2;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 33F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Controls.Add(pictureBox1, 0, 0);
-            tableLayoutPanel3.Controls.Add(textBox1, 1, 0);
-            tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(0, 0);
-            tableLayoutPanel3.Margin = new Padding(0);
-            tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 1;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(699, 34);
-            tableLayoutPanel3.TabIndex = 7;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = Properties.Resources.magnifying_glass;
-            pictureBox1.Location = new Point(3, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(27, 28);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
-            // textBox1
-            // 
-            textBox1.Dock = DockStyle.Fill;
-            textBox1.Location = new Point(36, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(660, 27);
-            textBox1.TabIndex = 1;
-            // 
             // DictionaryControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -279,11 +280,11 @@
             _itemsTableLayout.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
-            statusStrip1.ResumeLayout(false);
-            statusStrip1.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -296,11 +297,11 @@
         private ToolStripProgressBar toolStripProgressBar1;
         private Panel panel1;
         private TableLayoutPanel _itemsTableLayout;
-        private Dictionary.Items.AddWordItemControl addWordItem1;
-        private Dictionary.Items.WordNotFoundItemControl wordNotFoundItem1;
+        private AddWordItemControl addWordItem1;
+        private WordNotFoundItemControl wordNotFoundItem1;
         private TableLayoutPanel tableLayoutPanel2;
-        private Dictionary.Items.AddWordItemControl addWordItemControl1;
-        private Dictionary.Items.AddWordItemControl addWordItemControl2;
+        private AddWordItemControl addWordItemControl1;
+        private AddWordItemControl addWordItemControl2;
         private Label label1;
         private Label label2;
         private ComboBox comboBox1;
@@ -308,6 +309,6 @@
         private GroupBox groupBox1;
         private TableLayoutPanel tableLayoutPanel3;
         private PictureBox pictureBox1;
-        private TextBox textBox1;
+        private TextBox _searchText;
     }
 }

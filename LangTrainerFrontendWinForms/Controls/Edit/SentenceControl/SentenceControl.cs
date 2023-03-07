@@ -27,7 +27,7 @@ namespace LangTrainerFrontendWinForms.Controls
             if (string.IsNullOrEmpty(_text.Text) || string.IsNullOrEmpty(_lang.Text))
                 return;
 
-            var serv = new LangService();
+            var serv = LangService.GetInstance();
             var expr = await serv.GetTokenData(_text.Text, _lang.Text);
 
             OnLoadToken(this, new LoadTokenEventArgs()

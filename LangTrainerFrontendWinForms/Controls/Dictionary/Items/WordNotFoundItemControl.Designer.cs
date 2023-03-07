@@ -1,4 +1,4 @@
-﻿namespace LangTrainerFrontendWinForms.Controls.Dictionary.Items
+﻿namespace LangTrainerFrontendWinForms.Controls
 {
     partial class WordNotFoundItemControl
     {
@@ -46,26 +46,24 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(486, 53);
+            panel1.Size = new Size(790, 41);
             panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 3;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 304F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 58F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 514F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 57F));
             tableLayoutPanel1.Controls.Add(_label, 0, 0);
-            tableLayoutPanel1.Controls.Add(_loadButton, 1, 0);
+            tableLayoutPanel1.Controls.Add(_loadButton, 2, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 34F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(484, 51);
+            tableLayoutPanel1.Size = new Size(788, 39);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // _label
@@ -74,14 +72,14 @@
             _label.Dock = DockStyle.Fill;
             _label.Location = new Point(3, 0);
             _label.Name = "_label";
-            _label.Size = new Size(298, 34);
+            _label.Size = new Size(508, 34);
             _label.TabIndex = 0;
-            _label.Text = "Word not found in database";
+            _label.Text = "Word '{str}' not found in database, try load the word from sites";
             _label.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // _loadButton
             // 
-            _loadButton.Location = new Point(307, 3);
+            _loadButton.Location = new Point(734, 3);
             _loadButton.Name = "_loadButton";
             _loadButton.Size = new Size(51, 28);
             _loadButton.TabIndex = 1;
@@ -105,7 +103,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
             Name = "WordNotFoundItemControl";
-            Size = new Size(486, 53);
+            Size = new Size(790, 41);
             panel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();

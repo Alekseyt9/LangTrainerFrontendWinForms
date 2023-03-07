@@ -1,5 +1,5 @@
 ﻿
-namespace LangTrainerFrontendWinForms.Controls.Dictionary.Items
+namespace LangTrainerFrontendWinForms.Controls
 {
     public partial class WordNotFoundItemControl : UserControl
     {

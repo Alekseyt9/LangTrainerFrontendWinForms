@@ -1,7 +1,7 @@
 ﻿
 using LangTrainerServices.Services;
 
-namespace LangTrainerFrontendWinForms.Controls.Dictionary.Items
+namespace LangTrainerFrontendWinForms.Controls
 {
     public partial class AddWordItemControl : UserControl
     {

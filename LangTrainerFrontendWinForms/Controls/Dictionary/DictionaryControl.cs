@@ -1,7 +1,5 @@
 ﻿
-
-using LangTrainerFrontendWinForms.Controls.Dictionary;
-using LangTrainerFrontendWinForms.Controls.Dictionary.Items;
+using LangTrainerFrontendWinForms.Service;
 using LangTrainerServices.Services;
 
 namespace LangTrainerFrontendWinForms.Controls
@@ -13,15 +11,10 @@ namespace LangTrainerFrontendWinForms.Controls
             InitializeComponent();
         }
 
-        private void _searchTextTextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void ShowData(FindResult data)
         {
             _itemsTableLayout.Controls.Clear();
-            if (data.Items.Count == 0)
+            if (data.Items == null || data.Items.Count == 0)
             {
                 var ctr = new WordNotFoundItemControl();
                 ctr.Init(data.SearchString);
@@ -39,6 +32,13 @@ namespace LangTrainerFrontendWinForms.Controls
                 }
             }
 
+        }
+
+        private async void _searchTextTextChanged(object sender, EventArgs e)
+        {
+            var langServ = LangService.GetInstance();
+            var res = await langServ.FindInDictionary(_searchText.Text, null, null);
+            ShowData(res);
         }
 
     }

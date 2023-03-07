@@ -1,4 +1,4 @@
-﻿namespace LangTrainerFrontendWinForms.Controls.Dictionary.Items
+﻿namespace LangTrainerFrontendWinForms.Controls
 {
     partial class AddWordItemControl
     {

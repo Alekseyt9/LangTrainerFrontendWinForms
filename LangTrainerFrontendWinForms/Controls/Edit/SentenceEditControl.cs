@@ -27,7 +27,7 @@ namespace LangTrainerFrontendWinForms.Controls
 
         private async void SentenceControl1_OnLoadToken(object? sender, LoadTokenEventArgs e)
         {
-            var serv = new LangService();
+            var serv = LangService.GetInstance();
             var expr = await serv.GetTokenData(e.tokenInfo.Expression, e.tokenInfo.Language);
             InitForm(expr);
         }
