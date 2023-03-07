@@ -1,7 +1,7 @@
 ﻿
 
 using LangTrainerClientModel.Services;
-using LangTrainerEntity.Entities.Lang;
+using LangTrainerEntity.Entities;
 using LangTrainerFrontendWinForms.Controls.Edit.SentenceControl;
 using LangTrainerFrontendWinForms.Service;
 

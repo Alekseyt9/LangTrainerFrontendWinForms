@@ -1,5 +1,5 @@
 ﻿
-using LangTrainerEntity.Entities.Lang;
+using LangTrainerEntity.Entities;
 using LangTrainerFrontendWinForms.Controls.Edit;
 using LangTrainerFrontendWinForms.Controls.Edit.SentenceControl;
 using LangTrainerFrontendWinForms.Service;
@@ -8,7 +8,6 @@ namespace LangTrainerFrontendWinForms.Controls
 {
     public partial class SentenceEditControl : UserControl
     {
-        //public Expression Expr { get; set; }
         public event EventHandler<SentenceEditEventArgs> OnFormResult;
 
         public SentenceEditControl()

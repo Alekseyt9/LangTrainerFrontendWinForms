@@ -1,5 +1,6 @@
 ﻿
-using LangTrainerEntity.Entities.Lang;
+using LangTrainerCommon.Helpers;
+using LangTrainerEntity.Entities;
 using LangTrainerServices.Services;
 
 namespace LangTrainerFrontendWinForms.Service
@@ -7,7 +8,6 @@ namespace LangTrainerFrontendWinForms.Service
     internal class LangService
     {
         private static LangService instance;
-        private readonly HttpClient _client = new();
 
         private LangService()
         { }
@@ -23,27 +23,23 @@ namespace LangTrainerFrontendWinForms.Service
 
         public async Task<Expression> GetTokenData(string token, string lang)
         {
-            Expression obj = null;
-            var url = @$"https://localhost:44329/api/Lang/GetTokenData/?Expression={token}&Language={lang}";
-            var response = await _client.GetAsync(url);
-            if (response.IsSuccessStatusCode)
-            {
-                obj = await response.Content.ReadAsAsync<Expression>();
-            }
-            return obj;
+            return await WebClientHelper.Get<Expression>(@"https://localhost:44329/api/Lang/GetTokenData",
+                new Dictionary<string, object>()
+                {
+                    {"Expression", token},
+                    {"Language", lang}
+                });
         }
 
         public async Task<FindResult> FindInDictionary(string word, Guid? langId, Guid? trLangId)
         {
-            var url = @$"https://localhost:44329/api/lang/FindInDictionary/?SearchString={word}&LanguageId={langId}&TranslateLanguageId={trLangId}";
-            var response = await _client.GetAsync(url);
-            if (response.IsSuccessStatusCode)
-            {
-                var res = await response.Content.ReadAsAsync<FindResult>();
-                return res;
-            }
-
-            return null;
+            return await WebClientHelper.Get<FindResult>(@"https://localhost:44329/api/lang/FindInDictionary",
+                new Dictionary<string, object>()
+                {
+                    {"SearchString", word},
+                    {"LanguageId", langId},
+                    {"TranslateLanguageId", trLangId}
+                });
         }
 
     }

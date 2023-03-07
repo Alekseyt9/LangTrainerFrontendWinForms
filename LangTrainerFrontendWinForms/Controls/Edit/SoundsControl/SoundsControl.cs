@@ -1,5 +1,5 @@
 ﻿
-using LangTrainerEntity.Entities.Lang;
+using LangTrainerEntity.Entities;
 
 namespace LangTrainerFrontendWinForms.Controls
 {
