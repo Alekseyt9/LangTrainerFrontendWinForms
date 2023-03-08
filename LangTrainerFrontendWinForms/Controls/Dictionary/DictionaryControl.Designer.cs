@@ -44,6 +44,7 @@
             imageList1 = new ImageList(components);
             pictureBox1 = new PictureBox();
             _searchText = new TextBox();
+            _progressBar = new ProgressBar();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             toolStripProgressBar1 = new ToolStripProgressBar();
@@ -63,14 +64,16 @@
             tableLayoutPanel1.Controls.Add(panel1, 0, 2);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel3, 0, 0);
+            tableLayoutPanel1.Controls.Add(_progressBar, 0, 3);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 34F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 35F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 8F));
             tableLayoutPanel1.Size = new Size(699, 383);
             tableLayoutPanel1.TabIndex = 3;
             // 
@@ -81,7 +84,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 72);
             panel1.Name = "panel1";
-            panel1.Size = new Size(693, 308);
+            panel1.Size = new Size(693, 300);
             panel1.TabIndex = 4;
             // 
             // groupBox1
@@ -92,7 +95,7 @@
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
             groupBox1.RightToLeft = RightToLeft.No;
-            groupBox1.Size = new Size(693, 308);
+            groupBox1.Size = new Size(693, 300);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "SearchResult";
@@ -109,7 +112,7 @@
             _itemsTableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             _itemsTableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             _itemsTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            _itemsTableLayout.Size = new Size(687, 282);
+            _itemsTableLayout.Size = new Size(687, 274);
             _itemsTableLayout.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -236,6 +239,17 @@
             _searchText.TabIndex = 1;
             _searchText.TextChanged += searchTextTextChanged;
             // 
+            // _progressBar
+            // 
+            _progressBar.Dock = DockStyle.Fill;
+            _progressBar.Location = new Point(3, 378);
+            _progressBar.MarqueeAnimationSpeed = 30;
+            _progressBar.Name = "_progressBar";
+            _progressBar.Size = new Size(693, 2);
+            _progressBar.Step = 1;
+            _progressBar.Style = ProgressBarStyle.Continuous;
+            _progressBar.TabIndex = 8;
+            // 
             // statusStrip1
             // 
             statusStrip1.ImageScalingSize = new Size(24, 24);
@@ -305,5 +319,6 @@
         private PictureBox pictureBox1;
         private TextBox _searchText;
         private Button _clearButton;
+        private ProgressBar _progressBar;
     }
 }

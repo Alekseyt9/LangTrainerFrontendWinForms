@@ -1,5 +1,6 @@
 ﻿
 using LangTrainerClientModel.Services;
+using LangTrainerFrontendWinForms.Controls.Dictionary;
 using LangTrainerFrontendWinForms.Controls.Dictionary.Items;
 using LangTrainerFrontendWinForms.Helpers;
 using LangTrainerFrontendWinForms.Service;
@@ -10,10 +11,13 @@ namespace LangTrainerFrontendWinForms.Controls
 {
     public partial class DictionaryControl : UserControl
     {
+        private ProgressService _prServ;
+
         public DictionaryControl()
         {
             InitializeComponent();
             Init();
+            _prServ = new ProgressService(_progressBar);
         }
 
         private void Init()
@@ -93,6 +97,8 @@ namespace LangTrainerFrontendWinForms.Controls
         {
             if (!string.IsNullOrEmpty(_searchText.Text))
             {
+                _prServ.Switch(true);
+
                 var langServ = LangService.GetInstance();
                 var res = await langServ.LoadInBase(
                     new WordInfo(_searchText.Text, e.LanguageId));
@@ -104,6 +110,7 @@ namespace LangTrainerFrontendWinForms.Controls
                 else
                 {
                     NotifyService.GetInstance().ShowMessage("Word not found");
+                    _prServ.Switch(false);
                 }
             }
         }
@@ -115,11 +122,14 @@ namespace LangTrainerFrontendWinForms.Controls
                 var langServ = LangService.GetInstance();
                 var res = await langServ.FindInDictionary(str, null, null);
                 ShowData(res);
+                _prServ.Switch(false);
             }
         }
 
         private async void searchTextTextChanged(object sender, EventArgs e)
         {
+            _prServ.Switch(true);
+
             await GetDataAndShow(_searchText.Text);
         }
 

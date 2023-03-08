@@ -25,13 +25,18 @@ namespace LangTrainerFrontendWinForms.Controls
 
         public void Init(string str)
         {
-            _label.Text = $"Word '{str}' not found in database, try load the word from sites";
+            _label.Text = $"Word '{str}' not found in database";
         }
 
         private void loadButtonClick(object sender, EventArgs e)
         {
             if (OnLoadWordClick != null)
             {
+                if (_languageCombo.SelectedIndex < 0)
+                {
+                    return;
+                }
+
                 var item = (ComboboxItem)_languageCombo.Items[_languageCombo.SelectedIndex];
                 OnLoadWordClick(this, new OnLoadWordEventArgs()
                 {

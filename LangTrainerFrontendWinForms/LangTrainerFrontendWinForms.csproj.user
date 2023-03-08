@@ -10,6 +10,9 @@
     <Compile Update="Controls\Dictionary\Items\WordNotFoundItemControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\Dictionary\SplitButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Controls\Edit\SamplesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
