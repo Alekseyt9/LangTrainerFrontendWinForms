@@ -34,6 +34,7 @@
             trainingControl1 = new Controls.Training.TrainingControl();
             _tabControl = new TabControl();
             tabPage7 = new TabPage();
+            wordListControl1 = new Controls.WordList.WordListControl();
             trainerPage = new TabPage();
             dictionaryPage = new TabPage();
             dictionaryControl1 = new Controls.DictionaryControl();
@@ -49,7 +50,7 @@
             trainingMenuItem = new ToolStripMenuItem();
             tasksToolStripMenuItem = new ToolStripMenuItem();
             tasksMenuItem1 = new ToolStripMenuItem();
-            wordListControl1 = new Controls.WordList.WordListControl();
+            notifyIcon1 = new NotifyIcon(components);
             tableLayoutPanel3.SuspendLayout();
             _tabControl.SuspendLayout();
             tabPage7.SuspendLayout();
@@ -110,6 +111,14 @@
             tabPage7.TabIndex = 1;
             tabPage7.Text = "Login";
             tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // wordListControl1
+            // 
+            wordListControl1.Dock = DockStyle.Fill;
+            wordListControl1.Location = new Point(2, 2);
+            wordListControl1.Name = "wordListControl1";
+            wordListControl1.Size = new Size(728, 418);
+            wordListControl1.TabIndex = 0;
             // 
             // trainerPage
             // 
@@ -249,13 +258,10 @@
             tasksMenuItem1.Text = "Tasks";
             tasksMenuItem1.Click += TasksMenuItem1Click;
             // 
-            // wordListControl1
+            // notifyIcon1
             // 
-            wordListControl1.Dock = DockStyle.Fill;
-            wordListControl1.Location = new Point(2, 2);
-            wordListControl1.Name = "wordListControl1";
-            wordListControl1.Size = new Size(728, 418);
-            wordListControl1.TabIndex = 0;
+            notifyIcon1.Text = "notifyIcon1";
+            notifyIcon1.Visible = true;
             // 
             // FormMain
             // 
@@ -304,5 +310,6 @@
         private TabPage wordListPage;
         private ToolStripMenuItem wordListMenuItem;
         private Controls.WordList.WordListControl wordListControl1;
+        private NotifyIcon notifyIcon1;
     }
 }

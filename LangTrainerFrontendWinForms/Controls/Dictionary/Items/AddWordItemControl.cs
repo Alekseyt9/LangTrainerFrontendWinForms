@@ -29,7 +29,10 @@ namespace LangTrainerFrontendWinForms.Controls
 
         private void _addWordButtonClick(object sender, EventArgs e)
         {
-            OnAddWordClick(this, EventArgs.Empty);
+            if (OnAddWordClick != null)
+            {
+                OnAddWordClick(this, EventArgs.Empty);
+            }
         }
 
     }

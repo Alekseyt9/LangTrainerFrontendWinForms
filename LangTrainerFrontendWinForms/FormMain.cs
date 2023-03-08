@@ -1,9 +1,9 @@
 
 using LangTrainerClientModel.Model;
 using LangTrainerClientModel.Model.Training;
-using LangTrainerFrontendWinForms.Controllers;
 using LangTrainerFrontendWinForms.Controls.Training.ExStart;
 using LangTrainerFrontendWinForms.Helpers;
+using LangTrainerFrontendWinForms.Services;
 
 namespace LangTrainerFrontendWinForms
 {
@@ -12,6 +12,8 @@ namespace LangTrainerFrontendWinForms
         public FormMain()
         {
             InitializeComponent();
+
+            NotifyService.GetInstance().Init(notifyIcon1);
 
             Load += FormMainLoad;
             KeyPreview = true;

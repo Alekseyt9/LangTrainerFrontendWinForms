@@ -27,16 +27,16 @@ namespace LangTrainerFrontendWinForms.Controls
             if (string.IsNullOrEmpty(_text.Text) || string.IsNullOrEmpty(_lang.Text))
                 return;
 
+            var langItem = (ComboboxItem)_lang.Items[_lang.SelectedIndex];
+
             var serv = LangService.GetInstance();
-            var expr = await serv.GetTokenData(_text.Text, _lang.Text);
+            var expr = await serv.GetTokenData(_text.Text, (Guid)langItem.Value);
+
+            var item = (ComboboxItem)_lang.Items[_lang.SelectedIndex];
 
             OnLoadToken(this, new LoadTokenEventArgs()
             {
-                tokenInfo = new TokenInfo()
-                {
-                    Expression = _text.Text,
-                    Language = _lang.Text
-                }
+                wordInfo = new WordInfo(_text.Text, (Guid)item.Value)
             });
         }
 

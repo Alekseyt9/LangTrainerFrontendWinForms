@@ -203,7 +203,7 @@
             _clearButton.Size = new Size(29, 30);
             _clearButton.TabIndex = 5;
             _clearButton.UseVisualStyleBackColor = true;
-            _clearButton.Click += _clearButtonClick;
+            _clearButton.Click += clearButtonClick;
             // 
             // imageList1
             // 
@@ -234,7 +234,7 @@
             _searchText.Name = "_searchText";
             _searchText.Size = new Size(627, 27);
             _searchText.TabIndex = 1;
-            _searchText.TextChanged += _searchTextTextChanged;
+            _searchText.TextChanged += searchTextTextChanged;
             // 
             // statusStrip1
             // 

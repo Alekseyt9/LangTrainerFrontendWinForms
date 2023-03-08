@@ -1,6 +1,9 @@
 ﻿
+using LangTrainerClientModel.Services;
+using LangTrainerFrontendWinForms.Controls.Dictionary.Items;
 using LangTrainerFrontendWinForms.Helpers;
 using LangTrainerFrontendWinForms.Service;
+using LangTrainerFrontendWinForms.Services;
 using LangTrainerServices.Services;
 
 namespace LangTrainerFrontendWinForms.Controls
@@ -10,7 +13,6 @@ namespace LangTrainerFrontendWinForms.Controls
         public DictionaryControl()
         {
             InitializeComponent();
-
             Init();
         }
 
@@ -70,6 +72,7 @@ namespace LangTrainerFrontendWinForms.Controls
                 ctr.Dock = DockStyle.Fill;
                 ctr.Init(data.SearchString);
                 _itemsTableLayout.Controls.Add(ctr);
+                ctr.OnLoadWordClick += OnLoadWordClick;
             }
             else
             {
@@ -86,17 +89,41 @@ namespace LangTrainerFrontendWinForms.Controls
 
         }
 
-        private async void _searchTextTextChanged(object sender, EventArgs e)
+        private async void OnLoadWordClick(object? sender, OnLoadWordEventArgs e)
         {
-            var langServ = LangService.GetInstance();
             if (!string.IsNullOrEmpty(_searchText.Text))
             {
-                var res = await langServ.FindInDictionary(_searchText.Text, null, null);
+                var langServ = LangService.GetInstance();
+                var res = await langServ.LoadInBase(
+                    new WordInfo(_searchText.Text, e.LanguageId));
+                if (res.WordFound)
+                {
+                    NotifyService.GetInstance().ShowMessage("Word found");
+                    await GetDataAndShow(_searchText.Text);
+                }
+                else
+                {
+                    NotifyService.GetInstance().ShowMessage("Word not found");
+                }
+            }
+        }
+
+        private async Task GetDataAndShow(string str)
+        {
+            if (!string.IsNullOrEmpty(str))
+            {
+                var langServ = LangService.GetInstance();
+                var res = await langServ.FindInDictionary(str, null, null);
                 ShowData(res);
             }
         }
 
-        private void _clearButtonClick(object sender, EventArgs e)
+        private async void searchTextTextChanged(object sender, EventArgs e)
+        {
+            await GetDataAndShow(_searchText.Text);
+        }
+
+        private void clearButtonClick(object sender, EventArgs e)
         {
             _itemsTableLayout.Controls.Clear();
             _searchText.Text = null;
