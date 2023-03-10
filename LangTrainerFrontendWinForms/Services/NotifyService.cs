@@ -1,4 +1,5 @@
 ﻿
+using LangTrainerCommon.Helpers;
 
 namespace LangTrainerFrontendWinForms.Services
 {
@@ -6,14 +7,16 @@ namespace LangTrainerFrontendWinForms.Services
     {
         private static NotifyService instance;
 
-        private NotifyIcon _ctr;
+        private ToolTip _ctr;
+        private Form _form;
 
         private NotifyService()
         { }
 
-        public void Init(NotifyIcon ctr)
+        public void Init(Form form, ToolTip ctr)
         {
             _ctr = ctr;
+            _form = form;
         }
 
         public static NotifyService GetInstance()
@@ -25,10 +28,20 @@ namespace LangTrainerFrontendWinForms.Services
             return instance;
         }
 
-        public void ShowMessage(string msg)
+        private Size GetTextSize(string msg)
         {
-            _ctr.Text = msg;
-            _ctr.ShowBalloonTip(3, "", msg, ToolTipIcon.Info);
+            var size = TextRenderer.MeasureText(msg, SystemFonts.MessageBoxFont);
+            return new Size((int)(size.Width * 0.5), (int)(size.Height * 0.5));
+        }
+
+        public void ShowMessage(string msg, float vertScale = 0.5f)
+        {
+            _form.Invoke(() =>
+            {
+                var wText = StringHelper.WrapText(msg, 50);
+                var point = new Point((int)(_form.Width * 0.5), (int)(_form.Height * vertScale)) - GetTextSize(wText);
+                _ctr.Show(wText, _form, point, 3000);
+            });
         }
 
     }

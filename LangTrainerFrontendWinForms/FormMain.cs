@@ -13,14 +13,16 @@ namespace LangTrainerFrontendWinForms
         {
             InitializeComponent();
 
-            NotifyService.GetInstance().Init(notifyIcon1);
+            NotifyService.GetInstance().Init(this, toolTip1);
 
             Load += FormMainLoad;
             KeyPreview = true;
             KeyDown += FormMainKeyDown;
 
             _tabControl.HideHeader();
-            _tabControl.SetPage("dictionaryPage");
+
+            //_tabControl.SetPage("dictionaryPage");
+            _tabControl.SetPage("loginPage");
         }
 
         private void FormMainKeyDown(object? sender, KeyEventArgs e)
@@ -113,6 +115,11 @@ namespace LangTrainerFrontendWinForms
         private void wordListMenuItem_Click(object sender, EventArgs e)
         {
             _tabControl.SetPage("wordListPage");
+        }
+
+        private void toolTipTestMenuItem_Click(object sender, EventArgs e)
+        {
+            NotifyService.GetInstance().ShowMessage("Test");
         }
 
     }

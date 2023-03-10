@@ -22,6 +22,8 @@ namespace LangTrainerFrontendWinForms.Controls
 
         private void Init()
         {
+
+
             AsyncHelper.DoAsync(_langFilterCombo, () =>
                 {
                     var res = LangService.GetInstance().GetLanguages().Result;
@@ -29,6 +31,10 @@ namespace LangTrainerFrontendWinForms.Controls
                 },
                 (ctr, data) =>
                 {
+                    if (data == null)
+                    {
+                        return;
+                    }
                     Invoke(() =>
                     {
                         ctr.Items.Clear();
@@ -51,6 +57,10 @@ namespace LangTrainerFrontendWinForms.Controls
                 },
                 (ctr, data) =>
                 {
+                    if (data == null)
+                    {
+                        return;
+                    }
                     Invoke(() =>
                     {
                         ctr.Items.Clear();
@@ -119,10 +129,17 @@ namespace LangTrainerFrontendWinForms.Controls
         {
             if (!string.IsNullOrEmpty(str))
             {
-                var langServ = LangService.GetInstance();
-                var res = await langServ.FindInDictionary(str, null, null);
-                ShowData(res);
-                _prServ.Switch(false);
+                try
+                {
+                    var langServ = LangService.GetInstance();
+                    var res = await langServ.FindInDictionary(str, null, null);
+                    ShowData(res);
+                    _prServ.Switch(false);
+                }
+                catch (Exception ex) 
+                {
+                    NotifyService.GetInstance().ShowMessage(ex.Message);
+                }
             }
         }
 
