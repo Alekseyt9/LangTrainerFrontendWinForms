@@ -145,7 +145,7 @@
             MaximumSize = new Size(331, 167);
             MinimumSize = new Size(331, 167);
             Name = "RecoveryForm";
-            Text = "RecoveryForm";
+            Text = "Password recovery";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);

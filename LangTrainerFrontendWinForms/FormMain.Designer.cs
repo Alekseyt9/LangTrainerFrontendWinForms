@@ -34,7 +34,7 @@
             trainingControl1 = new Controls.Training.TrainingControl();
             _tabControl = new TabControl();
             loginPage = new TabPage();
-            loginControl1 = new Controls.Login.LoginControl();
+            _loginControl = new Controls.Login.LoginControl();
             wordListControl1 = new Controls.WordList.WordListControl();
             trainerPage = new TabPage();
             dictionaryPage = new TabPage();
@@ -74,7 +74,7 @@
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 49F));
-            tableLayoutPanel3.Size = new Size(728, 418);
+            tableLayoutPanel3.Size = new Size(188, 63);
             tableLayoutPanel3.TabIndex = 2;
             // 
             // trainingControl1
@@ -82,7 +82,7 @@
             trainingControl1.Dock = DockStyle.Fill;
             trainingControl1.Location = new Point(3, 3);
             trainingControl1.Name = "trainingControl1";
-            trainingControl1.Size = new Size(722, 412);
+            trainingControl1.Size = new Size(182, 57);
             trainingControl1.TabIndex = 0;
             // 
             // _tabControl
@@ -103,7 +103,7 @@
             // 
             // loginPage
             // 
-            loginPage.Controls.Add(loginControl1);
+            loginPage.Controls.Add(_loginControl);
             loginPage.Controls.Add(wordListControl1);
             loginPage.Location = new Point(4, 29);
             loginPage.Margin = new Padding(2);
@@ -114,13 +114,13 @@
             loginPage.Text = "Login";
             loginPage.UseVisualStyleBackColor = true;
             // 
-            // loginControl1
+            // _loginControl
             // 
-            loginControl1.Dock = DockStyle.Fill;
-            loginControl1.Location = new Point(2, 2);
-            loginControl1.Name = "loginControl1";
-            loginControl1.Size = new Size(728, 418);
-            loginControl1.TabIndex = 1;
+            _loginControl.Dock = DockStyle.Fill;
+            _loginControl.Location = new Point(2, 2);
+            _loginControl.Name = "_loginControl";
+            _loginControl.Size = new Size(728, 418);
+            _loginControl.TabIndex = 1;
             // 
             // wordListControl1
             // 
@@ -137,7 +137,7 @@
             trainerPage.Margin = new Padding(2);
             trainerPage.Name = "trainerPage";
             trainerPage.Padding = new Padding(2);
-            trainerPage.Size = new Size(732, 422);
+            trainerPage.Size = new Size(192, 67);
             trainerPage.TabIndex = 0;
             trainerPage.Text = "Trainer";
             trainerPage.UseVisualStyleBackColor = true;
@@ -148,7 +148,7 @@
             dictionaryPage.Location = new Point(4, 29);
             dictionaryPage.Margin = new Padding(2);
             dictionaryPage.Name = "dictionaryPage";
-            dictionaryPage.Size = new Size(732, 422);
+            dictionaryPage.Size = new Size(192, 67);
             dictionaryPage.TabIndex = 2;
             dictionaryPage.Text = "Dictionary";
             dictionaryPage.UseVisualStyleBackColor = true;
@@ -159,7 +159,7 @@
             dictionaryControl1.Location = new Point(0, 0);
             dictionaryControl1.Margin = new Padding(2);
             dictionaryControl1.Name = "dictionaryControl1";
-            dictionaryControl1.Size = new Size(732, 422);
+            dictionaryControl1.Size = new Size(192, 67);
             dictionaryControl1.TabIndex = 0;
             // 
             // tabPage9
@@ -168,7 +168,7 @@
             tabPage9.Location = new Point(4, 29);
             tabPage9.Margin = new Padding(2);
             tabPage9.Name = "tabPage9";
-            tabPage9.Size = new Size(732, 422);
+            tabPage9.Size = new Size(192, 67);
             tabPage9.TabIndex = 3;
             tabPage9.Text = "EditSentence";
             tabPage9.UseVisualStyleBackColor = true;
@@ -179,7 +179,7 @@
             sentenceEditControl1.Location = new Point(0, 0);
             sentenceEditControl1.Margin = new Padding(0);
             sentenceEditControl1.Name = "sentenceEditControl1";
-            sentenceEditControl1.Size = new Size(732, 422);
+            sentenceEditControl1.Size = new Size(192, 67);
             sentenceEditControl1.TabIndex = 0;
             // 
             // taskPage
@@ -188,7 +188,7 @@
             taskPage.Location = new Point(4, 29);
             taskPage.Margin = new Padding(2);
             taskPage.Name = "taskPage";
-            taskPage.Size = new Size(732, 422);
+            taskPage.Size = new Size(192, 67);
             taskPage.TabIndex = 4;
             taskPage.Text = "Tasks";
             taskPage.UseVisualStyleBackColor = true;
@@ -199,14 +199,14 @@
             tasksControl1.Location = new Point(0, 0);
             tasksControl1.Margin = new Padding(2, 2, 2, 2);
             tasksControl1.Name = "tasksControl1";
-            tasksControl1.Size = new Size(732, 422);
+            tasksControl1.Size = new Size(192, 67);
             tasksControl1.TabIndex = 0;
             // 
             // wordListPage
             // 
             wordListPage.Location = new Point(4, 29);
             wordListPage.Name = "wordListPage";
-            wordListPage.Size = new Size(732, 422);
+            wordListPage.Size = new Size(192, 67);
             wordListPage.TabIndex = 5;
             wordListPage.Text = "Word list";
             wordListPage.UseVisualStyleBackColor = true;
@@ -280,7 +280,8 @@
             Margin = new Padding(2);
             MinimumSize = new Size(559, 487);
             Name = "FormMain";
-            Text = "LangTrainer";
+            Text = "Language trainer";
+            base.FormClosed += FormClosed;
             tableLayoutPanel3.ResumeLayout(false);
             _tabControl.ResumeLayout(false);
             loginPage.ResumeLayout(false);
@@ -316,6 +317,6 @@
         private ToolStripMenuItem wordListMenuItem;
         private Controls.WordList.WordListControl wordListControl1;
         private ToolTip toolTip1;
-        private Controls.Login.LoginControl loginControl1;
+        private Controls.Login.LoginControl _loginControl;
     }
 }

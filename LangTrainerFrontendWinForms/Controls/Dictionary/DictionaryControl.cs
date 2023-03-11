@@ -22,8 +22,6 @@ namespace LangTrainerFrontendWinForms.Controls
 
         private void Init()
         {
-
-
             AsyncHelper.DoAsync(_langFilterCombo, () =>
                 {
                     var res = LangService.GetInstance().GetLanguages().Result;

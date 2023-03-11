@@ -1,5 +1,6 @@
 ﻿
 using LangTrainerFrontendWinForms.Controls.Dictionary.Items;
+using LangTrainerFrontendWinForms.Helpers;
 using LangTrainerFrontendWinForms.Service;
 
 namespace LangTrainerFrontendWinForms.Controls
@@ -12,15 +13,32 @@ namespace LangTrainerFrontendWinForms.Controls
         {
             InitializeComponent();
 
-            var langs = LangService.GetInstance().GetLanguages().Result;
-            foreach (var lang in langs)
-            {
-                _languageCombo.Items.Add(new ComboboxItem()
+            AsyncHelper.DoAsync(_languageCombo, () =>
                 {
-                    Text = lang.Name,
-                    Value = lang.Id
-                });
-            }
+                    var res = LangService.GetInstance().GetLanguages().Result;
+                    return res;
+                },
+                (ctr, data) =>
+                {
+                    if (data == null)
+                    {
+                        return;
+                    }
+                    Invoke(() =>
+                    {
+                        ctr.Items.Clear();
+                        foreach (var lang in data)
+                        {
+                            _languageCombo.Items.Add(new ComboboxItem()
+                            {
+                                Text = lang.Name,
+                                Value = lang.Id
+                            });
+                        }
+                    });
+                }
+            );
+
         }
 
         public void Init(string str)

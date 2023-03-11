@@ -34,7 +34,7 @@ namespace LangTrainerFrontendWinForms.Services
             return new Size((int)(size.Width * 0.5), (int)(size.Height * 0.5));
         }
 
-        public void ShowMessage(string msg, float vertScale = 0.5f)
+        public void ShowMessage(string msg, float vertScale = 0.7f)
         {
             _form.Invoke(() =>
             {

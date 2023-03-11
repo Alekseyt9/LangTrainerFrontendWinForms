@@ -1,15 +1,15 @@
 ﻿
 using LangTrainerClientModel.Services;
 using LangTrainerClientModel.Services.LangService;
-using LangTrainerCommon.Helpers;
 using LangTrainerEntity.Entities;
+using LangTrainerFrontendWinForms.Services;
 using LangTrainerServices.Services;
 
 namespace LangTrainerFrontendWinForms.Service
 {
     internal class LangService
     {
-        private static LangService instance;
+        private static LangService _instance;
 
         private List<Language> m_Langs;
         private List<Language> m_TrLangs;
@@ -18,16 +18,16 @@ namespace LangTrainerFrontendWinForms.Service
 
         public static LangService GetInstance()
         {
-            if (instance == null)
+            if (_instance == null)
             {
-                instance = new LangService();
+                _instance = new LangService();
             }
-            return instance;
+            return _instance;
         }
 
         public async Task<Expression> GetTokenData(string token, Guid langId)
         {
-            return await WebClientHelper.Get<Expression>(@"https://localhost:44329/api/Dictionary/GetTokenData",
+            return await HttpClientService.GetInstance().Get<Expression>(@"https://localhost:44329/api/Dictionary/GetTokenData",
                 new Dictionary<string, object>()
                 {
                     {"Expression", token},
@@ -37,7 +37,7 @@ namespace LangTrainerFrontendWinForms.Service
 
         public async Task<FindResult> FindInDictionary(string word, Guid? langId, Guid? trLangId)
         {
-            return await WebClientHelper.Get<FindResult>(@"https://localhost:44329/api/Dictionary/FindInDictionary",
+            return await HttpClientService.GetInstance().Get<FindResult>(@"https://localhost:44329/api/Dictionary/FindInDictionary",
                 new Dictionary<string, object>()
                 {
                     {"SearchString", word},
@@ -50,7 +50,7 @@ namespace LangTrainerFrontendWinForms.Service
         {
             if (m_Langs == null)
             {
-                m_Langs = await WebClientHelper.Get<List<Language>>(@"https://localhost:44329/api/Dictionary/GetLanguages");
+                m_Langs = await HttpClientService.GetInstance().Get<List<Language>>(@"https://localhost:44329/api/Dictionary/GetLanguages");
             }
             return m_Langs;
         }
@@ -59,14 +59,14 @@ namespace LangTrainerFrontendWinForms.Service
         {
             if (m_TrLangs == null)
             {
-                m_TrLangs = await WebClientHelper.Get<List<Language>>(@"https://localhost:44329/api/Dictionary/GetTranslateLanguages");
+                m_TrLangs = await HttpClientService.GetInstance().Get<List<Language>>(@"https://localhost:44329/api/Dictionary/GetTranslateLanguages");
             }
             return m_TrLangs;
         }
 
         public async Task<LoadResult> LoadInBase(WordInfo data)
         {
-            return await WebClientHelper.Get<LoadResult>(@"https://localhost:44329/api/Dictionary/LoadInBase",
+            return await HttpClientService.GetInstance().Get<LoadResult>(@"https://localhost:44329/api/Dictionary/LoadInBase",
                 new Dictionary<string, object>()
                 {
                     { "Expression", data.Expression },

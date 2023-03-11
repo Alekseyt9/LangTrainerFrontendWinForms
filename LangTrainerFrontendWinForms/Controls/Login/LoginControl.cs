@@ -7,6 +7,8 @@ namespace LangTrainerFrontendWinForms.Controls.Login
 {
     public partial class LoginControl : UserControl
     {
+        public event EventHandler<LoginResultEventArgs> OnLoginResult; 
+
         public LoginControl()
         {
             InitializeComponent();
@@ -26,16 +28,33 @@ namespace LangTrainerFrontendWinForms.Controls.Login
             form.ShowDialog();
         }
 
-        private void loginButtonClick(object sender, EventArgs e)
+        private async void loginButtonClick(object sender, EventArgs e)
         {
             try
             {
-                UserService.GetInstance().Login(_loginText.Text, _passwordText.Text);
+                var res = await UserService.GetInstance().Login(_loginText.Text, _passwordText.Text);
+                if (OnLoginResult != null)
+                {
+                    OnLoginResult(this, new LoginResultEventArgs()
+                    {
+                        IsSuccess = res
+                    });
+                }
             }
             catch (Exception ex)
             {
                 NotifyService.GetInstance().ShowMessage(ex.Message, 0.7f);
             }
+        }
+
+        public void InitSettings(Settings settings)
+        {
+            _loginText.Text = settings.Get<string>(SettingsKeys.Login);
+        }
+
+        public void SaveSettings(Settings settings)
+        {
+            settings.Set(SettingsKeys.Login, _loginText.Text);
         }
 
     }

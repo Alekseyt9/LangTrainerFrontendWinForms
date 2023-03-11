@@ -9,10 +9,14 @@ namespace LangTrainerFrontendWinForms
 {
     public partial class FormMain : Form
     {
+        private Settings _localSettings;
+        private Settings _remoteSettings;
+
         public FormMain()
         {
             InitializeComponent();
 
+            LoadSettings();
             NotifyService.GetInstance().Init(this, toolTip1);
 
             Load += FormMainLoad;
@@ -23,6 +27,36 @@ namespace LangTrainerFrontendWinForms
 
             //_tabControl.SetPage("dictionaryPage");
             _tabControl.SetPage("loginPage");
+
+            LoginEnabled(false);
+            _loginControl.OnLoginResult += loginControlOnLoginResult;
+        }
+
+        private void loginControlOnLoginResult(object? sender, Controls.Login.LoginResultEventArgs e)
+        {
+            if (e.IsSuccess)
+            {
+                LoginEnabled(true);
+            }
+        }
+
+        private void LoginEnabled(bool flag)
+        {
+            menuStrip1.Enabled = flag;
+        }
+
+        private void LoadSettings()
+        {
+            _localSettings = SettingsService.GetInstance().GetLocalSettings();
+            _loginControl.InitSettings(_localSettings);
+        }
+
+        private void SaveSettings()
+        {
+            _loginControl.SaveSettings(_localSettings);
+
+            SettingsService.GetInstance().SaveLocalSettings(_localSettings);
+            SettingsService.GetInstance().SaveRemoteSettings(_remoteSettings);
         }
 
         private void FormMainKeyDown(object? sender, KeyEventArgs e)
@@ -120,6 +154,11 @@ namespace LangTrainerFrontendWinForms
         private void toolTipTestMenuItem_Click(object sender, EventArgs e)
         {
             NotifyService.GetInstance().ShowMessage("Test");
+        }
+
+        private void FormClosed(object sender, FormClosedEventArgs e)
+        {
+            SaveSettings();
         }
 
     }
