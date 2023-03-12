@@ -53,7 +53,7 @@ namespace LangTrainerFrontendWinForms.Services
 
         public void Set(string key, object value)
         {
-            _data.Add(key, value.ToString());
+            _data[key] = value.ToString();
         }
 
         public object Get(string key)

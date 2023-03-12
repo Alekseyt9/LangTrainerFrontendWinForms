@@ -81,28 +81,30 @@ namespace LangTrainerFrontendWinForms.Controls
 
         private void ShowData(FindResult data)
         {
-            _itemsTableLayout.Controls.Clear();
-            if (data.Items == null || data.Items.Count == 0)
+            Invoke(() =>
             {
-                var ctr = new WordNotFoundItemControl();
-                ctr.Dock = DockStyle.Fill;
-                ctr.Init(data.SearchString);
-                _itemsTableLayout.Controls.Add(ctr);
-                ctr.OnLoadWordClick += OnLoadWordClick;
-            }
-            else
-            {
-                var i = 0;
-                foreach (var item in data.Items)
+                _itemsTableLayout.Controls.Clear();
+                if (data.Items == null || data.Items.Count == 0)
                 {
-                    var ctr = new AddWordItemControl();
+                    var ctr = new WordNotFoundItemControl();
                     ctr.Dock = DockStyle.Fill;
-                    ctr.Init(item);
+                    ctr.Init(data.SearchString);
                     _itemsTableLayout.Controls.Add(ctr);
-                    _itemsTableLayout.SetRow(ctr, i++);
+                    ctr.OnLoadWordClick += OnLoadWordClick;
                 }
-            }
-
+                else
+                {
+                    var i = 0;
+                    foreach (var item in data.Items)
+                    {
+                        var ctr = new AddWordItemControl();
+                        ctr.Dock = DockStyle.Fill;
+                        ctr.Init(item);
+                        _itemsTableLayout.Controls.Add(ctr);
+                        _itemsTableLayout.SetRow(ctr, i++);
+                    }
+                }
+            });
         }
 
         private async void OnLoadWordClick(object? sender, OnLoadWordEventArgs e)
