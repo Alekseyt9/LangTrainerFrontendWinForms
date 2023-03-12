@@ -11,16 +11,18 @@ namespace LangTrainerFrontendWinForms.Controls
 {
     public partial class DictionaryControl : UserControl
     {
-        private ProgressService _prServ;
+        private readonly ProgressService _prServ;
+
+        private Guid? _initialFilterLangId;
+        private Guid? _initialFilterTrLangId;
 
         public DictionaryControl()
         {
             InitializeComponent();
-            Init();
             _prServ = new ProgressService(_progressBar);
         }
 
-        private void Init()
+        public void Init()
         {
             AsyncHelper.DoAsync(_langFilterCombo, () =>
                 {
@@ -44,6 +46,7 @@ namespace LangTrainerFrontendWinForms.Controls
                                 Value = item.Id
                             });
                         }
+                        InitFilters();
                     });
                 }
             );
@@ -70,6 +73,7 @@ namespace LangTrainerFrontendWinForms.Controls
                                 Value = item.Id
                             });
                         }
+                        InitFilters();
                     });
                 }
             );
@@ -152,6 +156,45 @@ namespace LangTrainerFrontendWinForms.Controls
         {
             _itemsTableLayout.Controls.Clear();
             _searchText.Text = null;
+        }
+
+        public void InitSettings(Settings settings)
+        {
+            _initialFilterLangId = settings.Get<Guid?>(SettingsKeys.DictionaryFilterLangId);
+            _initialFilterTrLangId = settings.Get<Guid?>(SettingsKeys.DictionaryFilterTrLangId);
+            InitFilters();
+        }
+
+        private void InitFilters()
+        {
+            if (_initialFilterLangId.HasValue && _langFilterCombo.Items.Count > 0)
+            {
+                var item = _langFilterCombo.Items.Cast<ComboboxItem>()
+                    .First(x => (Guid)x.Value == _initialFilterLangId);
+                _langFilterCombo.SelectedItem = item;
+            }
+
+            if (_initialFilterTrLangId.HasValue && _trLangFilterCombo.Items.Count > 0)
+            {
+                var item = _trLangFilterCombo.Items.Cast<ComboboxItem>()
+                    .First(x => (Guid)x.Value == _initialFilterTrLangId);
+                _trLangFilterCombo.SelectedItem = item;
+            }
+        }
+
+        public void SaveSettings(Settings settings)
+        {
+            if (_langFilterCombo.SelectedItem != null)
+            {
+                var item = (ComboboxItem)_langFilterCombo.SelectedItem;
+                settings.Set(SettingsKeys.DictionaryFilterLangId, item.Value);
+            }
+
+            if (_trLangFilterCombo.SelectedItem != null)
+            {
+                var item = (ComboboxItem)_trLangFilterCombo.SelectedItem;
+                settings.Set(SettingsKeys.DictionaryFilterTrLangId, item.Value);
+            }
         }
 
     }

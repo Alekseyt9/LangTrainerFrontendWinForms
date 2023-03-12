@@ -7,7 +7,7 @@ namespace LangTrainerFrontendWinForms.Controls.Login
 {
     public partial class LoginControl : UserControl
     {
-        public event EventHandler<LoginResultEventArgs> OnLoginResult; 
+        public event EventHandler<LoginResultEventArgs> OnLoginResult;
 
         public LoginControl()
         {
@@ -55,6 +55,18 @@ namespace LangTrainerFrontendWinForms.Controls.Login
         public void SaveSettings(Settings settings)
         {
             settings.Set(SettingsKeys.Login, _loginText.Text);
+        }
+
+        private void _passMaskButton_Click(object sender, EventArgs e)
+        {
+            if (_passwordText.PasswordChar == '\0')
+            {
+                _passwordText.PasswordChar = '*';
+            }
+            else
+            {
+                _passwordText.PasswordChar = '\0';
+            }
         }
 
     }

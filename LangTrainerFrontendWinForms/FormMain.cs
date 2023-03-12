@@ -16,7 +16,7 @@ namespace LangTrainerFrontendWinForms
         {
             InitializeComponent();
 
-            LoadSettings();
+            LoadLocalSettings();
             NotifyService.GetInstance().Init(this, toolTip1);
 
             Load += FormMainLoad;
@@ -24,20 +24,27 @@ namespace LangTrainerFrontendWinForms
             KeyDown += FormMainKeyDown;
 
             _tabControl.HideHeader();
-
-            //_tabControl.SetPage("dictionaryPage");
             _tabControl.SetPage("loginPage");
 
             LoginEnabled(false);
             _loginControl.OnLoginResult += loginControlOnLoginResult;
         }
 
-        private void loginControlOnLoginResult(object? sender, Controls.Login.LoginResultEventArgs e)
+        private async void loginControlOnLoginResult(object? sender, Controls.Login.LoginResultEventArgs e)
         {
             if (e.IsSuccess)
             {
+                await LoadRemoteSettings();
                 LoginEnabled(true);
+                _tabControl.SetPage("dictionaryPage");
+                _dictionaryControl.Init();
+                _dictionaryControl.InitSettings(_remoteSettings);
             }
+        }
+
+        private async Task LoadRemoteSettings()
+        {
+            _remoteSettings = await SettingsService.GetInstance().GetRemoteSettings();
         }
 
         private void LoginEnabled(bool flag)
@@ -45,18 +52,19 @@ namespace LangTrainerFrontendWinForms
             menuStrip1.Enabled = flag;
         }
 
-        private void LoadSettings()
+        private void LoadLocalSettings()
         {
             _localSettings = SettingsService.GetInstance().GetLocalSettings();
             _loginControl.InitSettings(_localSettings);
         }
 
-        private void SaveSettings()
+        private async Task SaveSettings()
         {
             _loginControl.SaveSettings(_localSettings);
+            _dictionaryControl.SaveSettings(_remoteSettings);
 
             SettingsService.GetInstance().SaveLocalSettings(_localSettings);
-            SettingsService.GetInstance().SaveRemoteSettings(_remoteSettings);
+            await SettingsService.GetInstance().SaveRemoteSettings(_remoteSettings);
         }
 
         private void FormMainKeyDown(object? sender, KeyEventArgs e)
@@ -151,14 +159,9 @@ namespace LangTrainerFrontendWinForms
             _tabControl.SetPage("wordListPage");
         }
 
-        private void toolTipTestMenuItem_Click(object sender, EventArgs e)
+        private async void FormClosed(object sender, FormClosedEventArgs e)
         {
-            NotifyService.GetInstance().ShowMessage("Test");
-        }
-
-        private void FormClosed(object sender, FormClosedEventArgs e)
-        {
-            SaveSettings();
+            await SaveSettings();
         }
 
     }

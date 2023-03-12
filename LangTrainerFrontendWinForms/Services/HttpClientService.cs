@@ -47,6 +47,21 @@ namespace LangTrainerFrontendWinForms.Services
             }
         }
 
+        public async Task Post(string url, Dictionary<string, object> pars)
+        {
+            var client = GetClient();
+            var myContent = JsonConvert.SerializeObject(pars);
+
+            var response = await client.PostAsync(url,
+                new StringContent(myContent, Encoding.UTF8, "application/json"));
+            if (response.IsSuccessStatusCode)
+            {
+                return;
+            }
+
+            throw new Exception(response.ReasonPhrase);
+        }
+
         public async Task<T> Post<T>(string url, Dictionary<string, object> pars)
         {
             var client = GetClient();

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginControl));
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
@@ -37,6 +39,8 @@
             label2 = new Label();
             _loginText = new TextBox();
             _passwordText = new TextBox();
+            _passMaskButton = new Button();
+            imageList1 = new ImageList(components);
             tableLayoutPanel5 = new TableLayoutPanel();
             _passRecoverLink = new LinkLabel();
             _registrationLink = new LinkLabel();
@@ -108,13 +112,15 @@
             // 
             // tableLayoutPanel4
             // 
-            tableLayoutPanel4.ColumnCount = 2;
+            tableLayoutPanel4.ColumnCount = 3;
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 113F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 28F));
             tableLayoutPanel4.Controls.Add(label1, 0, 0);
             tableLayoutPanel4.Controls.Add(label2, 0, 1);
             tableLayoutPanel4.Controls.Add(_loginText, 1, 0);
             tableLayoutPanel4.Controls.Add(_passwordText, 1, 1);
+            tableLayoutPanel4.Controls.Add(_passMaskButton, 2, 1);
             tableLayoutPanel4.Dock = DockStyle.Fill;
             tableLayoutPanel4.Location = new Point(0, 0);
             tableLayoutPanel4.Margin = new Padding(0);
@@ -150,6 +156,7 @@
             // 
             // _loginText
             // 
+            tableLayoutPanel4.SetColumnSpan(_loginText, 2);
             _loginText.Dock = DockStyle.Fill;
             _loginText.Location = new Point(116, 3);
             _loginText.Name = "_loginText";
@@ -160,9 +167,31 @@
             // 
             _passwordText.Dock = DockStyle.Fill;
             _passwordText.Location = new Point(116, 36);
+            _passwordText.Margin = new Padding(3, 3, 0, 3);
             _passwordText.Name = "_passwordText";
-            _passwordText.Size = new Size(217, 27);
+            _passwordText.PasswordChar = '*';
+            _passwordText.Size = new Size(192, 27);
             _passwordText.TabIndex = 3;
+            // 
+            // _passMaskButton
+            // 
+            _passMaskButton.Dock = DockStyle.Fill;
+            _passMaskButton.ImageIndex = 0;
+            _passMaskButton.ImageList = imageList1;
+            _passMaskButton.Location = new Point(308, 35);
+            _passMaskButton.Margin = new Padding(0, 2, 3, 1);
+            _passMaskButton.Name = "_passMaskButton";
+            _passMaskButton.Size = new Size(25, 29);
+            _passMaskButton.TabIndex = 4;
+            _passMaskButton.UseVisualStyleBackColor = true;
+            _passMaskButton.Click += _passMaskButton_Click;
+            // 
+            // imageList1
+            // 
+            imageList1.ColorDepth = ColorDepth.Depth8Bit;
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
+            imageList1.TransparentColor = Color.Transparent;
+            imageList1.Images.SetKeyName(0, "view.png");
             // 
             // tableLayoutPanel5
             // 
@@ -239,5 +268,7 @@
         private TableLayoutPanel tableLayoutPanel5;
         private LinkLabel _passRecoverLink;
         private LinkLabel _registrationLink;
+        private Button _passMaskButton;
+        private ImageList imageList1;
     }
 }

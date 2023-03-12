@@ -1,5 +1,8 @@
 ﻿
+using System.Collections.Generic;
+using LangTrainerClientModel.Model;
 using System.Configuration;
+using System.Threading.Tasks;
 using static System.Configuration.ConfigurationSettings;
 
 namespace LangTrainerFrontendWinForms.Services
@@ -46,14 +49,19 @@ namespace LangTrainerFrontendWinForms.Services
             config.Save(ConfigurationSaveMode.Modified);
         }
 
-        public Settings GetServerSettings()
+        public async Task<Settings> GetRemoteSettings()
         {
-            throw new NotImplementedException();
+            var vals = await HttpClientService.GetInstance().Get<SettingsValues>(
+                @"https://localhost:44329/api/User/GetSettings");
+            return new Settings(vals);
         }
 
-        public void SaveRemoteSettings(Settings settings)
+        public async Task SaveRemoteSettings(Settings settings)
         {
-
+            await HttpClientService.GetInstance().Post(
+                @"https://localhost:44329/api/User/SetSettings", 
+                new Dictionary<string, object>() {{"data", settings.GetSettingsValues()} }
+                );
         }
 
     }

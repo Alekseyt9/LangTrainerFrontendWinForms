@@ -38,7 +38,7 @@
             wordListControl1 = new Controls.WordList.WordListControl();
             trainerPage = new TabPage();
             dictionaryPage = new TabPage();
-            dictionaryControl1 = new Controls.DictionaryControl();
+            _dictionaryControl = new Controls.DictionaryControl();
             tabPage9 = new TabPage();
             sentenceEditControl1 = new Controls.SentenceEditControl();
             taskPage = new TabPage();
@@ -144,7 +144,7 @@
             // 
             // dictionaryPage
             // 
-            dictionaryPage.Controls.Add(dictionaryControl1);
+            dictionaryPage.Controls.Add(_dictionaryControl);
             dictionaryPage.Location = new Point(4, 29);
             dictionaryPage.Margin = new Padding(2);
             dictionaryPage.Name = "dictionaryPage";
@@ -155,12 +155,12 @@
             // 
             // dictionaryControl1
             // 
-            dictionaryControl1.Dock = DockStyle.Fill;
-            dictionaryControl1.Location = new Point(0, 0);
-            dictionaryControl1.Margin = new Padding(2);
-            dictionaryControl1.Name = "dictionaryControl1";
-            dictionaryControl1.Size = new Size(192, 67);
-            dictionaryControl1.TabIndex = 0;
+            _dictionaryControl.Dock = DockStyle.Fill;
+            _dictionaryControl.Location = new Point(0, 0);
+            _dictionaryControl.Margin = new Padding(2);
+            _dictionaryControl.Name = "_dictionaryControl";
+            _dictionaryControl.Size = new Size(192, 67);
+            _dictionaryControl.TabIndex = 0;
             // 
             // tabPage9
             // 
@@ -311,7 +311,7 @@
         private TabPage taskPage;
         private Controls.Tasks.TasksControl tasksControl1;
         private ToolStripMenuItem tasksMenuItem1;
-        private Controls.DictionaryControl dictionaryControl1;
+        private Controls.DictionaryControl _dictionaryControl;
         private Controls.Training.TrainingControl trainingControl1;
         private TabPage wordListPage;
         private ToolStripMenuItem wordListMenuItem;
