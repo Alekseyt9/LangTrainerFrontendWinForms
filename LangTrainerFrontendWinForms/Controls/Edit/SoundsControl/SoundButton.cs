@@ -16,10 +16,9 @@ namespace LangTrainerFrontendWinForms.Controls
 
         private void buttonClick(object sender, EventArgs e)
         {
-            var ss = new SoundService();
             if (Sound == null)
                 return;
-            ss.Play(Sound);
+            SoundService.GetInstance().Play(Sound);
         }
 
     }

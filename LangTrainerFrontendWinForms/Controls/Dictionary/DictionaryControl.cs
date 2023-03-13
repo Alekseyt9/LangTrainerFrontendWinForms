@@ -140,7 +140,7 @@ namespace LangTrainerFrontendWinForms.Controls
                     ShowData(res);
                     _prServ.Switch(false);
                 }
-                catch (Exception ex) 
+                catch (Exception ex)
                 {
                     NotifyService.GetInstance().ShowMessage(ex.Message);
                 }

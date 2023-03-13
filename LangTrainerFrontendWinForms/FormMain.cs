@@ -22,6 +22,7 @@ namespace LangTrainerFrontendWinForms
             Load += FormMainLoad;
             KeyPreview = true;
             KeyDown += FormMainKeyDown;
+            FormClosing += OnFormClosing;
 
             _tabControl.HideHeader();
             _tabControl.SetPage("loginPage");
@@ -60,11 +61,17 @@ namespace LangTrainerFrontendWinForms
 
         private async Task SaveSettings()
         {
-            _loginControl.SaveSettings(_localSettings);
-            _dictionaryControl.SaveSettings(_remoteSettings);
+            if (_localSettings != null)
+            {
+                _loginControl.SaveSettings(_localSettings);
+                SettingsService.GetInstance().SaveLocalSettings(_localSettings);
+            }
 
-            SettingsService.GetInstance().SaveLocalSettings(_localSettings);
-            await SettingsService.GetInstance().SaveRemoteSettings(_remoteSettings);
+            if (_remoteSettings != null)
+            {
+                _dictionaryControl.SaveSettings(_remoteSettings);
+                await SettingsService.GetInstance().SaveRemoteSettings(_remoteSettings);
+            }
         }
 
         private void FormMainKeyDown(object? sender, KeyEventArgs e)
@@ -159,7 +166,7 @@ namespace LangTrainerFrontendWinForms
             _tabControl.SetPage("wordListPage");
         }
 
-        private async void FormClosed(object sender, FormClosedEventArgs e)
+        private async void OnFormClosing(object? sender, FormClosingEventArgs e)
         {
             await SaveSettings();
         }

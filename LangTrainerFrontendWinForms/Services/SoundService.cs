@@ -6,6 +6,19 @@ namespace LangTrainerFrontendWinForms.Services
 {
     internal class SoundService
     {
+        private static SoundService _instance;
+
+        private SoundService() { }
+
+        public static SoundService GetInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new SoundService();
+            }
+            return _instance;
+        }
+
         public void Play(byte[] data)
         {
             var ms = new MemoryStream(data);
