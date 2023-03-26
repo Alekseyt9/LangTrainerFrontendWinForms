@@ -1,6 +1,6 @@
 ﻿namespace LangTrainerFrontendWinForms.Controls
 {
-    partial class AddWordItemControl
+    partial class WordInDictionaryItemControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddWordItemControl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WordInDictionaryItemControl));
             tableLayoutPanel1 = new TableLayoutPanel();
             _soundButton = new Dictionary.SplitButton();
             imageList1 = new ImageList(components);

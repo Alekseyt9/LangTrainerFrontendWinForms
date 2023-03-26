@@ -10,3 +10,5 @@
 /.vs/ProjectEvaluation
 /.vs/LangTrainerFrontendWinForms/DesignTimeBuild
 /.vs/LangTrainerFrontendWinForms/v17
+/LangTrainerFrontendWinForms/bin/Release/net7.0-windows/win-x64
+/LangTrainerFrontendWinForms/Properties/PublishProfiles

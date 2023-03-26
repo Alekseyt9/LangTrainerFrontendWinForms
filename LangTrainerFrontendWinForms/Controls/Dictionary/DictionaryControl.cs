@@ -1,82 +1,50 @@
 ﻿
 using LangTrainerClientModel.Services;
+using LangTrainerFrontendWinForms.Controls.Common;
 using LangTrainerFrontendWinForms.Controls.Dictionary;
 using LangTrainerFrontendWinForms.Controls.Dictionary.Items;
-using LangTrainerFrontendWinForms.Helpers;
+using LangTrainerFrontendWinForms.Model;
 using LangTrainerFrontendWinForms.Service;
 using LangTrainerFrontendWinForms.Services;
 using LangTrainerServices.Services;
 
 namespace LangTrainerFrontendWinForms.Controls
 {
-    public partial class DictionaryControl : UserControl
+    public partial class DictionaryControl : UserControl, ISettingsСonsumer
     {
         private readonly ProgressService _prServ;
-
-        private Guid? _initialFilterLangId;
-        private Guid? _initialFilterTrLangId;
 
         public DictionaryControl()
         {
             InitializeComponent();
             _prServ = new ProgressService(_progressBar);
+            _searchControl.Changed += SearchControlOnTextChanged;
+            _langFilter.LangChanged += _langFilter_LangChanged;
+        }
+
+        private async void _langFilter_LangChanged(object? sender, EventArgs e)
+        {
+            await RunSeach();
+        }
+
+        private async Task RunSeach()
+        {
+            if (!string.IsNullOrEmpty(_searchControl.SearchString))
+            {
+                _prServ.Switch(true);
+                var filterData = _langFilter.Data;
+                await GetDataAndShow(_searchControl.SearchString, filterData.LangId, filterData.TrLangId);
+            }
         }
 
         public void Init()
         {
-            AsyncHelper.DoAsync(_langFilterCombo, () =>
-                {
-                    var res = LangService.GetInstance().GetLanguages().Result;
-                    return res;
-                },
-                (ctr, data) =>
-                {
-                    if (data == null)
-                    {
-                        return;
-                    }
-                    Invoke(() =>
-                    {
-                        ctr.Items.Clear();
-                        foreach (var item in data)
-                        {
-                            ctr.Items.Add(new ComboboxItem()
-                            {
-                                Text = item.Name,
-                                Value = item.Id
-                            });
-                        }
-                        InitFilters();
-                    });
-                }
-            );
+            _langFilter.Init();
+        }
 
-            AsyncHelper.DoAsync(_trLangFilterCombo, () =>
-                {
-                    var res = LangService.GetInstance().GetTranslateLanguages().Result;
-                    return res;
-                },
-                (ctr, data) =>
-                {
-                    if (data == null)
-                    {
-                        return;
-                    }
-                    Invoke(() =>
-                    {
-                        ctr.Items.Clear();
-                        foreach (var item in data)
-                        {
-                            ctr.Items.Add(new ComboboxItem()
-                            {
-                                Text = item.Name,
-                                Value = item.Id
-                            });
-                        }
-                        InitFilters();
-                    });
-                }
-            );
+        private async void SearchControlOnTextChanged(object? sender, SearchStringChangedEventArgs e)
+        {
+            await RunSeach();
         }
 
         private void ShowData(FindResult data)
@@ -88,20 +56,20 @@ namespace LangTrainerFrontendWinForms.Controls
                 {
                     var ctr = new WordNotFoundItemControl();
                     ctr.Dock = DockStyle.Fill;
-                    ctr.Init(data.SearchString);
                     _itemsTableLayout.Controls.Add(ctr);
                     ctr.OnLoadWordClick += OnLoadWordClick;
+                    ctr.Init(data.SearchString);
                 }
                 else
                 {
                     var i = 0;
                     foreach (var item in data.Items)
                     {
-                        var ctr = new AddWordItemControl();
+                        var ctr = new WordInDictionaryItemControl();
                         ctr.Dock = DockStyle.Fill;
-                        ctr.Init(item);
                         _itemsTableLayout.Controls.Add(ctr);
                         _itemsTableLayout.SetRow(ctr, i++);
+                        ctr.Init(item);
                     }
                 }
             });
@@ -109,17 +77,18 @@ namespace LangTrainerFrontendWinForms.Controls
 
         private async void OnLoadWordClick(object? sender, OnLoadWordEventArgs e)
         {
-            if (!string.IsNullOrEmpty(_searchText.Text))
+            if (!string.IsNullOrEmpty(e.Word))
             {
                 _prServ.Switch(true);
 
                 var langServ = LangService.GetInstance();
                 var res = await langServ.LoadInBase(
-                    new WordInfo(_searchText.Text, e.LanguageId));
+                    new WordInfo(e.Word, e.LanguageId));
                 if (res.WordFound)
                 {
                     NotifyService.GetInstance().ShowMessage("Word found");
-                    await GetDataAndShow(_searchText.Text);
+                    var filterData = _langFilter.Data;
+                    await GetDataAndShow(e.Word, filterData.LangId, filterData.TrLangId);
                 }
                 else
                 {
@@ -129,14 +98,14 @@ namespace LangTrainerFrontendWinForms.Controls
             }
         }
 
-        private async Task GetDataAndShow(string str)
+        private async Task GetDataAndShow(string str, Guid? langId, Guid? trLangId)
         {
             if (!string.IsNullOrEmpty(str))
             {
                 try
                 {
                     var langServ = LangService.GetInstance();
-                    var res = await langServ.FindInDictionary(str, null, null);
+                    var res = await langServ.FindInDictionary(str, langId, trLangId);
                     ShowData(res);
                     _prServ.Switch(false);
                 }
@@ -147,56 +116,14 @@ namespace LangTrainerFrontendWinForms.Controls
             }
         }
 
-        private async void searchTextTextChanged(object sender, EventArgs e)
+        public void InitSettings(Settings settings, string parentKey)
         {
-            _prServ.Switch(true);
-
-            await GetDataAndShow(_searchText.Text);
+            _langFilter.InitSettings(settings, null);
         }
 
-        private void clearButtonClick(object sender, EventArgs e)
+        public void SaveSettings(Settings settings, string parentKey)
         {
-            _itemsTableLayout.Controls.Clear();
-            _searchText.Text = null;
-        }
-
-        public void InitSettings(Settings settings)
-        {
-            _initialFilterLangId = settings.Get<Guid?>(SettingsKeys.DictionaryFilterLangId);
-            _initialFilterTrLangId = settings.Get<Guid?>(SettingsKeys.DictionaryFilterTrLangId);
-            InitFilters();
-        }
-
-        private void InitFilters()
-        {
-            if (_initialFilterLangId.HasValue && _langFilterCombo.Items.Count > 0)
-            {
-                var item = _langFilterCombo.Items.Cast<ComboboxItem>()
-                    .First(x => (Guid)x.Value == _initialFilterLangId);
-                _langFilterCombo.SelectedItem = item;
-            }
-
-            if (_initialFilterTrLangId.HasValue && _trLangFilterCombo.Items.Count > 0)
-            {
-                var item = _trLangFilterCombo.Items.Cast<ComboboxItem>()
-                    .First(x => (Guid)x.Value == _initialFilterTrLangId);
-                _trLangFilterCombo.SelectedItem = item;
-            }
-        }
-
-        public void SaveSettings(Settings settings)
-        {
-            if (_langFilterCombo.SelectedItem != null)
-            {
-                var item = (ComboboxItem)_langFilterCombo.SelectedItem;
-                settings.Set(SettingsKeys.DictionaryFilterLangId, item.Value);
-            }
-
-            if (_trLangFilterCombo.SelectedItem != null)
-            {
-                var item = (ComboboxItem)_trLangFilterCombo.SelectedItem;
-                settings.Set(SettingsKeys.DictionaryFilterTrLangId, item.Value);
-            }
+            _langFilter.SaveSettings(settings, null);
         }
 
     }

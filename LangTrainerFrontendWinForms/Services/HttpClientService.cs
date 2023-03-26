@@ -1,4 +1,5 @@
 ﻿
+using LangTrainerFrontendWinForms.Model;
 using Newtonsoft.Json;
 using System.Text;
 
@@ -59,7 +60,8 @@ namespace LangTrainerFrontendWinForms.Services
                 return;
             }
 
-            throw new Exception(response.ReasonPhrase);
+            var errMsg = await response.Content.ReadAsStringAsync();
+            throw new BadRequestException(response.ReasonPhrase + ": " + errMsg);
         }
 
         public async Task<T> Post<T>(string url, Dictionary<string, object> pars)
@@ -75,7 +77,8 @@ namespace LangTrainerFrontendWinForms.Services
                 return res;
             }
 
-            throw new Exception(response.ReasonPhrase);
+            var errMsg = await response.Content.ReadAsStringAsync();
+            throw new BadRequestException(response.ReasonPhrase + ": " + errMsg);
         }
 
         public async Task<T> Get<T>(string url, Dictionary<string, object> pars)
@@ -115,7 +118,8 @@ namespace LangTrainerFrontendWinForms.Services
                 return res;
             }
 
-            throw new Exception(response.ReasonPhrase);
+            var errMsg = await response.Content.ReadAsStringAsync();
+            throw new BadRequestException(response.ReasonPhrase + ": " + errMsg);
         }
 
     }

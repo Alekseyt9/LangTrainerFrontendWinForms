@@ -1,13 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>D:\YandexDisk\YandexDisk\Workspace_git\LangTrainer\LangTrainerFrontendWinForms\LangTrainerFrontendWinForms\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Update="Controls\Common\LangFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\Common\SearchControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\Dictionary\DictionaryControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Controls\Dictionary\Items\AddWordItemControl.cs">
+    <Compile Update="Controls\Dictionary\Items\WordInDictionaryItemControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\Dictionary\Items\WordNotFoundItemControl.cs">
@@ -43,6 +49,12 @@
     <Compile Update="Controls\Login\RegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Controls\Out\Accordion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\Out\ResizeBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\Tasks\TasksControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -65,6 +77,12 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\Training\TrainingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\Training\TrainingStartShort.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\WordList\WordList.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\WordList\WordListControl.cs">

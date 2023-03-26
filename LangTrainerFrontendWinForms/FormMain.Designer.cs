@@ -35,7 +35,6 @@
             _tabControl = new TabControl();
             loginPage = new TabPage();
             _loginControl = new Controls.Login.LoginControl();
-            wordListControl1 = new Controls.WordList.WordListControl();
             trainerPage = new TabPage();
             dictionaryPage = new TabPage();
             _dictionaryControl = new Controls.DictionaryControl();
@@ -44,7 +43,7 @@
             taskPage = new TabPage();
             tasksControl1 = new Controls.Tasks.TasksControl();
             wordListPage = new TabPage();
-            wordListControl2 = new Controls.WordList.WordListControl();
+            _wordListControl = new Controls.WordList.WordListControl();
             imageList1 = new ImageList(components);
             menuStrip1 = new MenuStrip();
             dictionaryMenuItem = new ToolStripMenuItem();
@@ -106,12 +105,11 @@
             // loginPage
             // 
             loginPage.Controls.Add(_loginControl);
-            loginPage.Controls.Add(wordListControl1);
             loginPage.Location = new Point(4, 29);
             loginPage.Margin = new Padding(2);
             loginPage.Name = "loginPage";
             loginPage.Padding = new Padding(2);
-            loginPage.Size = new Size(732, 422);
+            loginPage.Size = new Size(880, 422);
             loginPage.TabIndex = 1;
             loginPage.Text = "Login";
             loginPage.UseVisualStyleBackColor = true;
@@ -121,16 +119,8 @@
             _loginControl.Dock = DockStyle.Fill;
             _loginControl.Location = new Point(2, 2);
             _loginControl.Name = "_loginControl";
-            _loginControl.Size = new Size(728, 418);
+            _loginControl.Size = new Size(876, 418);
             _loginControl.TabIndex = 1;
-            // 
-            // wordListControl1
-            // 
-            wordListControl1.Dock = DockStyle.Fill;
-            wordListControl1.Location = new Point(2, 2);
-            wordListControl1.Name = "wordListControl1";
-            wordListControl1.Size = new Size(728, 418);
-            wordListControl1.TabIndex = 0;
             // 
             // trainerPage
             // 
@@ -150,7 +140,7 @@
             dictionaryPage.Location = new Point(4, 29);
             dictionaryPage.Margin = new Padding(2);
             dictionaryPage.Name = "dictionaryPage";
-            dictionaryPage.Size = new Size(732, 422);
+            dictionaryPage.Size = new Size(192, 67);
             dictionaryPage.TabIndex = 2;
             dictionaryPage.Text = "Dictionary";
             dictionaryPage.UseVisualStyleBackColor = true;
@@ -161,7 +151,7 @@
             _dictionaryControl.Location = new Point(0, 0);
             _dictionaryControl.Margin = new Padding(2);
             _dictionaryControl.Name = "_dictionaryControl";
-            _dictionaryControl.Size = new Size(732, 422);
+            _dictionaryControl.Size = new Size(192, 67);
             _dictionaryControl.TabIndex = 0;
             // 
             // tabPage9
@@ -170,7 +160,7 @@
             tabPage9.Location = new Point(4, 29);
             tabPage9.Margin = new Padding(2);
             tabPage9.Name = "tabPage9";
-            tabPage9.Size = new Size(732, 422);
+            tabPage9.Size = new Size(192, 67);
             tabPage9.TabIndex = 3;
             tabPage9.Text = "EditSentence";
             tabPage9.UseVisualStyleBackColor = true;
@@ -181,7 +171,7 @@
             sentenceEditControl1.Location = new Point(0, 0);
             sentenceEditControl1.Margin = new Padding(0);
             sentenceEditControl1.Name = "sentenceEditControl1";
-            sentenceEditControl1.Size = new Size(732, 422);
+            sentenceEditControl1.Size = new Size(192, 67);
             sentenceEditControl1.TabIndex = 0;
             // 
             // taskPage
@@ -206,7 +196,7 @@
             // 
             // wordListPage
             // 
-            wordListPage.Controls.Add(wordListControl2);
+            wordListPage.Controls.Add(_wordListControl);
             wordListPage.Location = new Point(4, 29);
             wordListPage.Name = "wordListPage";
             wordListPage.Size = new Size(880, 422);
@@ -216,11 +206,11 @@
             // 
             // wordListControl2
             // 
-            wordListControl2.Dock = DockStyle.Fill;
-            wordListControl2.Location = new Point(0, 0);
-            wordListControl2.Name = "wordListControl2";
-            wordListControl2.Size = new Size(880, 422);
-            wordListControl2.TabIndex = 0;
+            _wordListControl.Dock = DockStyle.Fill;
+            _wordListControl.Location = new Point(0, 0);
+            _wordListControl.Name = "_wordListControl";
+            _wordListControl.Size = new Size(880, 422);
+            _wordListControl.TabIndex = 0;
             // 
             // imageList1
             // 
@@ -326,9 +316,9 @@
         private Controls.Training.TrainingControl trainingControl1;
         private TabPage wordListPage;
         private ToolStripMenuItem wordListMenuItem;
-        private Controls.WordList.WordListControl wordListControl1;
+        //private Controls.WordList.WordListControl wordListControl1;
         private ToolTip toolTip1;
         private Controls.Login.LoginControl _loginControl;
-        private Controls.WordList.WordListControl wordListControl2;
+        private Controls.WordList.WordListControl _wordListControl;
     }
 }

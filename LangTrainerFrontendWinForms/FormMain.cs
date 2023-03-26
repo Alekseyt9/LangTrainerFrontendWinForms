@@ -25,7 +25,8 @@ namespace LangTrainerFrontendWinForms
             FormClosing += OnFormClosing;
 
             _tabControl.HideHeader();
-            _tabControl.SetPage("loginPage");
+            NavigateService.GetInstance().Init(_tabControl);
+            NavigateService.GetInstance().Navigate("loginPage");
 
             LoginEnabled(false);
             _loginControl.OnLoginResult += loginControlOnLoginResult;
@@ -37,9 +38,13 @@ namespace LangTrainerFrontendWinForms
             {
                 await LoadRemoteSettings();
                 LoginEnabled(true);
-                _tabControl.SetPage("dictionaryPage");
+                NavigateService.GetInstance().Navigate("dictionaryPage");
+
                 _dictionaryControl.Init();
-                _dictionaryControl.InitSettings(_remoteSettings);
+                _dictionaryControl.InitSettings(_remoteSettings, "dictionary");
+
+                _wordListControl.Init();
+                _wordListControl.InitSettings(_remoteSettings, "wordList");
             }
         }
 
@@ -69,7 +74,8 @@ namespace LangTrainerFrontendWinForms
 
             if (_remoteSettings != null)
             {
-                _dictionaryControl.SaveSettings(_remoteSettings);
+                _dictionaryControl.SaveSettings(_remoteSettings, "dictionary");
+                _wordListControl.SaveSettings(_remoteSettings, "wordList");
                 await SettingsService.GetInstance().SaveRemoteSettings(_remoteSettings);
             }
         }
@@ -148,22 +154,22 @@ namespace LangTrainerFrontendWinForms
 
         private void DictionaryMenuItemClick(object sender, EventArgs e)
         {
-            _tabControl.SetPage("dictionaryPage");
+            NavigateService.GetInstance().Navigate("dictionaryPage");
         }
 
         private void TrainingMenuItemClick(object sender, EventArgs e)
         {
-            _tabControl.SetPage("trainerPage");
+            NavigateService.GetInstance().Navigate("trainerPage");
         }
 
         private void TasksMenuItem1Click(object sender, EventArgs e)
         {
-            _tabControl.SetPage("taskPage");
+            NavigateService.GetInstance().Navigate("taskPage");
         }
 
         private void wordListMenuItem_Click(object sender, EventArgs e)
         {
-            _tabControl.SetPage("wordListPage");
+            NavigateService.GetInstance().Navigate("wordListPage");
         }
 
         private async void OnFormClosing(object? sender, FormClosingEventArgs e)

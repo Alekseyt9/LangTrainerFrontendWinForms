@@ -7,12 +7,17 @@ namespace LangTrainerFrontendWinForms.Controls
 {
     public partial class WordNotFoundItemControl : UserControl
     {
+        private string _word;
+
         public EventHandler<OnLoadWordEventArgs> OnLoadWordClick;
 
         public WordNotFoundItemControl()
         {
             InitializeComponent();
+        }
 
+        public void Init(string str)
+        {
             AsyncHelper.DoAsync(_languageCombo, () =>
                 {
                     var res = LangService.GetInstance().GetLanguages().Result;
@@ -39,11 +44,8 @@ namespace LangTrainerFrontendWinForms.Controls
                 }
             );
 
-        }
-
-        public void Init(string str)
-        {
-            _label.Text = $"Word '{str}' not found in database";
+            _word = str;
+            _label.Text = $"Word '{_word}' not found in database";
         }
 
         private void loadButtonClick(object sender, EventArgs e)
@@ -58,7 +60,8 @@ namespace LangTrainerFrontendWinForms.Controls
                 var item = (ComboboxItem)_languageCombo.Items[_languageCombo.SelectedIndex];
                 OnLoadWordClick(this, new OnLoadWordEventArgs()
                 {
-                    LanguageId = (Guid)item.Value
+                    LanguageId = (Guid)item.Value,
+                    Word = _word
                 });
             }
         }

@@ -1,19 +1,18 @@
 ﻿
 using LangTrainerClientModel.Services.LangService;
-using LangTrainerEntity.Entities;
 using LangTrainerFrontendWinForms.Services;
 using LangTrainerServices.Services;
 
 namespace LangTrainerFrontendWinForms.Controls
 {
-    public partial class AddWordItemControl : UserControl
+    public partial class WordInDictionaryItemControl : UserControl
     {
         public EventHandler<EventArgs> OnAddWordClick;
 
         private FindItemSound[] _sounds;
         private int _soundIndex;
 
-        public AddWordItemControl()
+        public WordInDictionaryItemControl()
         {
             InitializeComponent();
         }
@@ -34,21 +33,24 @@ namespace LangTrainerFrontendWinForms.Controls
             }
         }
 
-        private void _addWordButtonClick(object sender, EventArgs e)
-        {
-            if (OnAddWordClick != null)
-            {
-                OnAddWordClick(this, EventArgs.Empty);
-            }
-        }
-
         private async void _addButtonClick(object sender, EventArgs e)
         {
             if (_translateCombo.SelectedItem != null)
             {
                 var item = (ComboboxItem)_translateCombo.SelectedItem;
-                await TrainingService.GetInstance().AddToTraining((Guid)item.Value);
-                NotifyService.GetInstance().ShowMessage("The word has been added to your list");
+                try
+                {
+                    await TrainingService.GetInstance().AddToTraining((Guid)item.Value);
+                    NotifyService.GetInstance().ShowMessage("The word has been added to your list");
+                }
+                catch (Exception ex)
+                {
+                    NotifyService.GetInstance().ShowMessage(ex.Message);
+                }
+            }
+            else
+            {
+                NotifyService.GetInstance().ShowMessage("Select translation");
             }
         }
 
