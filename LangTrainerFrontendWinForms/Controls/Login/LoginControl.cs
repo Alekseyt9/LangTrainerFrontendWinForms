@@ -1,6 +1,4 @@
 ﻿
-
-
 using LangTrainerFrontendWinForms.Services;
 
 namespace LangTrainerFrontendWinForms.Controls.Login
@@ -12,6 +10,13 @@ namespace LangTrainerFrontendWinForms.Controls.Login
         public LoginControl()
         {
             InitializeComponent();
+
+            _loginInternalControl.OnLoginResult += _loginInternalControl_OnLoginResult;
+        }
+
+        private void _loginInternalControl_OnLoginResult(object? sender, LoginResultEventArgs e)
+        {
+            OnLoginResult?.Invoke(this, e);
         }
 
         private void passRecoverLinkLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -28,45 +33,14 @@ namespace LangTrainerFrontendWinForms.Controls.Login
             form.ShowDialog();
         }
 
-        private async void loginButtonClick(object sender, EventArgs e)
-        {
-            try
-            {
-                var res = await UserService.GetInstance().Login(_loginText.Text, _passwordText.Text);
-                if (OnLoginResult != null)
-                {
-                    OnLoginResult(this, new LoginResultEventArgs()
-                    {
-                        IsSuccess = res
-                    });
-                }
-            }
-            catch (Exception ex)
-            {
-                NotifyService.GetInstance().ShowMessage(ex.Message, 0.7f);
-            }
-        }
-
         public void InitSettings(Settings settings)
         {
-            _loginText.Text = settings.Get<string>(SettingsKeys.Login);
+            _loginInternalControl.InitSettings(settings, null);
         }
 
         public void SaveSettings(Settings settings)
         {
-            settings.Set(SettingsKeys.Login, _loginText.Text);
-        }
-
-        private void _passMaskButton_Click(object sender, EventArgs e)
-        {
-            if (_passwordText.PasswordChar == '\0')
-            {
-                _passwordText.PasswordChar = '*';
-            }
-            else
-            {
-                _passwordText.PasswordChar = '\0';
-            }
+            _loginInternalControl.SaveSettings(settings, null);
         }
 
     }

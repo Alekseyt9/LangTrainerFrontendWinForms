@@ -52,14 +52,14 @@ namespace LangTrainerFrontendWinForms.Services
         public async Task<Settings> GetRemoteSettings()
         {
             var vals = await HttpClientService.GetInstance().Get<SettingsValues>(
-                @"https://localhost:44329/api/User/GetSettings");
+                @"https://localhost:44329/api/Settings/GetSettings");
             return new Settings(vals);
         }
 
         public async Task SaveRemoteSettings(Settings settings)
         {
             await HttpClientService.GetInstance().Post(
-                @"https://localhost:44329/api/User/SetSettings", 
+                @"https://localhost:44329/api/Settings/SetSettings", 
                 new Dictionary<string, object>() {{"data", settings.GetSettingsValues()} }
                 );
         }

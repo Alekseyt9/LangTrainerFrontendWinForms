@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿
+using LangTrainerFrontendWinForms.Services;
 
 namespace LangTrainerFrontendWinForms.Controls.Login
 {
@@ -16,5 +9,14 @@ namespace LangTrainerFrontendWinForms.Controls.Login
         {
             InitializeComponent();
         }
+
+        private async void _registerButton_Click(object sender, EventArgs e)
+        {
+            if (_passText.Text == _passRepText.Text)
+            {
+                await AuthService.GetInstance().Register(_loginText.Text, _emailText.Text, _passText.Text);
+            }
+        }
+
     }
 }

@@ -31,16 +31,16 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
-            button1 = new Button();
+            _registerButton = new Button();
             tableLayoutPanel4 = new TableLayoutPanel();
-            textBox4 = new TextBox();
+            _loginText = new TextBox();
             label4 = new Label();
-            textBox3 = new TextBox();
+            _passRepText = new TextBox();
             label3 = new Label();
             label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            _emailText = new TextBox();
+            _passText = new TextBox();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -85,7 +85,7 @@
             tableLayoutPanel3.ColumnCount = 2;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 73.21429F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 26.7857151F));
-            tableLayoutPanel3.Controls.Add(button1, 1, 0);
+            tableLayoutPanel3.Controls.Add(_registerButton, 1, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(0, 133);
             tableLayoutPanel3.Margin = new Padding(0);
@@ -95,28 +95,29 @@
             tableLayoutPanel3.Size = new Size(336, 33);
             tableLayoutPanel3.TabIndex = 0;
             // 
-            // button1
+            // _registerButton
             // 
-            button1.Location = new Point(249, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(84, 27);
-            button1.TabIndex = 0;
-            button1.Text = "Register";
-            button1.UseVisualStyleBackColor = true;
+            _registerButton.Location = new Point(249, 3);
+            _registerButton.Name = "_registerButton";
+            _registerButton.Size = new Size(84, 27);
+            _registerButton.TabIndex = 0;
+            _registerButton.Text = "Register";
+            _registerButton.UseVisualStyleBackColor = true;
+            _registerButton.Click += _registerButton_Click;
             // 
             // tableLayoutPanel4
             // 
             tableLayoutPanel4.ColumnCount = 2;
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 136F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Controls.Add(textBox4, 1, 0);
+            tableLayoutPanel4.Controls.Add(_loginText, 1, 0);
             tableLayoutPanel4.Controls.Add(label4, 0, 0);
-            tableLayoutPanel4.Controls.Add(textBox3, 1, 3);
+            tableLayoutPanel4.Controls.Add(_passRepText, 1, 3);
             tableLayoutPanel4.Controls.Add(label3, 0, 3);
             tableLayoutPanel4.Controls.Add(label1, 0, 1);
             tableLayoutPanel4.Controls.Add(label2, 0, 2);
-            tableLayoutPanel4.Controls.Add(textBox1, 1, 1);
-            tableLayoutPanel4.Controls.Add(textBox2, 1, 2);
+            tableLayoutPanel4.Controls.Add(_emailText, 1, 1);
+            tableLayoutPanel4.Controls.Add(_passText, 1, 2);
             tableLayoutPanel4.Dock = DockStyle.Fill;
             tableLayoutPanel4.Location = new Point(0, 0);
             tableLayoutPanel4.Margin = new Padding(0);
@@ -130,13 +131,13 @@
             tableLayoutPanel4.Size = new Size(336, 133);
             tableLayoutPanel4.TabIndex = 1;
             // 
-            // textBox4
+            // _loginText
             // 
-            textBox4.Dock = DockStyle.Fill;
-            textBox4.Location = new Point(139, 3);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(194, 27);
-            textBox4.TabIndex = 7;
+            _loginText.Dock = DockStyle.Fill;
+            _loginText.Location = new Point(139, 3);
+            _loginText.Name = "_loginText";
+            _loginText.Size = new Size(194, 27);
+            _loginText.TabIndex = 7;
             // 
             // label4
             // 
@@ -149,13 +150,13 @@
             label4.Text = "login:";
             label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // textBox3
+            // _passRepText
             // 
-            textBox3.Dock = DockStyle.Fill;
-            textBox3.Location = new Point(139, 93);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(194, 27);
-            textBox3.TabIndex = 5;
+            _passRepText.Dock = DockStyle.Fill;
+            _passRepText.Location = new Point(139, 93);
+            _passRepText.Name = "_passRepText";
+            _passRepText.Size = new Size(194, 27);
+            _passRepText.TabIndex = 5;
             // 
             // label3
             // 
@@ -190,21 +191,21 @@
             label2.Text = "password:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // textBox1
+            // _emailText
             // 
-            textBox1.Dock = DockStyle.Fill;
-            textBox1.Location = new Point(139, 33);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(194, 27);
-            textBox1.TabIndex = 2;
+            _emailText.Dock = DockStyle.Fill;
+            _emailText.Location = new Point(139, 33);
+            _emailText.Name = "_emailText";
+            _emailText.Size = new Size(194, 27);
+            _emailText.TabIndex = 2;
             // 
-            // textBox2
+            // _passText
             // 
-            textBox2.Dock = DockStyle.Fill;
-            textBox2.Location = new Point(139, 63);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(194, 27);
-            textBox2.TabIndex = 3;
+            _passText.Dock = DockStyle.Fill;
+            _passText.Location = new Point(139, 63);
+            _passText.Name = "_passText";
+            _passText.Size = new Size(194, 27);
+            _passText.TabIndex = 3;
             // 
             // RegistrationForm
             // 
@@ -229,15 +230,15 @@
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel3;
-        private Button button1;
+        private Button _registerButton;
         private TableLayoutPanel tableLayoutPanel4;
         private Label label1;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox _emailText;
+        private TextBox _passText;
+        private TextBox _passRepText;
         private Label label3;
-        private TextBox textBox4;
+        private TextBox _loginText;
         private Label label4;
     }
 }

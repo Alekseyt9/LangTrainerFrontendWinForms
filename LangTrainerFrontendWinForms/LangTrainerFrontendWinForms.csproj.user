@@ -43,6 +43,9 @@
     <Compile Update="Controls\Login\LoginControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\Login\LoginInternalControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\Login\RecoveryForm.cs">
       <SubType>Form</SubType>
     </Compile>

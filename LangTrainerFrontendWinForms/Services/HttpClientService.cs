@@ -24,15 +24,12 @@ namespace LangTrainerFrontendWinForms.Services
 
         private HttpClient GetClient()
         {
-            if (_httpClient == null)
+            var client = new HttpClient()
             {
-                var client = new HttpClient()
-                {
-                    Timeout = TimeSpan.FromSeconds(3)
-                };
-                EnsureAuth(client);
-                _httpClient = client;
-            }
+                Timeout = TimeSpan.FromSeconds(3)
+            };
+            EnsureAuth(client);
+            _httpClient = client;
 
             EnsureAuth(_httpClient);
             return _httpClient;
@@ -40,7 +37,7 @@ namespace LangTrainerFrontendWinForms.Services
 
         private void EnsureAuth(HttpClient client)
         {
-            var tokens = UserService.GetInstance().TokensAuth;
+            var tokens = AuthService.GetInstance().TokensAuth;
             if (tokens != null)
             {
                 client.DefaultRequestHeaders.Clear();

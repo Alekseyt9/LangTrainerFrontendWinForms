@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            searchControl1 = new Common.SearchControl();
-            _langFilter = new Common.LangFilter();
             groupBox1 = new GroupBox();
             tableLayoutPanel2 = new TableLayoutPanel();
             wordListItem1 = new WordListItem();
+            searchControl1 = new Common.SearchControl();
+            _langFilter = new Common.LangFilter();
             tableLayoutPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -55,21 +55,6 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Size = new Size(571, 435);
             tableLayoutPanel1.TabIndex = 0;
-            // 
-            // searchControl1
-            // 
-            searchControl1.Dock = DockStyle.Fill;
-            searchControl1.Location = new Point(3, 3);
-            searchControl1.Name = "searchControl1";
-            searchControl1.Size = new Size(565, 34);
-            searchControl1.TabIndex = 3;
-            // 
-            // _langFilter
-            // 
-            _langFilter.Location = new Point(3, 43);
-            _langFilter.Name = "_langFilter";
-            _langFilter.Size = new Size(565, 32);
-            _langFilter.TabIndex = 4;
             // 
             // groupBox1
             // 
@@ -106,6 +91,22 @@
             wordListItem1.Name = "wordListItem1";
             wordListItem1.Size = new Size(553, 44);
             wordListItem1.TabIndex = 0;
+            // 
+            // searchControl1
+            // 
+            searchControl1.Dock = DockStyle.Fill;
+            searchControl1.Location = new Point(3, 3);
+            searchControl1.Name = "searchControl1";
+            searchControl1.Size = new Size(565, 34);
+            searchControl1.TabIndex = 3;
+            // 
+            // _langFilter
+            // 
+            _langFilter.Dock = DockStyle.Fill;
+            _langFilter.Location = new Point(3, 43);
+            _langFilter.Name = "_langFilter";
+            _langFilter.Size = new Size(565, 34);
+            _langFilter.TabIndex = 4;
             // 
             // WordList
             // 
