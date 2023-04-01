@@ -1,6 +1,8 @@
-﻿namespace LangTrainerFrontendWinForms
+﻿using LangTrainerFrontendWinForms.Controls.Override;
+
+namespace LangTrainerFrontendWinForms
 {
-    partial class FormMain
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +31,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             tableLayoutPanel3 = new TableLayoutPanel();
             trainingControl1 = new Controls.Training.TrainingControl();
             _tabControl = new TabControl();
@@ -98,8 +100,9 @@
             _tabControl.Controls.Add(wordListPage);
             _tabControl.Dock = DockStyle.Fill;
             _tabControl.Location = new Point(0, 28);
-            _tabControl.Margin = new Padding(2);
+            _tabControl.Margin = new Padding(0);
             _tabControl.Name = "_tabControl";
+            _tabControl.Padding = new Point(0, 0);
             _tabControl.SelectedIndex = 0;
             _tabControl.Size = new Size(888, 455);
             _tabControl.TabIndex = 3;
@@ -108,9 +111,8 @@
             // 
             loginPage.Controls.Add(_loginControl);
             loginPage.Location = new Point(4, 29);
-            loginPage.Margin = new Padding(2);
+            loginPage.Margin = new Padding(0);
             loginPage.Name = "loginPage";
-            loginPage.Padding = new Padding(2);
             loginPage.Size = new Size(880, 422);
             loginPage.TabIndex = 1;
             loginPage.Text = "Login";
@@ -119,9 +121,9 @@
             // _loginControl
             // 
             _loginControl.Dock = DockStyle.Fill;
-            _loginControl.Location = new Point(2, 2);
+            _loginControl.Location = new Point(0, 0);
             _loginControl.Name = "_loginControl";
-            _loginControl.Size = new Size(876, 418);
+            _loginControl.Size = new Size(880, 422);
             _loginControl.TabIndex = 1;
             // 
             // trainerPage
@@ -202,7 +204,7 @@
             wordListPage.Controls.Add(_wordListControl);
             wordListPage.Location = new Point(4, 29);
             wordListPage.Name = "wordListPage";
-            wordListPage.Size = new Size(192, 67);
+            wordListPage.Size = new Size(880, 422);
             wordListPage.TabIndex = 5;
             wordListPage.Text = "Word list";
             wordListPage.UseVisualStyleBackColor = true;
@@ -213,7 +215,7 @@
             _wordListControl.Dock = DockStyle.Fill;
             _wordListControl.Location = new Point(0, 0);
             _wordListControl.Name = "_wordListControl";
-            _wordListControl.Size = new Size(192, 67);
+            _wordListControl.Size = new Size(880, 422);
             _wordListControl.TabIndex = 0;
             // 
             // imageList1
@@ -275,10 +277,11 @@
             tasksMenuItem1.Text = "Tasks";
             tasksMenuItem1.Click += TasksMenuItem1Click;
             // 
-            // FormMain
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(888, 483);
             Controls.Add(_tabControl);
             Controls.Add(_mainMenuStrip);
@@ -286,7 +289,7 @@
             MainMenuStrip = _mainMenuStrip;
             Margin = new Padding(2);
             MinimumSize = new Size(559, 487);
-            Name = "FormMain";
+            Name = "MainForm";
             Text = "Language trainer";
             tableLayoutPanel3.ResumeLayout(false);
             _tabControl.ResumeLayout(false);

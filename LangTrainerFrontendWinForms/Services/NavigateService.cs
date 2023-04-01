@@ -1,13 +1,12 @@
 ﻿
-
-using LangTrainerFrontendWinForms.Helpers;
+using LangTrainerFrontendWinForms.Controls.Common;
 
 namespace LangTrainerFrontendWinForms.Services
 {
     internal class NavigateService
     {
         private static NavigateService _instance;
-        private TabControl _tabControl;
+        private TabPanel _tabPanel;
 
         private NavigateService() { }
 
@@ -20,14 +19,14 @@ namespace LangTrainerFrontendWinForms.Services
             return _instance;
         }
 
-        public void Init(TabControl tabControl)
+        public void Init(TabPanel tabPanel)
         {
-            _tabControl = tabControl;
+            _tabPanel = tabPanel;
         }
 
         public void Navigate(string key)
         {
-            _tabControl.SetPage(key);
+            _tabPanel.Navigate(key);
         }
 
     }

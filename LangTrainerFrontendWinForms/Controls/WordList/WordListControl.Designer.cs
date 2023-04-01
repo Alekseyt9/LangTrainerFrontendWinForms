@@ -1,4 +1,6 @@
-﻿namespace LangTrainerFrontendWinForms.Controls.WordList
+﻿using LangTrainerFrontendWinForms.Controls.Out.Accordion;
+
+namespace LangTrainerFrontendWinForms.Controls.WordList
 {
     partial class WordListControl
     {
@@ -30,7 +32,7 @@
         {
             tableLayoutPanel1 = new TableLayoutPanel();
             trainingStartShort1 = new Training.TrainingStartShort();
-            accordion1 = new Opulos.Core.UI.Accordion();
+            accordion1 = new Accordion();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -63,9 +65,9 @@
             // 
             accordion1.AddResizeBars = true;
             accordion1.AllowMouseResize = true;
-            accordion1.AnimateCloseEffect = Opulos.Core.UI.AnimateWindowFlags.VerticalNegative | Opulos.Core.UI.AnimateWindowFlags.Hide | Opulos.Core.UI.AnimateWindowFlags.Slide;
+            accordion1.AnimateCloseEffect = AnimateWindowFlags.VerticalNegative | AnimateWindowFlags.Hide | AnimateWindowFlags.Slide;
             accordion1.AnimateCloseMillis = 300;
-            accordion1.AnimateOpenEffect = Opulos.Core.UI.AnimateWindowFlags.VerticalPositive | Opulos.Core.UI.AnimateWindowFlags.Show | Opulos.Core.UI.AnimateWindowFlags.Slide;
+            accordion1.AnimateOpenEffect = AnimateWindowFlags.VerticalPositive | AnimateWindowFlags.Show | AnimateWindowFlags.Slide;
             accordion1.AnimateOpenMillis = 300;
             accordion1.AutoFixDockStyle = true;
             accordion1.AutoScroll = true;
@@ -135,6 +137,6 @@
 
         private TableLayoutPanel tableLayoutPanel1;
         private Training.TrainingStartShort trainingStartShort1;
-        private Opulos.Core.UI.Accordion accordion1;
+        private Accordion accordion1;
     }
 }

@@ -2,11 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using LangTrainerFrontendWinForms.Controls.Out.Accordion;
 
-using Opulos.Core.Utils;
-
-namespace Opulos.Core.UI {
-public static partial class FontEx {
+namespace Opulos.Core.UI
+{
+    public static partial class FontEx {
 
 	private static List<Font> newFontsList = new List<Font>();
 	private static Hashtable ht = new Hashtable();

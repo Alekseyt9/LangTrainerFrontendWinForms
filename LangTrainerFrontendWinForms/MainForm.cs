@@ -7,30 +7,37 @@ using LangTrainerFrontendWinForms.Services;
 
 namespace LangTrainerFrontendWinForms
 {
-    public partial class FormMain : Form
+    public partial class MainForm : Form
     {
         private Settings _localSettings;
         private Settings _remoteSettings;
 
-        public FormMain()
+        public MainForm()
         {
             InitializeComponent();
-            _mainMenuStrip.Visible = false;
 
+            _mainMenuStrip.Visible = false;
             LoadLocalSettings();
             NotifyService.GetInstance().Init(this, toolTip1);
 
             Load += FormMainLoad;
             KeyPreview = true;
-            KeyDown += FormMainKeyDown;
             FormClosing += OnFormClosing;
 
             _tabControl.HideHeader();
-            NavigateService.GetInstance().Init(_tabControl);
+            //NavigateService.GetInstance().Init(_tabControl);
             NavigateService.GetInstance().Navigate("loginPage");
 
             LoginEnabled(false);
             _loginControl.OnLoginResult += loginControlOnLoginResult;
+
+            /*
+            FormHelper.DoRecurs(this, ctr =>
+            {
+                ctr.MouseClick += Ctr_MouseClick;
+            });
+            */
+
         }
 
         private async void loginControlOnLoginResult(object? sender, Controls.Login.LoginResultEventArgs e)
@@ -81,11 +88,6 @@ namespace LangTrainerFrontendWinForms
                 _wordListControl.SaveSettings(_remoteSettings, "wordList");
                 await SettingsService.GetInstance().SaveRemoteSettings(_remoteSettings);
             }
-        }
-
-        private void FormMainKeyDown(object? sender, KeyEventArgs e)
-        {
-
         }
 
         private async void FormMainLoad(object? sender, EventArgs e)
@@ -178,6 +180,11 @@ namespace LangTrainerFrontendWinForms
         private async void OnFormClosing(object? sender, FormClosingEventArgs e)
         {
             await SaveSettings();
+        }
+
+        private void Ctr_MouseClick(object? sender, MouseEventArgs e)
+        {
+            var ctr = FormHelper.FindControlAtCursor(this);
         }
 
     }
