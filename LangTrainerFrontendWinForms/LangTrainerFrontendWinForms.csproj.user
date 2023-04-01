@@ -88,6 +88,9 @@
     <Compile Update="Controls\Training\TrainingControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\Training\TrainingControl2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\Training\TrainingStartShort.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -99,9 +102,6 @@
     </Compile>
     <Compile Update="Controls\WordList\WordListItem.cs">
       <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="MainForm.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Update="MainForm2.cs">
       <SubType>Form</SubType>

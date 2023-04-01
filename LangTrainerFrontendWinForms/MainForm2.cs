@@ -13,7 +13,7 @@ namespace LangTrainerFrontendWinForms
         private Settings _remoteSettings;
 
         private readonly LoginControl _loginControl;
-        private readonly TrainingControl _trainingControl;
+        private readonly TrainingControl2 _trainingControl;
         private readonly DictionaryControl _dictionaryControl;
         private readonly WordListControl _wordListControl;
 
@@ -22,7 +22,7 @@ namespace LangTrainerFrontendWinForms
             InitializeComponent();
 
             _loginControl = new LoginControl();
-            _trainingControl = new TrainingControl();
+            _trainingControl = new TrainingControl2();
             _dictionaryControl = new DictionaryControl();
             _wordListControl = new WordListControl();
 
