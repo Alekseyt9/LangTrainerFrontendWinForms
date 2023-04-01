@@ -15,6 +15,7 @@ namespace LangTrainerFrontendWinForms
         public FormMain()
         {
             InitializeComponent();
+            _mainMenuStrip.Visible = false;
 
             LoadLocalSettings();
             NotifyService.GetInstance().Init(this, toolTip1);
@@ -45,6 +46,8 @@ namespace LangTrainerFrontendWinForms
 
                 _wordListControl.Init();
                 _wordListControl.InitSettings(_remoteSettings, "wordList");
+
+                _mainMenuStrip.Visible = true;
             }
         }
 
@@ -55,7 +58,7 @@ namespace LangTrainerFrontendWinForms
 
         private void LoginEnabled(bool flag)
         {
-            menuStrip1.Enabled = flag;
+            _mainMenuStrip.Enabled = flag;
         }
 
         private void LoadLocalSettings()

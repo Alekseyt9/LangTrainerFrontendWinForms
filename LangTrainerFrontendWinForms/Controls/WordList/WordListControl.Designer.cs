@@ -123,6 +123,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
             Controls.Add(tableLayoutPanel1);
             Name = "WordListControl";
             Size = new Size(685, 597);

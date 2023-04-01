@@ -89,7 +89,6 @@
             groupBox1.Size = new Size(693, 270);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
-            groupBox1.Text = "SearchResult";
             // 
             // _itemsTableLayout
             // 
@@ -175,6 +174,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
             Controls.Add(statusStrip1);
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(2);

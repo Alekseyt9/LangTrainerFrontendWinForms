@@ -45,7 +45,7 @@
             wordListPage = new TabPage();
             _wordListControl = new Controls.WordList.WordListControl();
             imageList1 = new ImageList(components);
-            menuStrip1 = new MenuStrip();
+            _mainMenuStrip = new MenuStrip();
             dictionaryMenuItem = new ToolStripMenuItem();
             wordListMenuItem = new ToolStripMenuItem();
             trainingMenuItem = new ToolStripMenuItem();
@@ -60,7 +60,7 @@
             tabPage9.SuspendLayout();
             taskPage.SuspendLayout();
             wordListPage.SuspendLayout();
-            menuStrip1.SuspendLayout();
+            _mainMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel3
@@ -75,15 +75,17 @@
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 49F));
-            tableLayoutPanel3.Size = new Size(188, 63);
+            tableLayoutPanel3.Size = new Size(876, 418);
             tableLayoutPanel3.TabIndex = 2;
             // 
             // trainingControl1
             // 
+            trainingControl1.BackColor = SystemColors.ControlLightLight;
             trainingControl1.Dock = DockStyle.Fill;
-            trainingControl1.Location = new Point(3, 3);
+            trainingControl1.Location = new Point(0, 0);
+            trainingControl1.Margin = new Padding(0);
             trainingControl1.Name = "trainingControl1";
-            trainingControl1.Size = new Size(182, 57);
+            trainingControl1.Size = new Size(876, 418);
             trainingControl1.TabIndex = 0;
             // 
             // _tabControl
@@ -129,7 +131,7 @@
             trainerPage.Margin = new Padding(2);
             trainerPage.Name = "trainerPage";
             trainerPage.Padding = new Padding(2);
-            trainerPage.Size = new Size(192, 67);
+            trainerPage.Size = new Size(880, 422);
             trainerPage.TabIndex = 0;
             trainerPage.Text = "Trainer";
             trainerPage.UseVisualStyleBackColor = true;
@@ -147,6 +149,7 @@
             // 
             // _dictionaryControl
             // 
+            _dictionaryControl.BackColor = SystemColors.ControlLightLight;
             _dictionaryControl.Dock = DockStyle.Fill;
             _dictionaryControl.Location = new Point(0, 0);
             _dictionaryControl.Margin = new Padding(2);
@@ -199,17 +202,18 @@
             wordListPage.Controls.Add(_wordListControl);
             wordListPage.Location = new Point(4, 29);
             wordListPage.Name = "wordListPage";
-            wordListPage.Size = new Size(880, 422);
+            wordListPage.Size = new Size(192, 67);
             wordListPage.TabIndex = 5;
             wordListPage.Text = "Word list";
             wordListPage.UseVisualStyleBackColor = true;
             // 
-            // wordListControl2
+            // _wordListControl
             // 
+            _wordListControl.BackColor = SystemColors.ControlLightLight;
             _wordListControl.Dock = DockStyle.Fill;
             _wordListControl.Location = new Point(0, 0);
             _wordListControl.Name = "_wordListControl";
-            _wordListControl.Size = new Size(880, 422);
+            _wordListControl.Size = new Size(192, 67);
             _wordListControl.TabIndex = 0;
             // 
             // imageList1
@@ -222,16 +226,17 @@
             imageList1.Images.SetKeyName(2, "plus.png");
             imageList1.Images.SetKeyName(3, "plus1.png");
             // 
-            // menuStrip1
+            // _mainMenuStrip
             // 
-            menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { dictionaryMenuItem, wordListMenuItem, trainingMenuItem, tasksToolStripMenuItem });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(5, 2, 0, 2);
-            menuStrip1.Size = new Size(888, 28);
-            menuStrip1.TabIndex = 4;
-            menuStrip1.Text = "menuStrip1";
+            _mainMenuStrip.BackColor = SystemColors.ControlLightLight;
+            _mainMenuStrip.ImageScalingSize = new Size(24, 24);
+            _mainMenuStrip.Items.AddRange(new ToolStripItem[] { dictionaryMenuItem, wordListMenuItem, trainingMenuItem, tasksToolStripMenuItem });
+            _mainMenuStrip.Location = new Point(0, 0);
+            _mainMenuStrip.Name = "_mainMenuStrip";
+            _mainMenuStrip.Padding = new Padding(5, 2, 0, 2);
+            _mainMenuStrip.Size = new Size(888, 28);
+            _mainMenuStrip.TabIndex = 4;
+            _mainMenuStrip.Text = "menuStrip1";
             // 
             // dictionaryMenuItem
             // 
@@ -243,15 +248,16 @@
             // wordListMenuItem
             // 
             wordListMenuItem.Name = "wordListMenuItem";
-            wordListMenuItem.Size = new Size(82, 24);
-            wordListMenuItem.Text = "Word list";
+            wordListMenuItem.Size = new Size(76, 24);
+            wordListMenuItem.Text = "Training";
             wordListMenuItem.Click += wordListMenuItem_Click;
             // 
             // trainingMenuItem
             // 
             trainingMenuItem.Name = "trainingMenuItem";
-            trainingMenuItem.Size = new Size(76, 24);
-            trainingMenuItem.Text = "Training";
+            trainingMenuItem.Size = new Size(82, 24);
+            trainingMenuItem.Text = "Exercises";
+            trainingMenuItem.Visible = false;
             trainingMenuItem.Click += TrainingMenuItemClick;
             // 
             // tasksToolStripMenuItem
@@ -275,9 +281,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(888, 483);
             Controls.Add(_tabControl);
-            Controls.Add(menuStrip1);
+            Controls.Add(_mainMenuStrip);
             IsMdiContainer = true;
-            MainMenuStrip = menuStrip1;
+            MainMenuStrip = _mainMenuStrip;
             Margin = new Padding(2);
             MinimumSize = new Size(559, 487);
             Name = "FormMain";
@@ -290,8 +296,8 @@
             tabPage9.ResumeLayout(false);
             taskPage.ResumeLayout(false);
             wordListPage.ResumeLayout(false);
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
+            _mainMenuStrip.ResumeLayout(false);
+            _mainMenuStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -305,7 +311,7 @@
         private TabPage tabPage9;
         private ImageList imageList1;
         private Controls.SentenceEditControl sentenceEditControl1;
-        private MenuStrip menuStrip1;
+        private MenuStrip _mainMenuStrip;
         private ToolStripMenuItem tasksToolStripMenuItem;
         private ToolStripMenuItem dictionaryMenuItem;
         private ToolStripMenuItem trainingMenuItem;

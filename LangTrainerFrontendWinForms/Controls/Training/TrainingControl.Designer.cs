@@ -59,6 +59,7 @@
             _tabControl.Margin = new Padding(0);
             _tabControl.Multiline = true;
             _tabControl.Name = "_tabControl";
+            _tabControl.Padding = new Point(0, 0);
             _tabControl.SelectedIndex = 0;
             _tabControl.Size = new Size(782, 583);
             _tabControl.TabIndex = 2;
@@ -79,7 +80,7 @@
             // 
             exStartControl1.Dock = DockStyle.Fill;
             exStartControl1.Location = new Point(2, 2);
-            exStartControl1.Margin = new Padding(2);
+            exStartControl1.Margin = new Padding(0);
             exStartControl1.Name = "exStartControl1";
             exStartControl1.Size = new Size(770, 546);
             exStartControl1.TabIndex = 0;
@@ -169,6 +170,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
             Controls.Add(_tabControl);
             Name = "TrainingControl";
             Size = new Size(782, 583);

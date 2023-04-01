@@ -15,7 +15,7 @@ namespace LangTrainerFrontendWinForms.Controls.WordList
         {
             //_langFilter.Init();
             var wl = new WordList() { AutoSize = true, Dock = DockStyle.Fill };
-            accordion1.Add(wl, "Dictionary", fillWt: 1, open: true);
+            accordion1.Add(wl, "My dictionary", fillWt: 1, open: true);
 
             trainingStartShort1.StartClick += TrainingStartShort1_StartClick;
         }

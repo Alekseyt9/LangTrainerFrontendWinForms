@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            _startButton = new Button();
+            _loginButton = new Button();
             label1 = new Label();
             label2 = new Label();
             tableLayoutPanel1.SuspendLayout();
@@ -41,7 +41,7 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60.9375F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 39.0625F));
-            tableLayoutPanel1.Controls.Add(_startButton, 1, 0);
+            tableLayoutPanel1.Controls.Add(_loginButton, 0, 0);
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Controls.Add(label2, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
@@ -53,18 +53,22 @@
             tableLayoutPanel1.Size = new Size(512, 44);
             tableLayoutPanel1.TabIndex = 0;
             // 
-            // _startButton
+            // _loginButton
             // 
-            _startButton.Dock = DockStyle.Fill;
-            _startButton.Location = new Point(332, 3);
-            _startButton.Margin = new Padding(20, 3, 20, 3);
-            _startButton.Name = "_startButton";
-            tableLayoutPanel1.SetRowSpan(_startButton, 2);
-            _startButton.Size = new Size(160, 38);
-            _startButton.TabIndex = 0;
-            _startButton.Text = "Start";
-            _startButton.UseVisualStyleBackColor = true;
-            _startButton.Click += _startButton_Click;
+            _loginButton.BackColor = Color.LimeGreen;
+            _loginButton.BackgroundImageLayout = ImageLayout.None;
+            _loginButton.Dock = DockStyle.Fill;
+            _loginButton.FlatStyle = FlatStyle.Flat;
+            _loginButton.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            _loginButton.ForeColor = SystemColors.ButtonHighlight;
+            _loginButton.Location = new Point(315, 3);
+            _loginButton.Name = "_loginButton";
+            tableLayoutPanel1.SetRowSpan(_loginButton, 2);
+            _loginButton.Size = new Size(194, 38);
+            _loginButton.TabIndex = 3;
+            _loginButton.Text = "Start";
+            _loginButton.UseVisualStyleBackColor = false;
+            _loginButton.Click += _startButton_Click;
             // 
             // label1
             // 
@@ -81,6 +85,7 @@
             // 
             label2.AutoSize = true;
             label2.Dock = DockStyle.Fill;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(3, 22);
             label2.Name = "label2";
             label2.Size = new Size(306, 22);
@@ -103,8 +108,8 @@
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private Button _startButton;
         private Label label1;
         private Label label2;
+        private Button _loginButton;
     }
 }

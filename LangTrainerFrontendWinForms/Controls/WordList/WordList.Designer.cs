@@ -60,12 +60,12 @@
             // 
             groupBox1.Controls.Add(tableLayoutPanel2);
             groupBox1.Dock = DockStyle.Fill;
+            groupBox1.FlatStyle = FlatStyle.Flat;
             groupBox1.Location = new Point(3, 83);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(565, 349);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Word list";
             // 
             // tableLayoutPanel2
             // 
@@ -112,6 +112,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
             Controls.Add(tableLayoutPanel1);
             Name = "WordList";
             Size = new Size(571, 435);
