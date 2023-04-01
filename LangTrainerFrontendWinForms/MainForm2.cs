@@ -127,5 +127,9 @@ namespace LangTrainerFrontendWinForms
             await SaveSettings();
         }
 
+        private void langFilter1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

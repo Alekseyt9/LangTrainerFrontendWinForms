@@ -36,15 +36,24 @@
             trainingMenuItem = new ToolStripMenuItem();
             tasksToolStripMenuItem = new ToolStripMenuItem();
             tasksMenuItem1 = new ToolStripMenuItem();
+            optionsToolStripMenuItem = new ToolStripMenuItem();
+            languageToolStripMenuItem = new ToolStripMenuItem();
+            englishToolStripMenuItem = new ToolStripMenuItem();
+            getmanToolStripMenuItem = new ToolStripMenuItem();
+            translateLanguageToolStripMenuItem = new ToolStripMenuItem();
+            russianToolStripMenuItem = new ToolStripMenuItem();
+            englishToolStripMenuItem1 = new ToolStripMenuItem();
             _toolTip = new ToolTip(components);
+            tableLayoutPanel1 = new TableLayoutPanel();
             _mainMenuStrip.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // _tabPanel
             // 
-            _tabPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             _tabPanel.BackColor = SystemColors.ControlLightLight;
-            _tabPanel.Location = new Point(0, 28);
+            _tabPanel.Dock = DockStyle.Fill;
+            _tabPanel.Location = new Point(0, 0);
             _tabPanel.Margin = new Padding(0);
             _tabPanel.Name = "_tabPanel";
             _tabPanel.Size = new Size(905, 523);
@@ -54,7 +63,7 @@
             // 
             _mainMenuStrip.BackColor = SystemColors.ControlLightLight;
             _mainMenuStrip.ImageScalingSize = new Size(24, 24);
-            _mainMenuStrip.Items.AddRange(new ToolStripItem[] { dictionaryMenuItem, wordListMenuItem, trainingMenuItem, tasksToolStripMenuItem });
+            _mainMenuStrip.Items.AddRange(new ToolStripItem[] { dictionaryMenuItem, wordListMenuItem, trainingMenuItem, tasksToolStripMenuItem, optionsToolStripMenuItem });
             _mainMenuStrip.Location = new Point(0, 0);
             _mainMenuStrip.Name = "_mainMenuStrip";
             _mainMenuStrip.Padding = new Padding(5, 2, 0, 2);
@@ -97,19 +106,83 @@
             tasksMenuItem1.Size = new Size(125, 26);
             tasksMenuItem1.Text = "Tasks";
             // 
+            // optionsToolStripMenuItem
+            // 
+            optionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { languageToolStripMenuItem, translateLanguageToolStripMenuItem });
+            optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            optionsToolStripMenuItem.Size = new Size(75, 24);
+            optionsToolStripMenuItem.Text = "Options";
+            // 
+            // languageToolStripMenuItem
+            // 
+            languageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { englishToolStripMenuItem, getmanToolStripMenuItem });
+            languageToolStripMenuItem.Name = "languageToolStripMenuItem";
+            languageToolStripMenuItem.Size = new Size(224, 26);
+            languageToolStripMenuItem.Text = "Language";
+            // 
+            // englishToolStripMenuItem
+            // 
+            englishToolStripMenuItem.CheckOnClick = true;
+            englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            englishToolStripMenuItem.Size = new Size(224, 26);
+            englishToolStripMenuItem.Text = "English";
+            // 
+            // getmanToolStripMenuItem
+            // 
+            getmanToolStripMenuItem.CheckOnClick = true;
+            getmanToolStripMenuItem.Name = "getmanToolStripMenuItem";
+            getmanToolStripMenuItem.Size = new Size(224, 26);
+            getmanToolStripMenuItem.Text = "Getman";
+            // 
+            // translateLanguageToolStripMenuItem
+            // 
+            translateLanguageToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { russianToolStripMenuItem, englishToolStripMenuItem1 });
+            translateLanguageToolStripMenuItem.Name = "translateLanguageToolStripMenuItem";
+            translateLanguageToolStripMenuItem.Size = new Size(224, 26);
+            translateLanguageToolStripMenuItem.Text = "TranslateLanguage";
+            // 
+            // russianToolStripMenuItem
+            // 
+            russianToolStripMenuItem.CheckOnClick = true;
+            russianToolStripMenuItem.Name = "russianToolStripMenuItem";
+            russianToolStripMenuItem.Size = new Size(224, 26);
+            russianToolStripMenuItem.Text = "Russian";
+            // 
+            // englishToolStripMenuItem1
+            // 
+            englishToolStripMenuItem1.CheckOnClick = true;
+            englishToolStripMenuItem1.Name = "englishToolStripMenuItem1";
+            englishToolStripMenuItem1.Size = new Size(224, 26);
+            englishToolStripMenuItem1.Text = "English";
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(_tabPanel, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 28);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Size = new Size(905, 523);
+            tableLayoutPanel1.TabIndex = 6;
+            // 
             // MainForm2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(905, 551);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(_mainMenuStrip);
-            Controls.Add(_tabPanel);
             Name = "MainForm2";
             Text = "Language trainer";
             Load += MainForm2_Load;
             _mainMenuStrip.ResumeLayout(false);
             _mainMenuStrip.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -124,5 +197,13 @@
         private ToolStripMenuItem tasksToolStripMenuItem;
         private ToolStripMenuItem tasksMenuItem1;
         private ToolTip _toolTip;
+        private TableLayoutPanel tableLayoutPanel1;
+        private ToolStripMenuItem optionsToolStripMenuItem;
+        private ToolStripMenuItem languageToolStripMenuItem;
+        private ToolStripMenuItem englishToolStripMenuItem;
+        private ToolStripMenuItem getmanToolStripMenuItem;
+        private ToolStripMenuItem translateLanguageToolStripMenuItem;
+        private ToolStripMenuItem russianToolStripMenuItem;
+        private ToolStripMenuItem englishToolStripMenuItem1;
     }
 }

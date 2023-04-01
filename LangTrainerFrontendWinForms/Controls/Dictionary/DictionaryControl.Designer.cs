@@ -35,7 +35,6 @@
             groupBox1 = new GroupBox();
             _itemsTableLayout = new TableLayoutPanel();
             _progressBar = new ProgressBar();
-            _langFilter = new Common.LangFilter();
             _searchControl = new Common.SearchControl();
             imageList1 = new ImageList(components);
             statusStrip1 = new StatusStrip();
@@ -51,20 +50,19 @@
             // 
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(panel1, 0, 3);
-            tableLayoutPanel1.Controls.Add(_progressBar, 0, 4);
-            tableLayoutPanel1.Controls.Add(_langFilter, 0, 2);
-            tableLayoutPanel1.Controls.Add(_searchControl, 0, 1);
+            tableLayoutPanel1.Controls.Add(panel1, 0, 1);
+            tableLayoutPanel1.Controls.Add(_progressBar, 0, 2);
+            tableLayoutPanel1.Controls.Add(_searchControl, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 5;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.RowCount = 3;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 39F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 8F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new Size(699, 383);
             tableLayoutPanel1.TabIndex = 3;
             // 
@@ -73,9 +71,9 @@
             panel1.AutoScroll = true;
             panel1.Controls.Add(groupBox1);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 102);
+            panel1.Location = new Point(3, 43);
             panel1.Name = "panel1";
-            panel1.Size = new Size(693, 270);
+            panel1.Size = new Size(693, 329);
             panel1.TabIndex = 4;
             // 
             // groupBox1
@@ -86,7 +84,7 @@
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
             groupBox1.RightToLeft = RightToLeft.No;
-            groupBox1.Size = new Size(693, 270);
+            groupBox1.Size = new Size(693, 329);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             // 
@@ -102,7 +100,7 @@
             _itemsTableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             _itemsTableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             _itemsTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            _itemsTableLayout.Size = new Size(687, 244);
+            _itemsTableLayout.Size = new Size(687, 303);
             _itemsTableLayout.TabIndex = 0;
             // 
             // _progressBar
@@ -116,18 +114,10 @@
             _progressBar.Style = ProgressBarStyle.Continuous;
             _progressBar.TabIndex = 8;
             // 
-            // _langFilter
-            // 
-            _langFilter.Dock = DockStyle.Fill;
-            _langFilter.Location = new Point(3, 63);
-            _langFilter.Name = "_langFilter";
-            _langFilter.Size = new Size(693, 33);
-            _langFilter.TabIndex = 9;
-            // 
             // _searchControl
             // 
             _searchControl.Dock = DockStyle.Fill;
-            _searchControl.Location = new Point(3, 23);
+            _searchControl.Location = new Point(3, 3);
             _searchControl.Name = "_searchControl";
             _searchControl.Size = new Size(693, 34);
             _searchControl.TabIndex = 10;
@@ -201,7 +191,6 @@
         private WordNotFoundItemControl wordNotFoundItem1;
         private GroupBox groupBox1;
         private ProgressBar _progressBar;
-        private Common.LangFilter _langFilter;
         private Common.SearchControl _searchControl;
     }
 }

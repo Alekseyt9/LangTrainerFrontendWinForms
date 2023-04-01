@@ -35,14 +35,14 @@
             splitButton1 = new Dictionary.SplitButton();
             imageList1 = new ImageList(components);
             splitButton2 = new Dictionary.SplitButton();
-            label2 = new Label();
             contextMenuStrip1 = new ContextMenuStrip(components);
             deleteToolStripMenuItem = new ToolStripMenuItem();
-            progressToolStripMenuItem = new ToolStripMenuItem();
             deleteToolStripMenuItem1 = new ToolStripMenuItem();
+            progressToolStripMenuItem = new ToolStripMenuItem();
             resetToolStripMenuItem = new ToolStripMenuItem();
             makeLearnedToolStripMenuItem = new ToolStripMenuItem();
             label3 = new Label();
+            label2 = new Label();
             tableLayoutPanel1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
@@ -101,23 +101,13 @@
             // 
             // splitButton2
             // 
-            splitButton2.ContextMenuStrip = contextMenuStrip1;
             splitButton2.Location = new Point(588, 3);
+            splitButton2.Menu = contextMenuStrip1;
             splitButton2.Name = "splitButton2";
             splitButton2.Size = new Size(94, 29);
             splitButton2.TabIndex = 7;
             splitButton2.Text = "Details..";
             splitButton2.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Dock = DockStyle.Fill;
-            label2.Location = new Point(275, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(226, 41);
-            label2.TabIndex = 6;
-            label2.Text = "sample";
             // 
             // contextMenuStrip1
             // 
@@ -133,6 +123,12 @@
             deleteToolStripMenuItem.Size = new Size(146, 24);
             deleteToolStripMenuItem.Text = "Dictionary";
             // 
+            // deleteToolStripMenuItem1
+            // 
+            deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
+            deleteToolStripMenuItem1.Size = new Size(136, 26);
+            deleteToolStripMenuItem1.Text = "Delete";
+            // 
             // progressToolStripMenuItem
             // 
             progressToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { resetToolStripMenuItem, makeLearnedToolStripMenuItem });
@@ -140,22 +136,16 @@
             progressToolStripMenuItem.Size = new Size(146, 24);
             progressToolStripMenuItem.Text = "Progress";
             // 
-            // deleteToolStripMenuItem1
-            // 
-            deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
-            deleteToolStripMenuItem1.Size = new Size(224, 26);
-            deleteToolStripMenuItem1.Text = "Delete";
-            // 
             // resetToolStripMenuItem
             // 
             resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            resetToolStripMenuItem.Size = new Size(224, 26);
+            resetToolStripMenuItem.Size = new Size(182, 26);
             resetToolStripMenuItem.Text = "Reset";
             // 
             // makeLearnedToolStripMenuItem
             // 
             makeLearnedToolStripMenuItem.Name = "makeLearnedToolStripMenuItem";
-            makeLearnedToolStripMenuItem.Size = new Size(224, 26);
+            makeLearnedToolStripMenuItem.Size = new Size(182, 26);
             makeLearnedToolStripMenuItem.Text = "Make learned";
             // 
             // label3
@@ -166,6 +156,16 @@
             label3.Size = new Size(72, 40);
             label3.TabIndex = 8;
             label3.Text = "repeat in 1 day";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Dock = DockStyle.Fill;
+            label2.Location = new Point(275, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(226, 41);
+            label2.TabIndex = 6;
+            label2.Text = "sample";
             // 
             // WordListItem
             // 

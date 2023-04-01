@@ -33,7 +33,6 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             wordListItem1 = new WordListItem();
             searchControl1 = new Common.SearchControl();
-            _langFilter = new Common.LangFilter();
             tableLayoutPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -43,16 +42,15 @@
             // 
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(groupBox1, 0, 2);
+            tableLayoutPanel1.Controls.Add(groupBox1, 0, 1);
             tableLayoutPanel1.Controls.Add(searchControl1, 0, 0);
-            tableLayoutPanel1.Controls.Add(_langFilter, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 3;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new Size(571, 435);
             tableLayoutPanel1.TabIndex = 0;
             // 
@@ -61,9 +59,9 @@
             groupBox1.Controls.Add(tableLayoutPanel2);
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.FlatStyle = FlatStyle.Flat;
-            groupBox1.Location = new Point(3, 83);
+            groupBox1.Location = new Point(3, 43);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(565, 349);
+            groupBox1.Size = new Size(565, 389);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             // 
@@ -80,7 +78,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(559, 323);
+            tableLayoutPanel2.Size = new Size(559, 363);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // wordListItem1
@@ -100,14 +98,6 @@
             searchControl1.Size = new Size(565, 34);
             searchControl1.TabIndex = 3;
             // 
-            // _langFilter
-            // 
-            _langFilter.Dock = DockStyle.Fill;
-            _langFilter.Location = new Point(3, 43);
-            _langFilter.Name = "_langFilter";
-            _langFilter.Size = new Size(565, 34);
-            _langFilter.TabIndex = 4;
-            // 
             // WordList
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -126,7 +116,6 @@
 
         private TableLayoutPanel tableLayoutPanel1;
         private Common.SearchControl searchControl1;
-        private Common.LangFilter _langFilter;
         private GroupBox groupBox1;
         private TableLayoutPanel tableLayoutPanel2;
         private WordListItem wordListItem1;

@@ -19,7 +19,9 @@ namespace LangTrainerFrontendWinForms.Controls
             InitializeComponent();
             _prServ = new ProgressService(_progressBar);
             _searchControl.Changed += SearchControlOnTextChanged;
-            _langFilter.LangChanged += _langFilter_LangChanged;
+
+            LangFilterService.GetInstance().LangChanged += _langFilter_LangChanged;
+            //_langFilter.LangChanged += _langFilter_LangChanged;
         }
 
         private async void _langFilter_LangChanged(object? sender, EventArgs e)
@@ -32,14 +34,15 @@ namespace LangTrainerFrontendWinForms.Controls
             if (!string.IsNullOrEmpty(_searchControl.SearchString))
             {
                 _prServ.Switch(true);
-                var filterData = _langFilter.Data;
+                //var filterData = _langFilter.Data;
+                var filterData = LangFilterService.GetInstance().Data;
                 await GetDataAndShow(_searchControl.SearchString, filterData.LangId, filterData.TrLangId);
             }
         }
 
         public void Init()
         {
-            _langFilter.Init();
+            //_langFilter.Init();
         }
 
         private async void SearchControlOnTextChanged(object? sender, SearchStringChangedEventArgs e)
@@ -87,7 +90,8 @@ namespace LangTrainerFrontendWinForms.Controls
                 if (res.WordFound)
                 {
                     NotifyService.GetInstance().ShowMessage("Word found");
-                    var filterData = _langFilter.Data;
+                    //var filterData = _langFilter.Data;
+                    var filterData = LangFilterService.GetInstance().Data;
                     await GetDataAndShow(e.Word, filterData.LangId, filterData.TrLangId);
                 }
                 else
@@ -118,12 +122,12 @@ namespace LangTrainerFrontendWinForms.Controls
 
         public void InitSettings(Settings settings, string parentKey)
         {
-            _langFilter.InitSettings(settings, null);
+            //_langFilter.InitSettings(settings, null);
         }
 
         public void SaveSettings(Settings settings, string parentKey)
         {
-            _langFilter.SaveSettings(settings, null);
+            //_langFilter.SaveSettings(settings, null);
         }
 
     }
