@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
-            button1 = new Button();
+            _sendButton = new Button();
             tableLayoutPanel4 = new TableLayoutPanel();
             label1 = new Label();
-            textBox1 = new TextBox();
+            _emailText = new TextBox();
+            toolTip1 = new ToolTip(components);
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -48,14 +50,13 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 277F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 1, 1);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 3;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 79F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(313, 120);
+            tableLayoutPanel1.Size = new Size(260, 63);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -65,7 +66,7 @@
             tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 0, 1);
             tableLayoutPanel2.Controls.Add(tableLayoutPanel4, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(18, 20);
+            tableLayoutPanel2.Location = new Point(-8, -8);
             tableLayoutPanel2.Margin = new Padding(0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
@@ -79,7 +80,7 @@
             tableLayoutPanel3.ColumnCount = 2;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 73.21429F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 26.7857151F));
-            tableLayoutPanel3.Controls.Add(button1, 1, 0);
+            tableLayoutPanel3.Controls.Add(_sendButton, 1, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(0, 46);
             tableLayoutPanel3.Margin = new Padding(0);
@@ -89,15 +90,16 @@
             tableLayoutPanel3.Size = new Size(277, 33);
             tableLayoutPanel3.TabIndex = 0;
             // 
-            // button1
+            // _sendButton
             // 
-            button1.Dock = DockStyle.Fill;
-            button1.Location = new Point(205, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(69, 27);
-            button1.TabIndex = 0;
-            button1.Text = "Send";
-            button1.UseVisualStyleBackColor = true;
+            _sendButton.Dock = DockStyle.Fill;
+            _sendButton.Location = new Point(205, 3);
+            _sendButton.Name = "_sendButton";
+            _sendButton.Size = new Size(69, 27);
+            _sendButton.TabIndex = 0;
+            _sendButton.Text = "Send";
+            _sendButton.UseVisualStyleBackColor = true;
+            _sendButton.Click += _sendButton_Click;
             // 
             // tableLayoutPanel4
             // 
@@ -105,7 +107,7 @@
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 64F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel4.Controls.Add(label1, 0, 0);
-            tableLayoutPanel4.Controls.Add(textBox1, 1, 0);
+            tableLayoutPanel4.Controls.Add(_emailText, 1, 0);
             tableLayoutPanel4.Dock = DockStyle.Fill;
             tableLayoutPanel4.Location = new Point(0, 0);
             tableLayoutPanel4.Margin = new Padding(0);
@@ -128,13 +130,13 @@
             label1.Text = "email:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // textBox1
+            // _emailText
             // 
-            textBox1.Dock = DockStyle.Fill;
-            textBox1.Location = new Point(67, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(207, 27);
-            textBox1.TabIndex = 2;
+            _emailText.Dock = DockStyle.Fill;
+            _emailText.Location = new Point(67, 3);
+            _emailText.Name = "_emailText";
+            _emailText.Size = new Size(207, 27);
+            _emailText.TabIndex = 2;
             // 
             // RecoveryForm
             // 
@@ -160,9 +162,10 @@
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel3;
-        private Button button1;
+        private Button _sendButton;
         private TableLayoutPanel tableLayoutPanel4;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox _emailText;
+        private ToolTip toolTip1;
     }
 }

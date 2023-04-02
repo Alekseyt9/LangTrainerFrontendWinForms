@@ -122,7 +122,7 @@
             label1.Name = "label1";
             label1.Size = new Size(107, 33);
             label1.TabIndex = 0;
-            label1.Text = "login:";
+            label1.Text = "email:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label2

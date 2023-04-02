@@ -38,7 +38,7 @@ namespace LangTrainerFrontendWinForms.Controls.Login
             }
             catch (Exception ex)
             {
-                NotifyService.GetInstance().ShowMessage(ex.Message, 0.7f);
+                NotifyService.GetInstance().ShowMessage(ex.Message);
             }
         }
 

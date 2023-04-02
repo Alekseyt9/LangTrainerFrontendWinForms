@@ -14,7 +14,16 @@ namespace LangTrainerFrontendWinForms.Controls.Login
         {
             if (_passText.Text == _passRepText.Text)
             {
-                await AuthService.GetInstance().Register(_loginText.Text, _emailText.Text, _passText.Text);
+                try
+                {
+                    await AuthService.GetInstance().Register(_emailText.Text, _passText.Text);
+                    NotifyService.GetInstance().ShowMessage("Registration success", this, _toolTip);
+                    Close();
+                }
+                catch (Exception ex)
+                {
+                    NotifyService.GetInstance().ShowMessage(ex.Message, this, _toolTip);
+                }
             }
         }
 

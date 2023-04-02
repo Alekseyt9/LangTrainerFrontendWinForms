@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             _registerButton = new Button();
             tableLayoutPanel4 = new TableLayoutPanel();
-            _loginText = new TextBox();
-            label4 = new Label();
             _passRepText = new TextBox();
             label3 = new Label();
             label1 = new Label();
             label2 = new Label();
             _emailText = new TextBox();
             _passText = new TextBox();
+            _toolTip = new ToolTip(components);
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -110,50 +110,29 @@
             tableLayoutPanel4.ColumnCount = 2;
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 136F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Controls.Add(_loginText, 1, 0);
-            tableLayoutPanel4.Controls.Add(label4, 0, 0);
-            tableLayoutPanel4.Controls.Add(_passRepText, 1, 3);
-            tableLayoutPanel4.Controls.Add(label3, 0, 3);
-            tableLayoutPanel4.Controls.Add(label1, 0, 1);
-            tableLayoutPanel4.Controls.Add(label2, 0, 2);
-            tableLayoutPanel4.Controls.Add(_emailText, 1, 1);
-            tableLayoutPanel4.Controls.Add(_passText, 1, 2);
+            tableLayoutPanel4.Controls.Add(_passRepText, 1, 2);
+            tableLayoutPanel4.Controls.Add(label3, 0, 2);
+            tableLayoutPanel4.Controls.Add(label1, 0, 0);
+            tableLayoutPanel4.Controls.Add(label2, 0, 1);
+            tableLayoutPanel4.Controls.Add(_emailText, 1, 0);
+            tableLayoutPanel4.Controls.Add(_passText, 1, 1);
             tableLayoutPanel4.Dock = DockStyle.Fill;
             tableLayoutPanel4.Location = new Point(0, 0);
             tableLayoutPanel4.Margin = new Padding(0);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 5;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel4.RowCount = 4;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel4.Size = new Size(336, 133);
             tableLayoutPanel4.TabIndex = 1;
-            // 
-            // _loginText
-            // 
-            _loginText.Dock = DockStyle.Fill;
-            _loginText.Location = new Point(139, 3);
-            _loginText.Name = "_loginText";
-            _loginText.Size = new Size(194, 27);
-            _loginText.TabIndex = 7;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Dock = DockStyle.Fill;
-            label4.Location = new Point(3, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(130, 30);
-            label4.TabIndex = 6;
-            label4.Text = "login:";
-            label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // _passRepText
             // 
             _passRepText.Dock = DockStyle.Fill;
-            _passRepText.Location = new Point(139, 93);
+            _passRepText.Location = new Point(139, 63);
             _passRepText.Name = "_passRepText";
             _passRepText.Size = new Size(194, 27);
             _passRepText.TabIndex = 5;
@@ -162,7 +141,7 @@
             // 
             label3.AutoSize = true;
             label3.Dock = DockStyle.Fill;
-            label3.Location = new Point(3, 90);
+            label3.Location = new Point(3, 60);
             label3.Name = "label3";
             label3.Size = new Size(130, 30);
             label3.TabIndex = 4;
@@ -173,7 +152,7 @@
             // 
             label1.AutoSize = true;
             label1.Dock = DockStyle.Fill;
-            label1.Location = new Point(3, 30);
+            label1.Location = new Point(3, 0);
             label1.Name = "label1";
             label1.Size = new Size(130, 30);
             label1.TabIndex = 0;
@@ -184,7 +163,7 @@
             // 
             label2.AutoSize = true;
             label2.Dock = DockStyle.Fill;
-            label2.Location = new Point(3, 60);
+            label2.Location = new Point(3, 30);
             label2.Name = "label2";
             label2.Size = new Size(130, 30);
             label2.TabIndex = 1;
@@ -194,7 +173,7 @@
             // _emailText
             // 
             _emailText.Dock = DockStyle.Fill;
-            _emailText.Location = new Point(139, 33);
+            _emailText.Location = new Point(139, 3);
             _emailText.Name = "_emailText";
             _emailText.Size = new Size(194, 27);
             _emailText.TabIndex = 2;
@@ -202,7 +181,7 @@
             // _passText
             // 
             _passText.Dock = DockStyle.Fill;
-            _passText.Location = new Point(139, 63);
+            _passText.Location = new Point(139, 33);
             _passText.Name = "_passText";
             _passText.Size = new Size(194, 27);
             _passText.TabIndex = 3;
@@ -239,7 +218,6 @@
         private TextBox _passText;
         private TextBox _passRepText;
         private Label label3;
-        private TextBox _loginText;
-        private Label label4;
+        private ToolTip _toolTip;
     }
 }

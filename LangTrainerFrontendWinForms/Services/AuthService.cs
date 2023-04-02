@@ -21,18 +21,18 @@ namespace LangTrainerFrontendWinForms.Services
             return instance;
         }
 
-        public async Task<bool> Login(string user, string pass)
+        public async Task<bool> Login(string email, string pass)
         {
             try
             {
                 var res = await HttpClientService.GetInstance().Post<TokensAuth>(@"https://localhost:44329/api/Auth/Login",
                     new Dictionary<string, object>()
                     {
-                        { "Login", user },
+                        { "Email", email },
                         { "Password", pass }
                     });
                 _tokensAuth = res;
-                NotifyService.GetInstance().ShowMessage(res != null ? "Login success" : "Login failed", 0.7f);
+                NotifyService.GetInstance().ShowMessage(res != null ? "Login success" : "Login failed");
                 if (res != null)
                 {
                     return true;
@@ -40,29 +40,21 @@ namespace LangTrainerFrontendWinForms.Services
             }
             catch (Exception ex)
             {
-                NotifyService.GetInstance().ShowMessage(ex.Message, 0.7f);
+                NotifyService.GetInstance().ShowMessage(ex.Message);
             }
 
             return false;
         }
 
-        public async Task Register(string user, string email, string pass)
+        public async Task Register(string email, string pass)
         {
-            try
-            {
-                await HttpClientService.GetInstance().Post(@"https://localhost:44329/api/Auth/Login",
-                    new Dictionary<string, object>()
-                    {
-                        { "Login", user },
-                        { "Password", pass },
-                        { "Email", email }
-                    });
-                NotifyService.GetInstance().ShowMessage("Registration success");
-            }
-            catch (Exception ex)
-            {
-                NotifyService.GetInstance().ShowMessage(ex.Message, 0.7f);
-            }
+            await HttpClientService.GetInstance().Post(@"https://localhost:44329/api/Auth/Register",
+                new Dictionary<string, object>()
+                {
+                    { "Password", pass },
+                    { "Email", email }
+                });
+            NotifyService.GetInstance().ShowMessage("Registration success");
         }
 
         public async Task Recovery(string email)
@@ -78,7 +70,7 @@ namespace LangTrainerFrontendWinForms.Services
             }
             catch (Exception ex)
             {
-                NotifyService.GetInstance().ShowMessage(ex.Message, 0.7f);
+                NotifyService.GetInstance().ShowMessage(ex.Message);
             }
         }
 

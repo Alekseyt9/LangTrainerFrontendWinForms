@@ -1,4 +1,5 @@
 ﻿
+using System.ComponentModel;
 using System.Text.RegularExpressions;
 
 namespace LangTrainerFrontendWinForms.Helpers
@@ -13,18 +14,39 @@ namespace LangTrainerFrontendWinForms.Helpers
             return res;
         }
 
-        private static void FindRecurs<T>(Control control, Regex regex, List<T> list)
+        private static void FindRecurs<T>(Component control, Regex regex, List<T> list)
         {
-            foreach (Control child in control.Controls)
+            if (control.Container != null)
             {
-                if (child is T child1)
+                foreach (Component child in control.Container.Components)
                 {
-                    if (regex != null && regex.IsMatch(child.Name) || regex == null)
+                    if (child is T child1)
                     {
-                        list.Add(child1);
+                        var ctr = child as Control;
+                        if (regex != null && ctr != null && regex.IsMatch(ctr.Name) || regex == null)
+                        {
+                            list.Add(child1);
+                        }
                     }
+
+                    FindRecurs<T>(child, regex, list);
                 }
-                FindRecurs<T>(child, regex, list);
+            }
+            else
+            {
+                foreach (Component child in ((Control)control).Controls)
+                {
+                    if (child is T child1)
+                    {
+                        var ctr = child as Control;
+                        if (regex != null && ctr != null && regex.IsMatch(ctr.Name) || regex == null)
+                        {
+                            list.Add(child1);
+                        }
+                    }
+
+                    FindRecurs<T>(child, regex, list);
+                }
             }
         }
 

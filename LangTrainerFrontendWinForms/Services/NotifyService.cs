@@ -6,17 +6,16 @@ namespace LangTrainerFrontendWinForms.Services
     internal class NotifyService
     {
         private static NotifyService instance;
-
-        private ToolTip _ctr;
         private Form _form;
+        private ToolTip _toolTip;
 
         private NotifyService()
         { }
 
-        public void Init(Form form, ToolTip ctr)
+        public void Init(Form form, ToolTip toolTip)
         {
-            _ctr = ctr;
             _form = form;
+            _toolTip = toolTip;
         }
 
         public static NotifyService GetInstance()
@@ -34,13 +33,16 @@ namespace LangTrainerFrontendWinForms.Services
             return new Size((int)(size.Width * 0.5), (int)(size.Height * 0.5));
         }
 
-        public void ShowMessage(string msg, float vertScale = 0.7f)
+        public void ShowMessage(string msg, Form form = null, ToolTip toolTip = null, float vertScale = 0.7f)
         {
-            _form.Invoke(() =>
+            var f = form != null ? form : _form;
+            var tt = toolTip != null ? toolTip : _toolTip;
+
+            f.Invoke(() =>
             {
                 var wText = StringHelper.WrapText(msg, 50);
-                var point = new Point((int)(_form.Width * 0.5), (int)(_form.Height * vertScale)) - GetTextSize(wText);
-                _ctr.Show(wText, _form, point, 3000);
+                var point = new Point((int)(f.Width * 0.5), (int)(f.Height * vertScale)) - GetTextSize(wText);
+                tt.Show(wText, f, point, 3000);
             });
         }
 
