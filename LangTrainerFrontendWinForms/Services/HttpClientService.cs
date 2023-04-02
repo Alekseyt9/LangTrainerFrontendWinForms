@@ -26,7 +26,7 @@ namespace LangTrainerFrontendWinForms.Services
         {
             var client = new HttpClient()
             {
-                Timeout = TimeSpan.FromSeconds(3)
+                Timeout = TimeSpan.FromSeconds(5)
             };
             EnsureAuth(client);
             _httpClient = client;

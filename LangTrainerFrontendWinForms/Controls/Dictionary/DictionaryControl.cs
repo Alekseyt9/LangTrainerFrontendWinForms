@@ -20,11 +20,11 @@ namespace LangTrainerFrontendWinForms.Controls
             _prServ = new ProgressService(_progressBar);
             _searchControl.Changed += SearchControlOnTextChanged;
 
-            LangFilterService.GetInstance().LangChanged += _langFilter_LangChanged;
+            LangFilterService.GetInstance().Changed += FilterChanged;
             //_langFilter.LangChanged += _langFilter_LangChanged;
         }
 
-        private async void _langFilter_LangChanged(object? sender, EventArgs e)
+        private async void FilterChanged(object? sender, EventArgs e)
         {
             await RunSeach();
         }
@@ -35,7 +35,7 @@ namespace LangTrainerFrontendWinForms.Controls
             {
                 _prServ.Switch(true);
                 //var filterData = _langFilter.Data;
-                var filterData = LangFilterService.GetInstance().Data;
+                var filterData = LangFilterService.GetInstance().Filter;
                 await GetDataAndShow(_searchControl.SearchString, filterData.LangId, filterData.TrLangId);
             }
         }
@@ -91,7 +91,7 @@ namespace LangTrainerFrontendWinForms.Controls
                 {
                     NotifyService.GetInstance().ShowMessage("Word found");
                     //var filterData = _langFilter.Data;
-                    var filterData = LangFilterService.GetInstance().Data;
+                    var filterData = LangFilterService.GetInstance().Filter;
                     await GetDataAndShow(e.Word, filterData.LangId, filterData.TrLangId);
                 }
                 else

@@ -32,7 +32,6 @@ namespace LangTrainerFrontendWinForms
             _tabPanel.Add("wordListPage", _wordListControl);
 
             NavigateService.GetInstance().Init(_tabPanel);
-
             NavigateService.GetInstance().Navigate("loginPage");
         }
 
@@ -44,9 +43,6 @@ namespace LangTrainerFrontendWinForms
 
             KeyPreview = true;
             FormClosing += OnFormClosing;
-
-            //NavigateService.GetInstance().Init(_tabControl);
-            //NavigateService.GetInstance().Navigate("loginPage");
 
             LoginEnabled(false);
             _loginControl.OnLoginResult += loginControlOnLoginResult;
@@ -67,6 +63,9 @@ namespace LangTrainerFrontendWinForms
                 _wordListControl.InitSettings(_remoteSettings, "wordList");
 
                 _mainMenuStrip.Visible = true;
+
+                LangFilterService.GetInstance().InitSettings(_remoteSettings, null);
+                LangFilterService.GetInstance().Init(this, optionsToolStripMenuItem);
             }
         }
 
@@ -98,6 +97,7 @@ namespace LangTrainerFrontendWinForms
             {
                 _dictionaryControl.SaveSettings(_remoteSettings, "dictionary");
                 _wordListControl.SaveSettings(_remoteSettings, "wordList");
+                LangFilterService.GetInstance().SaveSettings(_remoteSettings, null);
                 await SettingsService.GetInstance().SaveRemoteSettings(_remoteSettings);
             }
         }
