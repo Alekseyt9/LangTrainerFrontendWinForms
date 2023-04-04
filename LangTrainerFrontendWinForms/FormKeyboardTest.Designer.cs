@@ -36,8 +36,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(800, 450);
+            KeyPreview = true;
             Name = "FormKeyboardTest";
             Text = "FormKeyboardTest";
+            KeyDown += FormKeyboardTest_KeyDown;
+            KeyUp += FormKeyboardTest_KeyUp;
             ResumeLayout(false);
         }
 

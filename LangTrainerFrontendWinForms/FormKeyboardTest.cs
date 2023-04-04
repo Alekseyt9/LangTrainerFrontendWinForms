@@ -84,24 +84,33 @@ namespace LangTrainerFrontendWinForms
 
             using Brush greenBrush = new SolidBrush(Color.Green);
             using Brush grayBrush = new SolidBrush(Color.LightGray);
+            using Brush blueBrush = new SolidBrush(Color.CornflowerBlue);
 
             for (var i = 0; i < _rectangles.Count; i++)
             {
-                var rectangleInfo = _rectangles[i];
+                var rInfo = _rectangles[i];
 
-                var rectangle = new Rectangle((int)(rectangleInfo.X * scaleFactor),
-                    (int)(rectangleInfo.Y * scaleFactor), (int)(rectangleInfo.W * scaleFactor), (int)(rectangleInfo.H * scaleFactor));
+                var rectangle = new Rectangle((int)(rInfo.X * scaleFactor),
+                    (int)(rInfo.Y * scaleFactor), (int)(rInfo.W * scaleFactor), (int)(rInfo.H * scaleFactor));
 
                 using (var path = new GraphicsPath())
                 {
                     AddRoundedRectangle(path, rectangle, cornerRadius);
-                    graphics.FillPath(i == hoveredRectangleIndex ? greenBrush : grayBrush, path);
+                    if (!string.IsNullOrEmpty(rInfo.Code) && _keysPress.Contains(int.Parse(rInfo.Code)))
+                    {
+                        graphics.FillPath(blueBrush, path);
+                    }
+                    else
+                    {
+                        graphics.FillPath(i == hoveredRectangleIndex ? greenBrush : grayBrush, path);
+                    }
+                    
                     graphics.DrawPath(pen, path);
                 }
 
                 var fontSize = 12 * scaleFactor;
                 var font = new Font("Arial", fontSize);
-                var text = rectangleInfo.Text;
+                var text = rInfo.Text;
                 var textSize = graphics.MeasureString(text, font);
 
                 // Уменьшение размера шрифта, если текст не вмещается в прямоугольник
@@ -112,8 +121,8 @@ namespace LangTrainerFrontendWinForms
                     textSize = graphics.MeasureString(text, font);
                 }
 
-                var x = rectangleInfo.X * scaleFactor + (rectangleInfo.W * scaleFactor - textSize.Width) / 2;
-                var y = rectangleInfo.Y * scaleFactor + (rectangleInfo.H * scaleFactor - textSize.Height) / 2;
+                var x = rInfo.X * scaleFactor + (rInfo.W * scaleFactor - textSize.Width) / 2;
+                var y = rInfo.Y * scaleFactor + (rInfo.H * scaleFactor - textSize.Height) / 2;
                 graphics.DrawString(text, font, textBrush, x, y);
             }
 
@@ -131,6 +140,20 @@ namespace LangTrainerFrontendWinForms
                 path.CloseFigure();
             }
 
+        }
+
+        private HashSet<int> _keysPress = new HashSet<int>();
+
+        private void FormKeyboardTest_KeyDown(object sender, KeyEventArgs e)
+        {
+            _keysPress.Add(e.KeyValue);
+            Invalidate();
+        }
+
+        private void FormKeyboardTest_KeyUp(object sender, KeyEventArgs e)
+        {
+            _keysPress.Remove(e.KeyValue);
+            Invalidate();
         }
 
     }
