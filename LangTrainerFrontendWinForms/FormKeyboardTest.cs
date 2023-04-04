@@ -1,5 +1,6 @@
 ﻿
 using Oskeyboard.Serialize;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Xml.Serialization;
 
@@ -15,7 +16,6 @@ namespace LangTrainerFrontendWinForms
             get
             {
                 var cp = base.CreateParams;
-
                 cp.ExStyle |= 0x02000000;
                 return cp;
             }
@@ -28,23 +28,23 @@ namespace LangTrainerFrontendWinForms
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
             _rectangles = DeserializeButtonCoordinates("keyboard.xml").Buttons;
             MouseMove += MainForm_MouseMove;
-            this.Resize += MainForm_Resize;
+            Resize += MainForm_Resize;
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
         {
-            this.Invalidate(); // Перерисовка формы
+            Invalidate();
         }
 
         private void MainForm_MouseMove(object sender, MouseEventArgs e)
         {
             var newHoveredRectangleIndex = -1;
 
-            float scaleFactor = Math.Min((float)ClientSize.Width / 1100, (float)ClientSize.Height / 500);
+            var scaleFactor = Math.Min((float)ClientSize.Width / 1100, (float)ClientSize.Height / 500);
             for (var i = 0; i < _rectangles.Count; i++)
             {
                 var rectangleInfo = _rectangles[i];
-                Rectangle rectangle = new Rectangle((int)(rectangleInfo.X * scaleFactor),
+                var rectangle = new Rectangle((int)(rectangleInfo.X * scaleFactor),
                     (int)(rectangleInfo.Y * scaleFactor), (int)(rectangleInfo.W * scaleFactor), (int)(rectangleInfo.H * scaleFactor));
 
                 if (rectangle.Contains(e.Location))
@@ -57,7 +57,7 @@ namespace LangTrainerFrontendWinForms
             if (newHoveredRectangleIndex != hoveredRectangleIndex)
             {
                 hoveredRectangleIndex = newHoveredRectangleIndex;
-                Invalidate(); // Перерисовка формы
+                Invalidate(); 
             }
         }
 
@@ -74,41 +74,47 @@ namespace LangTrainerFrontendWinForms
 
             var graphics = e.Graphics;
             var pen = new Pen(Color.Black);
-
-            float scaleFactor = Math.Min((float)ClientSize.Width / 1100, (float)ClientSize.Height / 500);
-
-            Font font = new Font("Arial", 12 * scaleFactor);
+            var scaleFactor = Math.Min((float)ClientSize.Width / 1100, (float)ClientSize.Height / 500);
+            //var font = new Font("Arial", 12 * scaleFactor);
             Brush textBrush = new SolidBrush(Color.Black);
-
-            int cornerRadius = (int)(10 * scaleFactor);
+            var cornerRadius = (int)(15 * scaleFactor);
 
             for (var i = 0; i < _rectangles.Count; i++)
             {
                 var rectangleInfo = _rectangles[i];
 
-                Rectangle rectangle = new Rectangle((int)(rectangleInfo.X * scaleFactor), 
+                var rectangle = new Rectangle((int)(rectangleInfo.X * scaleFactor), 
                     (int)(rectangleInfo.Y * scaleFactor), (int)(rectangleInfo.W * scaleFactor), (int)(rectangleInfo.H* scaleFactor));
 
                 using (var path = new GraphicsPath())
                 {
-                    AddRoundedRectangle(path, rectangle, 15);
+                    AddRoundedRectangle(path, rectangle, cornerRadius);
 
                     if (i == hoveredRectangleIndex)
                     {
-                        using (Brush brush = new SolidBrush(Color.Green))
-                        {
-                            graphics.FillPath(brush, path);
-                        }
+                        using Brush brush = new SolidBrush(Color.Green);
+                        graphics.FillPath(brush, path);
                     }
 
                     graphics.DrawPath(pen, path);
                 }
 
+                var fontSize = 12 * scaleFactor;
+                var font = new Font("Arial", fontSize);
                 var text = rectangleInfo.Text;
                 var textSize = graphics.MeasureString(text, font);
                 
-                float x = rectangleInfo.X * scaleFactor + (rectangleInfo.W * scaleFactor - textSize.Width) / 2;
-                float y = rectangleInfo.Y * scaleFactor + (rectangleInfo.H * scaleFactor - textSize.Height) / 2;
+                // Уменьшение размера шрифта, если текст не вмещается в прямоугольник
+                while (textSize.Width > rectangle.Width || textSize.Height > rectangle.Height)
+                {
+                    fontSize -= 0.5f;
+                    font = new Font("Arial", fontSize);
+                    textSize = graphics.MeasureString(text, font);
+                }
+                //font = new Font("Arial", fontSize);
+
+                var x = rectangleInfo.X * scaleFactor + (rectangleInfo.W * scaleFactor - textSize.Width) / 2;
+                var y = rectangleInfo.Y * scaleFactor + (rectangleInfo.H * scaleFactor - textSize.Height) / 2;
                 graphics.DrawString(text, font, textBrush, x, y);
             }
 
