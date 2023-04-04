@@ -82,6 +82,9 @@ namespace LangTrainerFrontendWinForms
             Brush textBrush = new SolidBrush(Color.Black);
             var cornerRadius = (int)(15 * scaleFactor);
 
+            using Brush greenBrush = new SolidBrush(Color.Green);
+            using Brush grayBrush = new SolidBrush(Color.LightGray);
+
             for (var i = 0; i < _rectangles.Count; i++)
             {
                 var rectangleInfo = _rectangles[i];
@@ -92,13 +95,7 @@ namespace LangTrainerFrontendWinForms
                 using (var path = new GraphicsPath())
                 {
                     AddRoundedRectangle(path, rectangle, cornerRadius);
-
-                    if (i == hoveredRectangleIndex)
-                    {
-                        using Brush brush = new SolidBrush(Color.Green);
-                        graphics.FillPath(brush, path);
-                    }
-
+                    graphics.FillPath(i == hoveredRectangleIndex ? greenBrush : grayBrush, path);
                     graphics.DrawPath(pen, path);
                 }
 
