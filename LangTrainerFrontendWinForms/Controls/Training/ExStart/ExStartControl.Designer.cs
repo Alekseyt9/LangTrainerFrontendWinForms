@@ -61,6 +61,7 @@
             // 
             // _labelRepeat
             // 
+            _labelRepeat.BorderStyle = BorderStyle.FixedSingle;
             _labelRepeat.Cursor = Cursors.Hand;
             _labelRepeat.Location = new Point(118, 63);
             _labelRepeat.Margin = new Padding(12);
@@ -70,6 +71,7 @@
             // 
             // _labelNew
             // 
+            _labelNew.BorderStyle = BorderStyle.FixedSingle;
             _labelNew.Cursor = Cursors.Hand;
             _labelNew.Location = new Point(118, 175);
             _labelNew.Margin = new Padding(12);
@@ -79,6 +81,7 @@
             // 
             // _labelMatur
             // 
+            _labelMatur.BorderStyle = BorderStyle.FixedSingle;
             _labelMatur.Cursor = Cursors.Hand;
             _labelMatur.Location = new Point(118, 287);
             _labelMatur.Margin = new Padding(12);

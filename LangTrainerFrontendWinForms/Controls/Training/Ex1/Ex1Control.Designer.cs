@@ -160,14 +160,18 @@
             // 
             // button5
             // 
+            button5.BackColor = SystemColors.ActiveCaption;
             button5.Dock = DockStyle.Top;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button5.ForeColor = SystemColors.ActiveCaptionText;
             button5.Location = new Point(274, 0);
             button5.Margin = new Padding(0);
             button5.Name = "button5";
             button5.Size = new Size(120, 45);
             button5.TabIndex = 0;
             button5.Text = "Next";
-            button5.UseVisualStyleBackColor = true;
+            button5.UseVisualStyleBackColor = false;
             // 
             // richTextBox1
             // 
@@ -201,7 +205,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             Controls.Add(tableLayoutPanel2);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "Ex1Control";
             Size = new Size(770, 436);
             tableLayoutPanel2.ResumeLayout(false);

@@ -76,6 +76,9 @@
     <Compile Update="Controls\Training\Ex3\Ex3Control.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Controls\Training\Ex4\Ex4Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Controls\Training\ExFinish\ExFinishControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
