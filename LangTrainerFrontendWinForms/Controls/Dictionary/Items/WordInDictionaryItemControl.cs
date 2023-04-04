@@ -1,5 +1,5 @@
 ﻿
-using LangTrainerClientModel.Services.LangService;
+using LangTrainerClientModel.Services;
 using LangTrainerFrontendWinForms.Services;
 using LangTrainerServices.Services;
 

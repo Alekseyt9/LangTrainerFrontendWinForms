@@ -1,7 +1,5 @@
 ﻿
-
-using LangTrainerClientModel.Model;
-using LangTrainerClientModel.Model.Settings;
+using LangTrainerClientModel.Services;
 
 namespace LangTrainerFrontendWinForms.Services
 {

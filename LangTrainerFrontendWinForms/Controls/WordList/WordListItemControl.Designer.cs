@@ -1,6 +1,6 @@
 ﻿namespace LangTrainerFrontendWinForms.Controls.WordList
 {
-    partial class WordListItem
+    partial class WordListItemControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,22 +29,26 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WordListItem));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WordListItemControl));
             tableLayoutPanel1 = new TableLayoutPanel();
-            label1 = new Label();
-            splitButton1 = new Dictionary.SplitButton();
+            _buttonSound = new Dictionary.SplitButton();
             imageList1 = new ImageList(components);
-            splitButton2 = new Dictionary.SplitButton();
+            _buttonDetails = new Dictionary.SplitButton();
             contextMenuStrip1 = new ContextMenuStrip(components);
             deleteToolStripMenuItem = new ToolStripMenuItem();
             deleteToolStripMenuItem1 = new ToolStripMenuItem();
             progressToolStripMenuItem = new ToolStripMenuItem();
             resetToolStripMenuItem = new ToolStripMenuItem();
             makeLearnedToolStripMenuItem = new ToolStripMenuItem();
-            label3 = new Label();
+            this._labelTrainingState = new Label();
+            _labelSample = new Label();
             label2 = new Label();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            _labelWord = new Label();
+            _labelTranslate = new Label();
             tableLayoutPanel1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -56,10 +60,11 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 81F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 102F));
-            tableLayoutPanel1.Controls.Add(label1, 0, 0);
-            tableLayoutPanel1.Controls.Add(splitButton1, 1, 0);
-            tableLayoutPanel1.Controls.Add(splitButton2, 4, 0);
-            tableLayoutPanel1.Controls.Add(label3, 3, 0);
+            tableLayoutPanel1.Controls.Add(_buttonSound, 1, 0);
+            tableLayoutPanel1.Controls.Add(_buttonDetails, 4, 0);
+            tableLayoutPanel1.Controls.Add(this._labelTrainingState, 3, 0);
+            tableLayoutPanel1.Controls.Add(_labelSample, 2, 0);
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -69,27 +74,16 @@
             tableLayoutPanel1.Size = new Size(687, 50);
             tableLayoutPanel1.TabIndex = 1;
             // 
-            // label1
+            // _buttonSound
             // 
-            label1.AutoSize = true;
-            label1.Dock = DockStyle.Fill;
-            label1.Location = new Point(3, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(226, 41);
-            label1.TabIndex = 0;
-            label1.Text = "word\r\ntranslate";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // splitButton1
-            // 
-            splitButton1.Dock = DockStyle.Fill;
-            splitButton1.ImageKey = "volume.png";
-            splitButton1.ImageList = imageList1;
-            splitButton1.Location = new Point(235, 3);
-            splitButton1.Name = "splitButton1";
-            splitButton1.Size = new Size(34, 35);
-            splitButton1.TabIndex = 5;
-            splitButton1.UseVisualStyleBackColor = true;
+            _buttonSound.Dock = DockStyle.Fill;
+            _buttonSound.ImageKey = "volume.png";
+            _buttonSound.ImageList = imageList1;
+            _buttonSound.Location = new Point(235, 3);
+            _buttonSound.Name = "_buttonSound";
+            _buttonSound.Size = new Size(34, 35);
+            _buttonSound.TabIndex = 5;
+            _buttonSound.UseVisualStyleBackColor = true;
             // 
             // imageList1
             // 
@@ -99,15 +93,15 @@
             imageList1.Images.SetKeyName(0, "bin.png");
             imageList1.Images.SetKeyName(1, "volume.png");
             // 
-            // splitButton2
+            // _buttonDetails
             // 
-            splitButton2.Location = new Point(588, 3);
-            splitButton2.Menu = contextMenuStrip1;
-            splitButton2.Name = "splitButton2";
-            splitButton2.Size = new Size(94, 29);
-            splitButton2.TabIndex = 7;
-            splitButton2.Text = "Details..";
-            splitButton2.UseVisualStyleBackColor = true;
+            _buttonDetails.Location = new Point(588, 3);
+            _buttonDetails.Menu = contextMenuStrip1;
+            _buttonDetails.Name = "_buttonDetails";
+            _buttonDetails.Size = new Size(94, 29);
+            _buttonDetails.TabIndex = 7;
+            _buttonDetails.Text = "Details..";
+            _buttonDetails.UseVisualStyleBackColor = true;
             // 
             // contextMenuStrip1
             // 
@@ -148,14 +142,25 @@
             makeLearnedToolStripMenuItem.Size = new Size(182, 26);
             makeLearnedToolStripMenuItem.Text = "Make learned";
             // 
-            // label3
+            // _labelTrainingState
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(507, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(72, 40);
-            label3.TabIndex = 8;
-            label3.Text = "repeat in 1 day";
+            this._labelTrainingState.AutoSize = true;
+            this._labelTrainingState.Dock = DockStyle.Fill;
+            this._labelTrainingState.Location = new Point(507, 0);
+            this._labelTrainingState.Name = "_labelTrainingState";
+            this._labelTrainingState.Size = new Size(75, 41);
+            this._labelTrainingState.TabIndex = 8;
+            this._labelTrainingState.Text = "repeat in 1 day";
+            // 
+            // _labelSample
+            // 
+            _labelSample.AutoSize = true;
+            _labelSample.Dock = DockStyle.Fill;
+            _labelSample.Location = new Point(275, 0);
+            _labelSample.Name = "_labelSample";
+            _labelSample.Size = new Size(226, 41);
+            _labelSample.TabIndex = 9;
+            _labelSample.Text = "Sample";
             // 
             // label2
             // 
@@ -166,6 +171,42 @@
             label2.Size = new Size(226, 41);
             label2.TabIndex = 6;
             label2.Text = "sample";
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(_labelWord, 0, 0);
+            tableLayoutPanel2.Controls.Add(_labelTranslate, 0, 1);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Margin = new Padding(0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 2;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Size = new Size(232, 41);
+            tableLayoutPanel2.TabIndex = 10;
+            // 
+            // _labelWord
+            // 
+            _labelWord.AutoSize = true;
+            _labelWord.Dock = DockStyle.Fill;
+            _labelWord.Location = new Point(3, 0);
+            _labelWord.Name = "_labelWord";
+            _labelWord.Size = new Size(226, 20);
+            _labelWord.TabIndex = 0;
+            _labelWord.Text = "label1";
+            // 
+            // _labelTranslate
+            // 
+            _labelTranslate.AutoSize = true;
+            _labelTranslate.Dock = DockStyle.Fill;
+            _labelTranslate.Location = new Point(3, 20);
+            _labelTranslate.Name = "_labelTranslate";
+            _labelTranslate.Size = new Size(226, 21);
+            _labelTranslate.TabIndex = 1;
+            _labelTranslate.Text = "label5";
             // 
             // WordListItem
             // 
@@ -178,17 +219,19 @@
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             contextMenuStrip1.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private Label label1;
-        private Dictionary.SplitButton splitButton1;
+        private Label _labelTrainingState;
+        private Dictionary.SplitButton _buttonSound;
         private Label label2;
         private ImageList imageList1;
-        private Dictionary.SplitButton splitButton2;
+        private Dictionary.SplitButton _buttonDetails;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem deleteToolStripMenuItem;
         private ToolStripMenuItem deleteToolStripMenuItem1;
@@ -196,5 +239,9 @@
         private ToolStripMenuItem resetToolStripMenuItem;
         private ToolStripMenuItem makeLearnedToolStripMenuItem;
         private Label label3;
+        private Label _labelSample;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Label _labelWord;
+        private Label _labelTranslate;
     }
 }

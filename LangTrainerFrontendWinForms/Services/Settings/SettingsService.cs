@@ -1,9 +1,6 @@
 ﻿
-using System.Collections.Generic;
-using LangTrainerClientModel.Model;
 using System.Configuration;
-using System.Threading.Tasks;
-using static System.Configuration.ConfigurationSettings;
+using LangTrainerClientModel.Services;
 
 namespace LangTrainerFrontendWinForms.Services
 {

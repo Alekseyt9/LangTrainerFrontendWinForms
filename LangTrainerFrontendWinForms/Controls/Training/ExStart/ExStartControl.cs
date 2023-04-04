@@ -1,6 +1,5 @@
 ﻿
-
-using LangTrainerClientModel.Model;
+using LangTrainerClientModel.Services;
 
 namespace LangTrainerFrontendWinForms.Controls.Training.ExStart
 {

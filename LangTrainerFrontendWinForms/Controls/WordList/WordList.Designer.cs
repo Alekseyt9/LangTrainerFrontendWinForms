@@ -31,7 +31,7 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             groupBox1 = new GroupBox();
             tableLayoutPanel2 = new TableLayoutPanel();
-            wordListItem1 = new WordListItem();
+            wordListItem1 = new WordListItemControl();
             searchControl1 = new Common.SearchControl();
             tableLayoutPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -118,6 +118,6 @@
         private Common.SearchControl searchControl1;
         private GroupBox groupBox1;
         private TableLayoutPanel tableLayoutPanel2;
-        private WordListItem wordListItem1;
+        private WordListItemControl wordListItem1;
     }
 }

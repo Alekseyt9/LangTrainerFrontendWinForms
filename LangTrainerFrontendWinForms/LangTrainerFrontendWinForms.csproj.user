@@ -100,7 +100,7 @@
     <Compile Update="Controls\WordList\WordListControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Controls\WordList\WordListItem.cs">
+    <Compile Update="Controls\WordList\WordListItemControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="MainForm2.cs">

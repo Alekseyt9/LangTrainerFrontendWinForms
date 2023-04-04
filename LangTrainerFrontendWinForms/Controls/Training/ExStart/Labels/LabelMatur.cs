@@ -1,6 +1,5 @@
 ﻿
-
-using LangTrainerClientModel.Model;
+using LangTrainerClientModel.Services;
 using LangTrainerFrontendWinForms.Helpers;
 
 namespace LangTrainerFrontendWinForms.Controls.Training.ExStart.Labels

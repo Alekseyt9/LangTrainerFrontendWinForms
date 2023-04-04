@@ -1,8 +1,5 @@
 ﻿
 
-using LangTrainerClientModel.Services.LangService;
-using LangTrainerClientModel.Services;
-
 namespace LangTrainerFrontendWinForms.Services
 {
     internal class TrainingService

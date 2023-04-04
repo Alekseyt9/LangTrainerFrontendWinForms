@@ -1,6 +1,5 @@
 ﻿
-using LangTrainerClientModel.Model.Training;
-using LangTrainerFrontendWinForms.Helpers;
+using LangTrainerClientModel.Services;
 
 namespace LangTrainerFrontendWinForms.Controllers
 {
