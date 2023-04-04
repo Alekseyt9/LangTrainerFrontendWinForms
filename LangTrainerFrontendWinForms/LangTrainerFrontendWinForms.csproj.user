@@ -106,6 +106,9 @@
     <Compile Update="Controls\WordList\WordListItemControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="FormKeyboardTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MainForm2.cs">
       <SubType>Form</SubType>
     </Compile>

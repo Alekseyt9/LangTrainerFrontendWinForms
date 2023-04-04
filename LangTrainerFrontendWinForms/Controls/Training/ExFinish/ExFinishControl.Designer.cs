@@ -135,9 +135,10 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button1.ForeColor = SystemColors.ActiveCaptionText;
-            button1.Location = new Point(164, 305);
+            button1.Location = new Point(181, 322);
+            button1.Margin = new Padding(20);
             button1.Name = "button1";
-            button1.Size = new Size(430, 93);
+            button1.Size = new Size(396, 59);
             button1.TabIndex = 1;
             button1.Text = "Finish";
             button1.UseVisualStyleBackColor = false;

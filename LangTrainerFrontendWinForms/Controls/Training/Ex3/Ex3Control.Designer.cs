@@ -42,6 +42,7 @@
             label9 = new Label();
             label10 = new Label();
             label11 = new Label();
+            button5 = new Button();
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
@@ -57,25 +58,28 @@
             tableLayoutPanel5.Controls.Add(label1, 1, 1);
             tableLayoutPanel5.Controls.Add(tableLayoutPanel6, 1, 2);
             tableLayoutPanel5.Controls.Add(tableLayoutPanel7, 1, 4);
+            tableLayoutPanel5.Controls.Add(button5, 1, 6);
             tableLayoutPanel5.Dock = DockStyle.Fill;
             tableLayoutPanel5.Location = new Point(0, 0);
             tableLayoutPanel5.Margin = new Padding(0);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
-            tableLayoutPanel5.RowCount = 6;
+            tableLayoutPanel5.RowCount = 8;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 65F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 76F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 21F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 113F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 76F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 51F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel5.Size = new Size(595, 371);
+            tableLayoutPanel5.Size = new Size(665, 491);
             tableLayoutPanel5.TabIndex = 3;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Dock = DockStyle.Fill;
-            label1.Location = new Point(102, 48);
+            label1.Location = new Point(137, 91);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(390, 65);
@@ -97,7 +101,7 @@
             tableLayoutPanel6.Controls.Add(label3, 1, 0);
             tableLayoutPanel6.Controls.Add(label2, 0, 0);
             tableLayoutPanel6.Dock = DockStyle.Fill;
-            tableLayoutPanel6.Location = new Point(102, 115);
+            tableLayoutPanel6.Location = new Point(137, 158);
             tableLayoutPanel6.Margin = new Padding(2, 2, 2, 2);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 1;
@@ -198,7 +202,7 @@
             tableLayoutPanel7.Controls.Add(label9, 2, 0);
             tableLayoutPanel7.Controls.Add(label10, 1, 0);
             tableLayoutPanel7.Controls.Add(label11, 0, 0);
-            tableLayoutPanel7.Location = new Point(102, 212);
+            tableLayoutPanel7.Location = new Point(137, 255);
             tableLayoutPanel7.Margin = new Padding(2, 2, 2, 2);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 1;
@@ -286,6 +290,21 @@
             label11.Text = "1";
             label11.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // button5
+            // 
+            button5.BackColor = SystemColors.ActiveCaption;
+            button5.Dock = DockStyle.Right;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button5.ForeColor = SystemColors.ActiveCaptionText;
+            button5.Location = new Point(409, 349);
+            button5.Margin = new Padding(0);
+            button5.Name = "button5";
+            button5.Size = new Size(120, 51);
+            button5.TabIndex = 3;
+            button5.Text = "Next";
+            button5.UseVisualStyleBackColor = false;
+            // 
             // Ex3Control
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -293,7 +312,7 @@
             Controls.Add(tableLayoutPanel5);
             Margin = new Padding(2, 2, 2, 2);
             Name = "Ex3Control";
-            Size = new Size(595, 371);
+            Size = new Size(665, 491);
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel5.PerformLayout();
             tableLayoutPanel6.ResumeLayout(false);
@@ -319,5 +338,6 @@
         private Label label9;
         private Label label10;
         private Label label11;
+        private Button button5;
     }
 }

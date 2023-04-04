@@ -35,9 +35,9 @@
             button3 = new Button();
             button4 = new Button();
             tableLayoutPanel4 = new TableLayoutPanel();
-            button5 = new Button();
             richTextBox1 = new RichTextBox();
             Question = new RichTextBox();
+            button5 = new Button();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
@@ -147,8 +147,8 @@
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 13F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120F));
-            tableLayoutPanel4.Controls.Add(button5, 2, 0);
             tableLayoutPanel4.Controls.Add(richTextBox1, 0, 0);
+            tableLayoutPanel4.Controls.Add(button5, 2, 0);
             tableLayoutPanel4.Dock = DockStyle.Fill;
             tableLayoutPanel4.Location = new Point(161, 300);
             tableLayoutPanel4.Margin = new Padding(0);
@@ -157,17 +157,6 @@
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel4.Size = new Size(394, 91);
             tableLayoutPanel4.TabIndex = 2;
-            // 
-            // button5
-            // 
-            button5.Dock = DockStyle.Top;
-            button5.Location = new Point(274, 0);
-            button5.Margin = new Padding(0);
-            button5.Name = "button5";
-            button5.Size = new Size(120, 45);
-            button5.TabIndex = 0;
-            button5.Text = "Next";
-            button5.UseVisualStyleBackColor = true;
             // 
             // richTextBox1
             // 
@@ -195,13 +184,28 @@
             Question.TabIndex = 3;
             Question.Text = "word";
             // 
+            // button5
+            // 
+            button5.BackColor = SystemColors.ActiveCaption;
+            button5.Dock = DockStyle.Top;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button5.ForeColor = SystemColors.ActiveCaptionText;
+            button5.Location = new Point(274, 0);
+            button5.Margin = new Padding(0);
+            button5.Name = "button5";
+            button5.Size = new Size(120, 45);
+            button5.TabIndex = 2;
+            button5.Text = "Next";
+            button5.UseVisualStyleBackColor = false;
+            // 
             // Ex2Control
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
             Controls.Add(tableLayoutPanel2);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "Ex2Control";
             Size = new Size(717, 438);
             tableLayoutPanel2.ResumeLayout(false);
@@ -219,8 +223,8 @@
         private Button button3;
         private Button button4;
         private TableLayoutPanel tableLayoutPanel4;
-        private Button button5;
         private RichTextBox richTextBox1;
         private RichTextBox Question;
+        private Button button5;
     }
 }

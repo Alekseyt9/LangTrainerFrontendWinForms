@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Buttons xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Button Text="__" X="1059" Y="-6" W="20" H="25" />
+  <Button Code="8" Text="Back Space" X="660" Y="88" W="64" H="53" />
+  <Button Text="" X="880" Y="377" W="196" H="53" />
+  <Button Text="" X="304" Y="377" W="92" H="53" />
+  <Button Text="" X="112" Y="377" W="92" H="53" />
+  <Button Text="" X="784" Y="377" W="92" H="53" />
+  <Button Text="" X="688" Y="377" W="92" H="53" />
+  <Button Text="" X="592" Y="377" W="92" H="53" />
+  <Button Text="" X="496" Y="377" W="92" H="53" />
+  <Button Text="" X="400" Y="377" W="92" H="53" />
+  <Button Text="" X="208" Y="377" W="92" H="53" />
+  <Button Text="" X="16" Y="377" W="92" H="53" />
+  <Button Text="" X="560" Y="319" W="45" H="53" />
+  <Button Text="Scroll Lock" X="830" Y="148" W="45" H="53" />
+  <Button Text="Page Down" X="782" Y="148" W="45" H="53" />
+  <Button Text="Page Up" X="732" Y="148" W="45" H="53" />
+  <Button Text="Insert" X="830" Y="88" W="45" H="53" />
+  <Button Text="End" X="782" Y="88" W="45" H="53" />
+  <Button Text="+" X="1030" Y="148" W="45" H="110" />
+  <Button Code="27" Text="ESC" X="16" Y="31" W="45" H="53" />
+  <Button Text="Pause" X="782" Y="31" W="45" H="53" />
+  <Button Text="Home" X="732" Y="88" W="45" H="53" />
+  <Button Text="Prt Src" X="830" Y="31" W="45" H="53" />
+  <Button Text="Del" X="732" Y="31" W="45" H="53" />
+  <Button Text="F10" X="580" Y="31" W="45" H="53" />
+  <Button Text="F12" X="679" Y="31" W="45" H="53" />
+  <Button Text="F11" X="630" Y="31" W="45" H="53" />
+  <Button Text="F9" X="530" Y="31" W="45" H="53" />
+  <Button Text="F6" X="362" Y="31" W="45" H="53" />
+  <Button Text="F8" X="462" Y="31" W="45" H="53" />
+  <Button Text="F7" X="413" Y="31" W="45" H="53" />
+  <Button Text="F5" X="313" Y="31" W="45" H="53" />
+  <Button Text="F2" X="139" Y="31" W="45" H="53" />
+  <Button Text="F4" X="239" Y="31" W="45" H="53" />
+  <Button Text="F3" X="190" Y="31" W="45" H="53" />
+  <Button Text="F1" X="90" Y="31" W="45" H="53" />
+  <Button Text="Enter" X="632" Y="205" W="92" H="53" />
+  <Button Text="←" X="729" Y="263" W="45" H="53" />
+  <Button Text="↓" X="781" Y="263" W="45" H="53" />
+  <Button Text="→" X="831" Y="263" W="45" H="53" />
+  <Button Text="-" X="1031" Y="88" W="45" H="53" />
+  <Button Text="↑" X="781" Y="205" W="45" H="53" />
+  <Button Text="0" X="883" Y="320" W="94" H="53" />
+  <Button Text="." X="981" Y="320" W="45" H="53" />
+  <Button Text="2&#xD;&#xA;▼" X="932" Y="262" W="45" H="53" />
+  <Button Text="1" X="882" Y="262" W="45" H="53" />
+  <Button Text="3" X="981" Y="262" W="45" H="53" />
+  <Button Text="4&#xD;&#xA;◄" X="883" Y="205" W="45" H="53" />
+  <Button Text="5" X="932" Y="205" W="45" H="53" />
+  <Button Text="6&#xD;&#xA;►" X="981" Y="205" W="45" H="53" />
+  <Button Text="8&#xD;&#xA;▲" X="932" Y="147" W="45" H="53" />
+  <Button Text="7" X="882" Y="147" W="45" H="53" />
+  <Button Text="9" X="981" Y="147" W="45" H="53" />
+  <Button Text="/" X="932" Y="88" W="45" H="53" />
+  <Button Text="*" X="981" Y="88" W="45" H="53" />
+  <Button Code="32" Text="" X="165" Y="320" W="342" H="53" />
+  <Button Code="50" Text="@&#xD;&#xA;   2&#xD;&#xA;      " X="115" Y="88" W="45" H="53" />
+  <Button Text="&gt;&#xD;&#xA;   ." X="511" Y="262" W="45" H="53" />
+  <Button Code="78" Text="N" X="361" Y="262" W="45" H="53" />
+  <Button Code="77" Text="M" X="410" Y="262" W="45" H="53" />
+  <Button Text="&lt;&#xD;&#xA;   ," X="462" Y="262" W="45" H="53" />
+  <Button Text="?&#xD;&#xA;   /" X="560" Y="262" W="45" H="53" />
+  <Button Code="66" Text="B" X="312" Y="262" W="45" H="53" />
+  <Button Code="86" Text="V" X="263" Y="262" W="45" H="53" />
+  <Button Code="67" Text="C" X="214" Y="262" W="45" H="53" />
+  <Button Code="88" Text="X" X="165" Y="262" W="45" H="53" />
+  <Button Code="90" Text="Z" X="115" Y="262" W="45" H="53" />
+  <Button Text="&quot;&#xD;&#xA;   '" X="584" Y="205" W="45" H="53" />
+  <Button Code="72" Text="H" X="338" Y="205" W="45" H="53" />
+  <Button Code="74" Text="J" X="388" Y="205" W="45" H="53" />
+  <Button Code="75" Text="K" X="437" Y="205" W="45" H="53" />
+  <Button Code="76" Text="L" X="487" Y="205" W="45" H="53" />
+  <Button Text=":&#xD;&#xA;   ;" X="536" Y="205" W="45" H="53" />
+  <Button Code="71" Text="G" X="289" Y="205" W="45" H="53" />
+  <Button Code="70" Text="F" X="239" Y="205" W="45" H="53" />
+  <Button Code="68" Text="D" X="190" Y="205" W="45" H="53" />
+  <Button Code="83" Text="S" X="140" Y="205" W="45" H="53" />
+  <Button Code="65" Text="A" X="91" Y="205" W="45" H="53" />
+  <Button Text="|&#xD;&#xA;   \" X="673" Y="147" W="51" H="53" />
+  <Button Text="{&#xD;&#xA;   [" X="575" Y="147" W="45" H="53" />
+  <Button Text="}&#xD;&#xA;   ]" X="624" Y="147" W="45" H="53" />
+  <Button Code="89" Text="Y" X="327" Y="147" W="45" H="53" />
+  <Button Code="85" Text="U" X="377" Y="147" W="45" H="53" />
+  <Button Code="73" Text="I" X="426" Y="147" W="45" H="53" />
+  <Button Code="79" Text="O" X="475" Y="147" W="45" H="53" />
+  <Button Code="80" Text="P" X="525" Y="147" W="45" H="53" />
+  <Button Code="84" Text="T" X="277" Y="147" W="45" H="53" />
+  <Button Code="82" Text="R" X="228" Y="147" W="45" H="53" />
+  <Button Code="69" Text="E" X="179" Y="147" W="45" H="53" />
+  <Button Code="87" Text="W" X="129" Y="147" W="45" H="53" />
+  <Button Code="81" Text="Q&#xD;&#xA;   " X="79" Y="147" W="45" H="53" />
+  <Button Code="189" Text="_&#xD;&#xA;   -&#xD;&#xA;      " X="561" Y="88" W="45" H="53" />
+  <Button Code="187" Text="+&#xD;&#xA;   =&#xD;&#xA;       " X="611" Y="88" W="45" H="53" />
+  <Button Code="54" Text="^&#xD;&#xA;   6&#xD;&#xA;      " X="313" Y="88" W="44" H="53" />
+  <Button Code="55" Text="&amp;&amp;&#xD;&#xA;   7&#xD;&#xA;      " X="362" Y="88" W="45" H="53" />
+  <Button Code="56" Text="*&#xD;&#xA;   8&#xD;&#xA;      " X="412" Y="88" W="45" H="53" />
+  <Button Code="57" Text="(&#xD;&#xA;   9&#xD;&#xA;      " X="461" Y="88" W="45" H="53" />
+  <Button Code="48" Text=")&#xD;&#xA;   0&#xD;&#xA;      " X="511" Y="88" W="45" H="53" />
+  <Button Code="53" Text="%&#xD;&#xA;   5&#xD;&#xA;      " X="264" Y="88" W="45" H="53" />
+  <Button Code="52" Text="$&#xD;&#xA;   4&#xD;&#xA;       " X="215" Y="88" W="45" H="53" />
+  <Button Code="51" Text="#&#xD;&#xA;    3" X="165" Y="88" W="45" H="53" />
+  <Button Code="49" Text="!&#xD;&#xA;   1" X="65" Y="88" W="45" H="53" />
+  <Button Code="192" Text=" ~&#xD;&#xA;     `" X="16" Y="88" W="45" H="53" />
+  <Button Text="X" X="1085" Y="-1" W="20" H="25" />
+</Buttons>
