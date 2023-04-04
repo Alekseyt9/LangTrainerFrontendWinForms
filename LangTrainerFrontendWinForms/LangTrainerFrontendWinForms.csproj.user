@@ -4,16 +4,16 @@
     <_LastSelectedProfileId>D:\YandexDisk\YandexDisk\Workspace_git\LangTrainer\LangTrainerFrontendWinForms\LangTrainerFrontendWinForms\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="Controls\Common\LangFilter.cs">
+    <Compile Update="Controls\Common\LangFilter\LangFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Controls\Common\SearchControl.cs">
+    <Compile Update="Controls\Common\SearchControl\SearchControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Controls\Common\TabPanel.cs">
+    <Compile Update="Controls\Common\TabPanel\TabPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Controls\Dictionary\DictionaryControl.cs">
+    <Compile Update="Controls\Dictionary\DictionaryPageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\Dictionary\Items\WordInDictionaryItemControl.cs">
@@ -43,7 +43,7 @@
     <Compile Update="Controls\Edit\TranslatesControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Controls\Login\LoginControl.cs">
+    <Compile Update="Controls\Login\LoginPageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\Login\LoginInternalControl.cs">
@@ -88,16 +88,16 @@
     <Compile Update="Controls\Training\TrainingControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Controls\Training\TrainingControl2.cs">
+    <Compile Update="Controls\Training\TrainingPageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\Training\TrainingStartShort.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Controls\WordList\WordList.cs">
+    <Compile Update="Controls\WordList\WordListControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Controls\WordList\WordListControl.cs">
+    <Compile Update="Controls\WordList\WordListPageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\WordList\WordListItemControl.cs">

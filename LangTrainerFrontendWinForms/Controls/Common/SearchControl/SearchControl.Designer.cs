@@ -1,4 +1,6 @@
-﻿namespace LangTrainerFrontendWinForms.Controls.Common
+﻿
+
+namespace LangTrainerFrontendWinForms.Controls
 {
     partial class SearchControl
     {

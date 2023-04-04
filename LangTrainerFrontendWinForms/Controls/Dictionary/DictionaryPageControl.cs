@@ -1,6 +1,5 @@
 ﻿
 using LangTrainerClientModel.Services;
-using LangTrainerFrontendWinForms.Controls.Common;
 using LangTrainerFrontendWinForms.Controls.Dictionary;
 using LangTrainerFrontendWinForms.Controls.Dictionary.Items;
 using LangTrainerFrontendWinForms.Model;
@@ -10,18 +9,17 @@ using LangTrainerServices.Services;
 
 namespace LangTrainerFrontendWinForms.Controls
 {
-    public partial class DictionaryControl : UserControl, ISettingsСonsumer
+    public partial class DictionaryPageControl : UserControl, ISettingsСonsumer
     {
         private readonly ProgressService _prServ;
 
-        public DictionaryControl()
+        public DictionaryPageControl()
         {
             InitializeComponent();
             _prServ = new ProgressService(_progressBar);
             _searchControl.Changed += SearchControlOnTextChanged;
 
             LangFilterService.GetInstance().Changed += FilterChanged;
-            //_langFilter.LangChanged += _langFilter_LangChanged;
         }
 
         private async void FilterChanged(object? sender, EventArgs e)

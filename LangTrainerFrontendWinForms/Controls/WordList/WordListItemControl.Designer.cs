@@ -40,12 +40,12 @@
             progressToolStripMenuItem = new ToolStripMenuItem();
             resetToolStripMenuItem = new ToolStripMenuItem();
             makeLearnedToolStripMenuItem = new ToolStripMenuItem();
-            this._labelTrainingState = new Label();
+            _labelTrainingState = new Label();
             _labelSample = new Label();
-            label2 = new Label();
             tableLayoutPanel2 = new TableLayoutPanel();
             _labelWord = new Label();
             _labelTranslate = new Label();
+            label2 = new Label();
             tableLayoutPanel1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -62,7 +62,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 102F));
             tableLayoutPanel1.Controls.Add(_buttonSound, 1, 0);
             tableLayoutPanel1.Controls.Add(_buttonDetails, 4, 0);
-            tableLayoutPanel1.Controls.Add(this._labelTrainingState, 3, 0);
+            tableLayoutPanel1.Controls.Add(_labelTrainingState, 3, 0);
             tableLayoutPanel1.Controls.Add(_labelSample, 2, 0);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
@@ -84,6 +84,7 @@
             _buttonSound.Size = new Size(34, 35);
             _buttonSound.TabIndex = 5;
             _buttonSound.UseVisualStyleBackColor = true;
+            _buttonSound.Click += _buttonSound_Click;
             // 
             // imageList1
             // 
@@ -144,13 +145,13 @@
             // 
             // _labelTrainingState
             // 
-            this._labelTrainingState.AutoSize = true;
-            this._labelTrainingState.Dock = DockStyle.Fill;
-            this._labelTrainingState.Location = new Point(507, 0);
-            this._labelTrainingState.Name = "_labelTrainingState";
-            this._labelTrainingState.Size = new Size(75, 41);
-            this._labelTrainingState.TabIndex = 8;
-            this._labelTrainingState.Text = "repeat in 1 day";
+            _labelTrainingState.AutoSize = true;
+            _labelTrainingState.Dock = DockStyle.Fill;
+            _labelTrainingState.Location = new Point(507, 0);
+            _labelTrainingState.Name = "_labelTrainingState";
+            _labelTrainingState.Size = new Size(75, 41);
+            _labelTrainingState.TabIndex = 8;
+            _labelTrainingState.Text = "repeat in 1 day";
             // 
             // _labelSample
             // 
@@ -161,16 +162,6 @@
             _labelSample.Size = new Size(226, 41);
             _labelSample.TabIndex = 9;
             _labelSample.Text = "Sample";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Dock = DockStyle.Fill;
-            label2.Location = new Point(275, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(226, 41);
-            label2.TabIndex = 6;
-            label2.Text = "sample";
             // 
             // tableLayoutPanel2
             // 
@@ -208,13 +199,23 @@
             _labelTranslate.TabIndex = 1;
             _labelTranslate.Text = "label5";
             // 
-            // WordListItem
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Dock = DockStyle.Fill;
+            label2.Location = new Point(275, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(226, 41);
+            label2.TabIndex = 6;
+            label2.Text = "sample";
+            // 
+            // WordListItemControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(tableLayoutPanel1);
-            Name = "WordListItem";
+            Name = "WordListItemControl";
             Size = new Size(687, 50);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();

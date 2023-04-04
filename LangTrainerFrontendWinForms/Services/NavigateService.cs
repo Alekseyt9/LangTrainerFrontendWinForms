@@ -1,5 +1,6 @@
 ﻿
-using LangTrainerFrontendWinForms.Controls.Common;
+
+using LangTrainerFrontendWinForms.Controls;
 
 namespace LangTrainerFrontendWinForms.Services
 {

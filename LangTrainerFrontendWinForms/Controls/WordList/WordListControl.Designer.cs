@@ -1,6 +1,4 @@
-﻿using LangTrainerFrontendWinForms.Controls.Out.Accordion;
-
-namespace LangTrainerFrontendWinForms.Controls.WordList
+﻿namespace LangTrainerFrontendWinForms.Controls.WordList
 {
     partial class WordListControl
     {
@@ -31,57 +29,74 @@ namespace LangTrainerFrontendWinForms.Controls.WordList
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            trainingStartShort1 = new Training.TrainingStartShort();
             groupBox1 = new GroupBox();
-            wordList1 = new WordList();
+            _itemsTableLayout = new TableLayoutPanel();
+            wordListItem1 = new WordListItemControl();
+            _searchControl = new SearchControl();
             tableLayoutPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
+            _itemsTableLayout.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(trainingStartShort1, 0, 1);
-            tableLayoutPanel1.Controls.Add(groupBox1, 0, 3);
+            tableLayoutPanel1.Controls.Add(groupBox1, 0, 1);
+            tableLayoutPanel1.Controls.Add(_searchControl, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 4;
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 249F));
-            tableLayoutPanel1.Size = new Size(685, 597);
+            tableLayoutPanel1.Size = new Size(571, 435);
             tableLayoutPanel1.TabIndex = 0;
-            // 
-            // trainingStartShort1
-            // 
-            trainingStartShort1.Dock = DockStyle.Fill;
-            trainingStartShort1.Location = new Point(3, 23);
-            trainingStartShort1.Name = "trainingStartShort1";
-            trainingStartShort1.Size = new Size(679, 44);
-            trainingStartShort1.TabIndex = 3;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(wordList1);
+            groupBox1.Controls.Add(_itemsTableLayout);
             groupBox1.Dock = DockStyle.Fill;
-            groupBox1.Location = new Point(3, 93);
+            groupBox1.FlatStyle = FlatStyle.Flat;
+            groupBox1.Location = new Point(3, 43);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(679, 501);
-            groupBox1.TabIndex = 4;
+            groupBox1.Size = new Size(565, 389);
+            groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
-            groupBox1.Text = "My dictionary";
             // 
-            // wordList1
+            // _itemsTableLayout
             // 
-            wordList1.BackColor = SystemColors.ControlLightLight;
-            wordList1.Dock = DockStyle.Fill;
-            wordList1.Location = new Point(3, 23);
-            wordList1.Name = "wordList1";
-            wordList1.Size = new Size(673, 475);
-            wordList1.TabIndex = 0;
+            _itemsTableLayout.ColumnCount = 1;
+            _itemsTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            _itemsTableLayout.Controls.Add(wordListItem1, 0, 0);
+            _itemsTableLayout.Dock = DockStyle.Fill;
+            _itemsTableLayout.Location = new Point(3, 23);
+            _itemsTableLayout.Name = "_itemsTableLayout";
+            _itemsTableLayout.RowCount = 4;
+            _itemsTableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            _itemsTableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            _itemsTableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            _itemsTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            _itemsTableLayout.Size = new Size(559, 363);
+            _itemsTableLayout.TabIndex = 0;
+            // 
+            // wordListItem1
+            // 
+            wordListItem1.BorderStyle = BorderStyle.FixedSingle;
+            wordListItem1.Dock = DockStyle.Fill;
+            wordListItem1.Location = new Point(3, 3);
+            wordListItem1.Name = "wordListItem1";
+            wordListItem1.Size = new Size(553, 44);
+            wordListItem1.TabIndex = 0;
+            // 
+            // _searchControl
+            // 
+            _searchControl.Dock = DockStyle.Fill;
+            _searchControl.Location = new Point(3, 3);
+            _searchControl.Name = "_searchControl";
+            _searchControl.Size = new Size(565, 34);
+            _searchControl.TabIndex = 3;
             // 
             // WordListControl
             // 
@@ -90,17 +105,19 @@ namespace LangTrainerFrontendWinForms.Controls.WordList
             BackColor = SystemColors.ControlLightLight;
             Controls.Add(tableLayoutPanel1);
             Name = "WordListControl";
-            Size = new Size(685, 597);
+            Size = new Size(571, 435);
             tableLayoutPanel1.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
+            _itemsTableLayout.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private Training.TrainingStartShort trainingStartShort1;
+        private SearchControl _searchControl;
         private GroupBox groupBox1;
-        private WordList wordList1;
+        private TableLayoutPanel _itemsTableLayout;
+        private WordListItemControl wordListItem1;
     }
 }

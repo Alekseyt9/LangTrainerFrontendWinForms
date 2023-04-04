@@ -1,6 +1,7 @@
 ﻿
 using LangTrainerClientModel.Services;
 using LangTrainerFrontendWinForms.Services;
+using LangTrainerFrontendWinForms.Services.Controls;
 using LangTrainerServices.Services;
 
 namespace LangTrainerFrontendWinForms.Controls
@@ -9,8 +10,7 @@ namespace LangTrainerFrontendWinForms.Controls
     {
         public EventHandler<EventArgs> OnAddWordClick;
 
-        private FindItemSound[] _sounds;
-        private int _soundIndex;
+        private WordSoundsManager _sndMan;
 
         public WordInDictionaryItemControl()
         {
@@ -20,7 +20,7 @@ namespace LangTrainerFrontendWinForms.Controls
         public void Init(FindItem item)
         {
             _wordText.Text = item.Expression;
-            _sounds = item.Sounds.ToArray();
+            _sndMan = new WordSoundsManager(item.Sounds.ToArray());
 
             _translateCombo.Items.Clear();
             foreach (var tr in item.Translates)
@@ -56,9 +56,7 @@ namespace LangTrainerFrontendWinForms.Controls
 
         private void _soundButton_Click(object sender, EventArgs e)
         {
-            var sound = _sounds[_soundIndex];
-            _soundIndex = (_soundIndex + 1) % _sounds.Length;
-            SoundService.GetInstance().Play(Convert.FromBase64String(sound.Data));
+            _sndMan.PlayNext();
         }
 
     }

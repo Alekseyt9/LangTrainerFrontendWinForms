@@ -1,6 +1,4 @@
-﻿
-
-namespace LangTrainerFrontendWinForms.Controls.Common
+﻿namespace LangTrainerFrontendWinForms.Controls
 {
     public class FilterData
     {

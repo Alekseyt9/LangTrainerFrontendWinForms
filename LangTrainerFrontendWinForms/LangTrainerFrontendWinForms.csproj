@@ -49,6 +49,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controls\Training\Ex4\" />
     <Folder Include="Libs\" />
   </ItemGroup>
 

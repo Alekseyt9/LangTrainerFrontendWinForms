@@ -1,6 +1,6 @@
 ﻿namespace LangTrainerFrontendWinForms.Controls
 {
-    partial class DictionaryControl
+    partial class DictionaryPageControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DictionaryControl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DictionaryPageControl));
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
             groupBox1 = new GroupBox();
             _itemsTableLayout = new TableLayoutPanel();
             _progressBar = new ProgressBar();
-            _searchControl = new Common.SearchControl();
+            _searchControl = new SearchControl();
             imageList1 = new ImageList(components);
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
@@ -191,6 +191,6 @@
         private WordNotFoundItemControl wordNotFoundItem1;
         private GroupBox groupBox1;
         private ProgressBar _progressBar;
-        private Common.SearchControl _searchControl;
+        private SearchControl _searchControl;
     }
 }

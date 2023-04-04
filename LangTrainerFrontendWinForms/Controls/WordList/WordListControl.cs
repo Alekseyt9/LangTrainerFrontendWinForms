@@ -1,11 +1,12 @@
 ﻿
-using LangTrainerFrontendWinForms.Model;
+using LangTrainerClientModel.Services;
 using LangTrainerFrontendWinForms.Services;
 
 namespace LangTrainerFrontendWinForms.Controls.WordList
 {
-    public partial class WordListControl : UserControl, ISettingsСonsumer
+    public partial class WordListControl : UserControl
     {
+
         public WordListControl()
         {
             InitializeComponent();
@@ -13,26 +14,68 @@ namespace LangTrainerFrontendWinForms.Controls.WordList
 
         public void Init()
         {
-            //_langFilter.Init();
-            var wl = new WordList() { AutoSize = true, Dock = DockStyle.Fill };
-            //accordion1.Add(wl, "My dictionary", fillWt: 1, open: true);
-
-            trainingStartShort1.StartClick += TrainingStartShort1_StartClick;
+            _searchControl.Changed += SearchControlOnTextChanged;
+            Task.Run(RunSeach);
         }
 
-        private void TrainingStartShort1_StartClick(object? sender, EventArgs e)
+        private async void SearchControlOnTextChanged(object? sender, SearchStringChangedEventArgs e)
         {
-            NavigateService.GetInstance().Navigate("trainerPage");
+            await RunSeach();
         }
 
-        public void InitSettings(Settings settings, string parentKey)
+        private async Task RunSeach()
         {
-            //_langFilter.InitSettings(settings, parentKey);
+            //_prServ.Switch(true);
+
+            if (LangFilterService.GetInstance().IsLoaded)
+            {
+                var filterData = LangFilterService.GetInstance().Filter;
+                await GetDataAndShow(_searchControl.SearchString, filterData.LangId, filterData.TrLangId);
+            }
+            else
+            {
+                LangFilterService.GetInstance().Loaded += async (sender, args) =>
+                {
+                    var filterData = LangFilterService.GetInstance().Filter;
+                    await GetDataAndShow(_searchControl.SearchString, filterData.LangId, filterData.TrLangId);
+                };
+            }
         }
 
-        public void SaveSettings(Settings settings, string parentKey)
+        private async Task GetDataAndShow(string str, Guid? langId, Guid? trLangId)
         {
-            //_langFilter.SaveSettings(settings, parentKey);
+            try
+            {
+                var res = await WordListService.GetInstance().GetList(str, langId);
+                ShowData(res);
+                //_prServ.Switch(false);
+            }
+            catch (Exception ex)
+            {
+                NotifyService.GetInstance().ShowMessage(ex.Message);
+            }
+        }
+
+        private void ShowData(IEnumerable<WordListItem> items)
+        {
+            Invoke(() =>
+            {
+                _itemsTableLayout.Controls.Clear();
+                if (items != null || items.Any())
+                {
+                    var i = 0;
+
+                    foreach (var item in items)
+                    {
+                        var ctr = new WordListItemControl();
+                        ctr.Dock = DockStyle.Fill;
+                        _itemsTableLayout.Controls.Add(ctr);
+                        _itemsTableLayout.SetRow(ctr, i++);
+                        ctr.Init(item);
+                    }
+                }
+            });
+
         }
 
     }

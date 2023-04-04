@@ -12,24 +12,32 @@ namespace LangTrainerFrontendWinForms
         private Settings _localSettings;
         private Settings _remoteSettings;
 
-        private readonly LoginControl _loginControl;
-        private readonly TrainingControl2 _trainingControl;
-        private readonly DictionaryControl _dictionaryControl;
-        private readonly WordListControl _wordListControl;
+        private readonly LoginPageControl _loginControl;
+        private readonly TrainingPageControl _trainingControl;
+        private readonly DictionaryPageControl _dictionaryControl;
+        private readonly WordListPageControl _wordListControl;
 
         public MainForm2()
         {
             InitializeComponent();
 
-            _loginControl = new LoginControl();
-            _trainingControl = new TrainingControl2();
-            _dictionaryControl = new DictionaryControl();
-            _wordListControl = new WordListControl();
+            _loginControl = new LoginPageControl();
+            _trainingControl = new TrainingPageControl();
+            _dictionaryControl = new DictionaryPageControl();
+            _wordListControl = new WordListPageControl();
 
             _tabPanel.Add("loginPage", _loginControl);
             _tabPanel.Add("trainerPage", _trainingControl);
-            _tabPanel.Add("dictionaryPage", _dictionaryControl);
-            _tabPanel.Add("wordListPage", _wordListControl);
+            _tabPanel.Add("dictionaryPage", _dictionaryControl, c =>
+            {
+                _dictionaryControl.Init();
+                _dictionaryControl.InitSettings(_remoteSettings, "dictionary");
+            });
+            _tabPanel.Add("wordListPage", _wordListControl, c =>
+            {
+                _wordListControl.Init();
+                _wordListControl.InitSettings(_remoteSettings, "wordList");
+            });
 
             NavigateService.GetInstance().Init(_tabPanel);
             NavigateService.GetInstance().Navigate("loginPage");
@@ -55,15 +63,7 @@ namespace LangTrainerFrontendWinForms
                 await LoadRemoteSettings();
                 LoginEnabled(true);
                 NavigateService.GetInstance().Navigate("dictionaryPage");
-
-                _dictionaryControl.Init();
-                _dictionaryControl.InitSettings(_remoteSettings, "dictionary");
-
-                _wordListControl.Init();
-                _wordListControl.InitSettings(_remoteSettings, "wordList");
-
                 _mainMenuStrip.Visible = true;
-
                 LangFilterService.GetInstance().InitSettings(_remoteSettings, null);
                 LangFilterService.GetInstance().Init(this, optionsToolStripMenuItem);
             }

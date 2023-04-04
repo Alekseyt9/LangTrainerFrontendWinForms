@@ -3,11 +3,11 @@ using LangTrainerFrontendWinForms.Services;
 
 namespace LangTrainerFrontendWinForms.Controls.Login
 {
-    public partial class LoginControl : UserControl
+    public partial class LoginPageControl : UserControl
     {
         public event EventHandler<LoginResultEventArgs> OnLoginResult;
 
-        public LoginControl()
+        public LoginPageControl()
         {
             InitializeComponent();
 

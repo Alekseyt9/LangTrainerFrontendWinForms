@@ -1,6 +1,6 @@
 ﻿namespace LangTrainerFrontendWinForms.Controls.Training
 {
-    partial class TrainingControl2
+    partial class TrainingPageControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            _tabPanel = new Common.TabPanel();
+            _tabPanel = new TabPanel();
             SuspendLayout();
             // 
             // tabPanel1
@@ -53,6 +53,6 @@
 
         #endregion
 
-        private Common.TabPanel _tabPanel;
+        private TabPanel _tabPanel;
     }
 }

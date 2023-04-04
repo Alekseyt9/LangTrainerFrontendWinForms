@@ -1,7 +1,7 @@
 ﻿
 
-namespace LangTrainerFrontendWinForms.Controls.Common
-{
+namespace LangTrainerFrontendWinForms.Controls
+{ 
     public partial class SearchControl : UserControl
     {
         public event EventHandler<SearchStringChangedEventArgs> Changed;

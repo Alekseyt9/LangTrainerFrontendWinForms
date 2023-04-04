@@ -1,10 +1,9 @@
-﻿
-using LangTrainerFrontendWinForms.Helpers;
+﻿using LangTrainerFrontendWinForms.Helpers;
 using LangTrainerFrontendWinForms.Model;
 using LangTrainerFrontendWinForms.Service;
 using LangTrainerFrontendWinForms.Services;
 
-namespace LangTrainerFrontendWinForms.Controls.Common
+namespace LangTrainerFrontendWinForms.Controls
 {
     public partial class LangFilter : UserControl, ISettingsСonsumer
     {

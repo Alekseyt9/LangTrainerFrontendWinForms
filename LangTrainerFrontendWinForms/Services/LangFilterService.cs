@@ -1,6 +1,6 @@
 ﻿
 using LangTrainerEntity.Entities;
-using LangTrainerFrontendWinForms.Controls.Common;
+using LangTrainerFrontendWinForms.Controls;
 using LangTrainerFrontendWinForms.Helpers;
 using LangTrainerFrontendWinForms.Model;
 using LangTrainerFrontendWinForms.Service;
@@ -15,6 +15,7 @@ namespace LangTrainerFrontendWinForms.Services
         private bool _inChange;
 
         public event EventHandler Changed;
+        public event EventHandler Loaded;
 
         public FilterData Filter =>
             new()
@@ -26,6 +27,8 @@ namespace LangTrainerFrontendWinForms.Services
         private static LangFilterService _instance;
 
         private LangFilterService() { }
+
+        public bool IsLoaded => _langId.HasValue && _trlangId.HasValue;
 
         public void Init(Form form, ToolStripMenuItem optItem)
         {
@@ -45,6 +48,11 @@ namespace LangTrainerFrontendWinForms.Services
                     {
                         InitLang(data, "languageToolStripMenuItem", _langId);
                     });
+
+                    if (IsLoaded)
+                    {
+                        Loaded?.Invoke(this, EventArgs.Empty);
+                    }
                 }
             );
 
@@ -62,6 +70,11 @@ namespace LangTrainerFrontendWinForms.Services
                     {
                         InitLang(data, "translateLanguageToolStripMenuItem", _trlangId);
                     });
+
+                    if (IsLoaded)
+                    {
+                        Loaded?.Invoke(this, EventArgs.Empty);
+                    }
                 }
             );
         }

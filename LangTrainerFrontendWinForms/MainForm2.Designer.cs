@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            _tabPanel = new Controls.Common.TabPanel();
+            _tabPanel = new Controls.TabPanel();
             _mainMenuStrip = new MenuStrip();
             dictionaryMenuItem = new ToolStripMenuItem();
             wordListMenuItem = new ToolStripMenuItem();
@@ -189,7 +189,7 @@
 
         #endregion
 
-        private Controls.Common.TabPanel _tabPanel;
+        private Controls.TabPanel _tabPanel;
         private MenuStrip _mainMenuStrip;
         private ToolStripMenuItem dictionaryMenuItem;
         private ToolStripMenuItem wordListMenuItem;

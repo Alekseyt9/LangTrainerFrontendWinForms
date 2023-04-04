@@ -3,9 +3,9 @@ using LangTrainerFrontendWinForms.Controls.Training.ExStart;
 
 namespace LangTrainerFrontendWinForms.Controls.Training
 {
-    public partial class TrainingControl2 : UserControl
+    public partial class TrainingPageControl : UserControl
     {
-        public TrainingControl2()
+        public TrainingPageControl()
         {
             InitializeComponent();
 
