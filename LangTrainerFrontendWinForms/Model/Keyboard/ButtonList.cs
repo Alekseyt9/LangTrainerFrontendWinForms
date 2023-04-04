@@ -1,8 +1,7 @@
 ﻿
-using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace Oskeyboard.Serialize
+namespace LangTrainerFrontendWinForms.Model
 {
     [XmlRoot("Buttons")]
     public class ButtonList

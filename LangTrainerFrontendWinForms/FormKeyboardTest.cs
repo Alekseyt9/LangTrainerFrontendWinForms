@@ -1,8 +1,7 @@
 ﻿
-using Oskeyboard.Serialize;
-using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Xml.Serialization;
+using LangTrainerFrontendWinForms.Model;
 
 namespace LangTrainerFrontendWinForms
 {
@@ -75,7 +74,6 @@ namespace LangTrainerFrontendWinForms
             var graphics = e.Graphics;
             var pen = new Pen(Color.Black);
             var scaleFactor = Math.Min((float)ClientSize.Width / 1100, (float)ClientSize.Height / 500);
-            //var font = new Font("Arial", 12 * scaleFactor);
             Brush textBrush = new SolidBrush(Color.Black);
             var cornerRadius = (int)(15 * scaleFactor);
 
@@ -111,7 +109,6 @@ namespace LangTrainerFrontendWinForms
                     font = new Font("Arial", fontSize);
                     textSize = graphics.MeasureString(text, font);
                 }
-                //font = new Font("Arial", fontSize);
 
                 var x = rectangleInfo.X * scaleFactor + (rectangleInfo.W * scaleFactor - textSize.Width) / 2;
                 var y = rectangleInfo.Y * scaleFactor + (rectangleInfo.H * scaleFactor - textSize.Height) / 2;
