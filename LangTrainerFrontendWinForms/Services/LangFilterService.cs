@@ -43,7 +43,7 @@ namespace LangTrainerFrontendWinForms.Services
                     
                     form.Invoke(() =>
                     {
-                        InitLang(data, "languageToolStripMenuItem");
+                        InitLang(data, "languageToolStripMenuItem", _langId);
                     });
                 }
             );
@@ -60,17 +60,18 @@ namespace LangTrainerFrontendWinForms.Services
 
                     form.Invoke(() =>
                     {
-                        InitLang(data, "translateLanguageToolStripMenuItem");
+                        InitLang(data, "translateLanguageToolStripMenuItem", _trlangId);
                     });
                 }
             );
         }
 
-        private void InitLang(List<Language> langData, string key)
+        private void InitLang(List<Language> langData, string key, Guid? langId)
         {
             var langItem = GetItem(key);
             langItem.DropDownItems.Clear();
-            
+
+            _inChange = true;
             foreach (var item in langData)
             {
                 var menuItem = new ToolStripMenuItem(item.Name);
@@ -78,7 +79,7 @@ namespace LangTrainerFrontendWinForms.Services
                 menuItem.CheckOnClick = true;
                 menuItem.Name = item.Name;
 
-                if (_trlangId == item.Id)
+                if (langId == item.Id)
                 {
                     menuItem.Checked = true;
                 }
@@ -87,6 +88,8 @@ namespace LangTrainerFrontendWinForms.Services
                 menuItem.CheckedChanged += MenuItem_CheckedChanged;
                 langItem.DropDownItems.Add(menuItem);
             }
+
+            _inChange = false;
         }
 
         private void MenuItem_CheckedChanged(object? sender, EventArgs e)
@@ -94,13 +97,26 @@ namespace LangTrainerFrontendWinForms.Services
             var cur = (ToolStripMenuItem)sender;
             if (!_inChange)
             {
+                var parent = (ToolStripMenuItem)cur.OwnerItem;
+
                 _inChange = true;
-                foreach (ToolStripMenuItem item1 in ((ToolStripMenuItem)cur.OwnerItem).DropDownItems)
+                foreach (ToolStripMenuItem item1 in parent.DropDownItems)
                 {
                     item1.Checked = false;
                 }
                 cur.Checked = true;
                 _inChange = false;
+
+                if (parent.Name == "languageToolStripMenuItem")
+                {
+                    _langId = ((Language)cur.Tag).Id;
+                }
+                if (parent.Name == "translateLanguageToolStripMenuItem")
+                {
+                    _trlangId = ((Language)cur.Tag).Id;
+                }
+
+                Changed?.Invoke(this, EventArgs.Empty);
             }
         }
 

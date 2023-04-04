@@ -87,7 +87,7 @@
             _loginButton.Location = new Point(376, 3);
             _loginButton.Name = "_loginButton";
             _loginButton.Size = new Size(120, 30);
-            _loginButton.TabIndex = 0;
+            _loginButton.TabIndex = 2;
             _loginButton.Text = "Login";
             _loginButton.UseVisualStyleBackColor = false;
             _loginButton.Click += loginButtonClick;
@@ -143,7 +143,8 @@
             _loginText.Location = new Point(116, 3);
             _loginText.Name = "_loginText";
             _loginText.Size = new Size(380, 27);
-            _loginText.TabIndex = 2;
+            _loginText.TabIndex = 0;
+            _loginText.KeyDown += FieldKeyDown;
             // 
             // _passwordText
             // 
@@ -153,7 +154,8 @@
             _passwordText.Name = "_passwordText";
             _passwordText.PasswordChar = '*';
             _passwordText.Size = new Size(350, 27);
-            _passwordText.TabIndex = 3;
+            _passwordText.TabIndex = 1;
+            _passwordText.KeyDown += FieldKeyDown;
             // 
             // _passMaskButton
             // 
@@ -165,6 +167,7 @@
             _passMaskButton.Name = "_passMaskButton";
             _passMaskButton.Size = new Size(30, 29);
             _passMaskButton.TabIndex = 4;
+            _passMaskButton.TabStop = false;
             _passMaskButton.UseVisualStyleBackColor = true;
             _passMaskButton.Click += _passMaskButton_Click;
             // 

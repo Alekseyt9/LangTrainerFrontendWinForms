@@ -43,5 +43,6 @@ namespace LangTrainerFrontendWinForms.Controls.Login
             _loginInternalControl.SaveSettings(settings, null);
         }
 
+
     }
 }

@@ -87,10 +87,10 @@
             _passRecoverLink.Name = "_passRecoverLink";
             _passRecoverLink.Size = new Size(183, 20);
             _passRecoverLink.TabIndex = 0;
-            _passRecoverLink.TabStop = true;
             _passRecoverLink.Text = "Password recovery";
             _passRecoverLink.TextAlign = ContentAlignment.MiddleCenter;
             _passRecoverLink.LinkClicked += passRecoverLinkLinkClicked;
+            _passRecoverLink.TabStop = false;
             // 
             // _registrationLink
             // 
@@ -99,11 +99,11 @@
             _registrationLink.Location = new Point(192, 26);
             _registrationLink.Name = "_registrationLink";
             _registrationLink.Size = new Size(184, 20);
-            _registrationLink.TabIndex = 1;
-            _registrationLink.TabStop = true;
+            _registrationLink.TabIndex = 0;
             _registrationLink.Text = "Registration";
             _registrationLink.TextAlign = ContentAlignment.MiddleCenter;
             _registrationLink.LinkClicked += registrationLinkLinkClicked;
+            _registrationLink.TabStop = false;
             // 
             // panel1
             // 
@@ -116,7 +116,7 @@
             panel1.Size = new Size(379, 165);
             panel1.TabIndex = 2;
             // 
-            // loginInternalControl1
+            // _loginInternalControl
             // 
             _loginInternalControl.BackColor = SystemColors.Control;
             _loginInternalControl.Dock = DockStyle.Fill;

@@ -16,6 +16,7 @@ namespace LangTrainerFrontendWinForms.Controls.Login
         public void InitSettings(Settings settings, string parentKey)
         {
             _loginText.Text = settings.Get<string>(SettingsKeys.Login);
+            EnsureFocus();
         }
 
         public void SaveSettings(Settings settings, string parentKey)
@@ -24,6 +25,11 @@ namespace LangTrainerFrontendWinForms.Controls.Login
         }
 
         private async void loginButtonClick(object sender, EventArgs e)
+        {
+            await DoLogin();
+        }
+
+        private async Task DoLogin()
         {
             try
             {
@@ -51,6 +57,26 @@ namespace LangTrainerFrontendWinForms.Controls.Login
             else
             {
                 _passwordText.PasswordChar = '\0';
+            }
+        }
+
+        private async void FieldKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                await DoLogin();
+            }
+        }
+
+        private void EnsureFocus()
+        {
+            if (string.IsNullOrEmpty(_loginText.Text))
+            {
+                _loginText.Select();
+            }
+            else
+            {
+                _passwordText.Select();
             }
         }
 

@@ -34,8 +34,6 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             _label = new Label();
             _loadButton = new Button();
-            label1 = new Label();
-            _languageCombo = new ComboBox();
             imageList1 = new ImageList(components);
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -61,8 +59,6 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Controls.Add(_label, 0, 0);
             tableLayoutPanel1.Controls.Add(_loadButton, 3, 0);
-            tableLayoutPanel1.Controls.Add(label1, 1, 0);
-            tableLayoutPanel1.Controls.Add(_languageCombo, 2, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -92,26 +88,6 @@
             _loadButton.Text = "Load";
             _loadButton.UseVisualStyleBackColor = true;
             _loadButton.Click += loadButtonClick;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Dock = DockStyle.Fill;
-            label1.Location = new Point(506, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(81, 34);
-            label1.TabIndex = 2;
-            label1.Text = "Language:";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // _languageCombo
-            // 
-            _languageCombo.DropDownStyle = ComboBoxStyle.DropDownList;
-            _languageCombo.FormattingEnabled = true;
-            _languageCombo.Location = new Point(593, 3);
-            _languageCombo.Name = "_languageCombo";
-            _languageCombo.Size = new Size(135, 28);
-            _languageCombo.TabIndex = 3;
             // 
             // imageList1
             // 
@@ -144,7 +120,5 @@
         private Label _label;
         private Button _loadButton;
         private ImageList imageList1;
-        private Label label1;
-        private ComboBox _languageCombo;
     }
 }

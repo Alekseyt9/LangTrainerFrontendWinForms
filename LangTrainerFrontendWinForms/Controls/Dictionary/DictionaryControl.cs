@@ -34,7 +34,6 @@ namespace LangTrainerFrontendWinForms.Controls
             if (!string.IsNullOrEmpty(_searchControl.SearchString))
             {
                 _prServ.Switch(true);
-                //var filterData = _langFilter.Data;
                 var filterData = LangFilterService.GetInstance().Filter;
                 await GetDataAndShow(_searchControl.SearchString, filterData.LangId, filterData.TrLangId);
             }
@@ -42,7 +41,12 @@ namespace LangTrainerFrontendWinForms.Controls
 
         public void Init()
         {
-            //_langFilter.Init();
+            LangFilterService.GetInstance().Changed += DictionaryControl_Changed;
+        }
+
+        private async void DictionaryControl_Changed(object? sender, EventArgs e)
+        {
+            await RunSeach();
         }
 
         private async void SearchControlOnTextChanged(object? sender, SearchStringChangedEventArgs e)
