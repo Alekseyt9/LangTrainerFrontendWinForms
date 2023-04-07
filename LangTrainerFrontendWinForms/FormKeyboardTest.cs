@@ -9,6 +9,7 @@ namespace LangTrainerFrontendWinForms
     {
         private readonly List<ButtonCoordinates> _rectangles;
         private int hoveredRectangleIndex = -1;
+        private readonly HashSet<int> _keysPress = new();
 
         protected override CreateParams CreateParams
         {
@@ -141,8 +142,6 @@ namespace LangTrainerFrontendWinForms
             }
 
         }
-
-        private HashSet<int> _keysPress = new HashSet<int>();
 
         private void FormKeyboardTest_KeyDown(object sender, KeyEventArgs e)
         {

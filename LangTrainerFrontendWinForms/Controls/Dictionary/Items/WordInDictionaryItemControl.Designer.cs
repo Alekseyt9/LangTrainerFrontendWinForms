@@ -1,4 +1,6 @@
-﻿namespace LangTrainerFrontendWinForms.Controls
+﻿
+
+namespace LangTrainerFrontendWinForms.Controls
 {
     partial class WordInDictionaryItemControl
     {
@@ -35,7 +37,7 @@
             imageList1 = new ImageList(components);
             label2 = new Label();
             _wordText = new TextBox();
-            _translateCombo = new ComboBox();
+            _translateCombo = new CustomComboBox();
             _addButton = new Dictionary.SplitButton();
             contextMenuStrip1 = new ContextMenuStrip(components);
             toolStripMenuItem2 = new ToolStripMenuItem();
@@ -116,8 +118,6 @@
             // _translateCombo
             // 
             _translateCombo.Dock = DockStyle.Fill;
-            _translateCombo.DropDownStyle = ComboBoxStyle.DropDownList;
-            _translateCombo.FormattingEnabled = true;
             _translateCombo.Location = new Point(295, 3);
             _translateCombo.Name = "_translateCombo";
             _translateCombo.Size = new Size(174, 28);
@@ -164,12 +164,12 @@
             panel1.Size = new Size(583, 46);
             panel1.TabIndex = 1;
             // 
-            // AddWordItemControl
+            // WordInDictionaryItemControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
-            Name = "AddWordItemControl";
+            Name = "WordInDictionaryItemControl";
             Size = new Size(583, 46);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
@@ -183,7 +183,7 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Label label2;
         private TextBox _wordText;
-        private ComboBox _translateCombo;
+        private CustomComboBox _translateCombo;
         private ImageList imageList1;
         private Panel panel1;
         private Dictionary.SplitButton _addButton;

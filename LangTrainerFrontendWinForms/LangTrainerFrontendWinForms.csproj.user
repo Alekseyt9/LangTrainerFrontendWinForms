@@ -4,6 +4,18 @@
     <_LastSelectedProfileId>D:\YandexDisk\YandexDisk\Workspace_git\LangTrainer\LangTrainerFrontendWinForms\LangTrainerFrontendWinForms\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="Controls\Common\Combobox\ComboboxMultiline\ComboboxMultiline.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Common\Combobox\CustomComboBox\CustomComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\Common\Combobox\CustomComboBox\MyDropDownControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="Controls\Common\Combobox\CustomComboBox\NoFocusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Controls\Common\LangFilter\LangFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -12,6 +24,9 @@
     </Compile>
     <Compile Update="Controls\Common\TabPanel\TabPanel.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Controls\Common\Combobox\ToolTipComboBox\ToolTipComboBox.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\Dictionary\DictionaryPageControl.cs">
       <SubType>UserControl</SubType>
@@ -105,6 +120,9 @@
     </Compile>
     <Compile Update="Controls\WordList\WordListItemControl.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="FormComboTest.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormKeyboardTest.cs">
       <SubType>Form</SubType>
