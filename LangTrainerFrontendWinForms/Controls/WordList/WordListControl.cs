@@ -60,20 +60,33 @@ namespace LangTrainerFrontendWinForms.Controls.WordList
         {
             Invoke(() =>
             {
+                _itemsTableLayout.SuspendLayout();
                 _itemsTableLayout.Controls.Clear();
                 if (items != null || items.Any())
                 {
                     var i = 0;
+                    _itemsTableLayout.RowStyles.Clear();
 
                     foreach (var item in items)
                     {
                         var ctr = new WordListItemControl();
                         ctr.Dock = DockStyle.Fill;
                         _itemsTableLayout.Controls.Add(ctr);
+                        _itemsTableLayout.RowStyles.Add(new RowStyle()
+                        {
+                            Height = 50,
+                            SizeType = SizeType.Absolute
+                        });
                         _itemsTableLayout.SetRow(ctr, i++);
                         ctr.Init(item);
                     }
+                    _itemsTableLayout.RowStyles.Add(new RowStyle()
+                    {
+                        Height = 100,
+                        SizeType = SizeType.Percent
+                    });
                 }
+                _itemsTableLayout.ResumeLayout();
             });
 
         }

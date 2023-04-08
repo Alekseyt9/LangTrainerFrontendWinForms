@@ -31,11 +31,9 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             groupBox1 = new GroupBox();
             _itemsTableLayout = new TableLayoutPanel();
-            wordListItem1 = new WordListItemControl();
             _searchControl = new SearchControl();
             tableLayoutPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
-            _itemsTableLayout.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -67,9 +65,10 @@
             // 
             // _itemsTableLayout
             // 
+            _itemsTableLayout.AutoScroll = true;
+            _itemsTableLayout.AutoSize = true;
             _itemsTableLayout.ColumnCount = 1;
             _itemsTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            _itemsTableLayout.Controls.Add(wordListItem1, 0, 0);
             _itemsTableLayout.Dock = DockStyle.Fill;
             _itemsTableLayout.Location = new Point(3, 23);
             _itemsTableLayout.Name = "_itemsTableLayout";
@@ -80,15 +79,6 @@
             _itemsTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             _itemsTableLayout.Size = new Size(559, 363);
             _itemsTableLayout.TabIndex = 0;
-            // 
-            // wordListItem1
-            // 
-            wordListItem1.BorderStyle = BorderStyle.FixedSingle;
-            wordListItem1.Dock = DockStyle.Fill;
-            wordListItem1.Location = new Point(3, 3);
-            wordListItem1.Name = "wordListItem1";
-            wordListItem1.Size = new Size(553, 44);
-            wordListItem1.TabIndex = 0;
             // 
             // _searchControl
             // 
@@ -108,7 +98,7 @@
             Size = new Size(571, 435);
             tableLayoutPanel1.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
-            _itemsTableLayout.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -118,6 +108,5 @@
         private SearchControl _searchControl;
         private GroupBox groupBox1;
         private TableLayoutPanel _itemsTableLayout;
-        private WordListItemControl wordListItem1;
     }
 }

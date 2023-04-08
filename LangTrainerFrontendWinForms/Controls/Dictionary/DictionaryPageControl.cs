@@ -62,6 +62,7 @@ namespace LangTrainerFrontendWinForms.Controls
         {
             Invoke(() =>
             {
+                _itemsTableLayout.SuspendLayout();
                 _itemsTableLayout.Controls.Clear();
                 if (data.Items == null || data.Items.Count == 0)
                 {
@@ -74,15 +75,25 @@ namespace LangTrainerFrontendWinForms.Controls
                 else
                 {
                     var i = 0;
+                    _itemsTableLayout.RowStyles.Clear();
+
                     foreach (var item in data.Items)
                     {
                         var ctr = new WordInDictionaryItemControl();
                         ctr.Dock = DockStyle.Fill;
                         _itemsTableLayout.Controls.Add(ctr);
+                        _itemsTableLayout.RowStyles.Add(new RowStyle() { Height = 40, SizeType = SizeType.Absolute});
                         _itemsTableLayout.SetRow(ctr, i++);
                         ctr.Init(item);
                     }
+
+                    _itemsTableLayout.RowStyles.Add(new RowStyle()
+                    {
+                        Height = 100,
+                        SizeType = SizeType.Percent
+                    });
                 }
+                _itemsTableLayout.ResumeLayout();
             });
         }
 

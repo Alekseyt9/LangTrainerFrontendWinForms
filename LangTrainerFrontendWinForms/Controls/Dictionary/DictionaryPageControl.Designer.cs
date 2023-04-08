@@ -160,7 +160,7 @@
             toolStripProgressBar1.Step = 1;
             toolStripProgressBar1.Style = ProgressBarStyle.Marquee;
             // 
-            // DictionaryControl
+            // DictionaryPageControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -168,7 +168,7 @@
             Controls.Add(statusStrip1);
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(2);
-            Name = "DictionaryControl";
+            Name = "DictionaryPageControl";
             Size = new Size(699, 383);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
