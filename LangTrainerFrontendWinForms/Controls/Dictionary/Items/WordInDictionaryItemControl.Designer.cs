@@ -81,6 +81,7 @@ namespace LangTrainerFrontendWinForms.Controls
             _soundButton.Name = "_soundButton";
             _soundButton.Size = new Size(28, 28);
             _soundButton.TabIndex = 6;
+            _soundButton.TabStop = false;
             _soundButton.UseVisualStyleBackColor = true;
             _soundButton.Click += _soundButton_Click;
             // 
@@ -114,14 +115,17 @@ namespace LangTrainerFrontendWinForms.Controls
             _wordText.ReadOnly = true;
             _wordText.Size = new Size(174, 27);
             _wordText.TabIndex = 1;
+            _wordText.TabStop = false;
             // 
             // _translateCombo
             // 
             _translateCombo.Dock = DockStyle.Fill;
             _translateCombo.Location = new Point(295, 3);
             _translateCombo.Name = "_translateCombo";
+            _translateCombo.SelectedItem = null;
             _translateCombo.Size = new Size(174, 28);
             _translateCombo.TabIndex = 3;
+            _translateCombo.TabStop = false;
             // 
             // _addButton
             // 

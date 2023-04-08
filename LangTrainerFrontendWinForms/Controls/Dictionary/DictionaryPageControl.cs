@@ -18,8 +18,14 @@ namespace LangTrainerFrontendWinForms.Controls
             InitializeComponent();
             _prServ = new ProgressService(_progressBar);
             _searchControl.Changed += SearchControlOnTextChanged;
+            _searchControl.Clear += _searchControl_Clear;
 
             LangFilterService.GetInstance().Changed += FilterChanged;
+        }
+
+        private void _searchControl_Clear(object? sender, EventArgs e)
+        {
+            Invoke(_itemsTableLayout.Controls.Clear);
         }
 
         private async void FilterChanged(object? sender, EventArgs e)

@@ -1,5 +1,4 @@
 ﻿
-using LangTrainerClientModel.Services;
 using LangTrainerCommon.Helpers;
 using LangTrainerFrontendWinForms.Services;
 using LangTrainerFrontendWinForms.Services.Controls;
@@ -24,20 +23,15 @@ namespace LangTrainerFrontendWinForms.Controls
             _sndMan = new WordSoundsManager(item.Sounds.ToArray());
 
             _translateCombo.Clear();
-            //_translateCombo.Items.Add("");
             foreach (var tr in item.Translates)
             {
-                
+
                 _translateCombo.Add(new ComboboxItem()
                 {
                     Text = StringHelper.SplitStringByLength(tr.Text, 40),
                     Value = tr.TranslateId
                 });
-                
-                //_translateCombo.Items.Add(StringHelper.SplitStringByLength(tr.Text, 40));
             }
-
-
         }
 
         private async void _addButtonClick(object sender, EventArgs e)

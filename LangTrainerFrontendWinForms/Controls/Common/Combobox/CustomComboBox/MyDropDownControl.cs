@@ -26,16 +26,19 @@ namespace LangTrainerFrontendWinForms.Controls
             Items.Add("Текст 3\nВторая строка\nТретья строка");
         }
 
-        private int CalculateDropDownControlHeight(ListBox listBox)
+        public int CalculateDropDownControlHeight()
         {
+            var listBox = this;
             int totalItemHeight = 0;
+
             for (int i = 0; i < listBox.Items.Count; i++)
             {
                 totalItemHeight += listBox.GetItemHeight(i);
             }
 
             // Добавьте высоту границ и прокрутки, если нужно
-            int borderAndScrollHeight = listBox.Margin.Vertical + SystemInformation.HorizontalScrollBarHeight;
+            //int borderAndScrollHeight = listBox.Margin.Vertical + SystemInformation.HorizontalScrollBarHeight;
+            int borderAndScrollHeight = 0;
 
             return totalItemHeight + borderAndScrollHeight;
         }
@@ -47,8 +50,6 @@ namespace LangTrainerFrontendWinForms.Controls
             {
                 Items.Add(item);
             }
-
-            Height = CalculateDropDownControlHeight(this);
         }
 
         private void _listBox_MeasureItem(object? sender, MeasureItemEventArgs e)

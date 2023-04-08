@@ -56,12 +56,12 @@ namespace LangTrainerFrontendWinForms.Controls
             _dropDownControl.SelectedIndexChanged += _dropDownControl_SelectedIndexChanged;
 
             _dropDownControl.Dock = DockStyle.Fill;
-            //_dropDownForm.Height = _dropDownControl.Height;
+            _dropDownControl.SetItems(_items);
             _dropDownForm.Show(this);
 
-            _dropDownControl.SetItems(_items);
-            int maxDropDownHeight = 200; // Задайте максимальную высоту выпадающего списка
-            _dropDownForm.Height = Math.Min(_dropDownControl.Height, maxDropDownHeight);
+            var h = _dropDownControl.CalculateDropDownControlHeight();
+            int maxDropDownHeight = 200; 
+            _dropDownForm.Height = Math.Min(h, maxDropDownHeight);
 
             _isDroppedDown = true;
 
@@ -73,6 +73,7 @@ namespace LangTrainerFrontendWinForms.Controls
         {
             var item = (ComboboxItem)_dropDownControl.SelectedItem;
             textBox1.Text = item.Text;
+            SelectedItem = item;
             HideDropDown();
         }
 
